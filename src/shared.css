@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.sd {
+  --blue: #1a5fd4; --blue-soft: #e6effd; --blue-line: #b9cff5;
+  --ink: #111827; --muted: #6b7280; --line: #e5e7eb; --bg: #f7f8fa;
+  --amber: #b45309; --amber-soft: #fff1d6; --green: #15803d; --green-soft: #dcfce7;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: var(--bg); color: var(--ink); min-height: 100vh;
+  font-size: 14px; line-height: 1.45;
+}
+.sd *, .sd *::before, .sd *::after { box-sizing: border-box; }
+.sd h1, .sd h2, .sd h3, .sd p { margin: 0; }
+.sd a { text-decoration: none; color: inherit; }
+.sd button { font-family: inherit; cursor: pointer; }
+.sd :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.sd-muted { color: var(--muted); }
+.sd-main { max-width: 1180px; margin: 0 auto; padding: 32px 24px 40px; }
+.sd-eyebrow { font-size: 10px; letter-spacing: .05em; color: #4b5563; margin-bottom: 8px; }
+.sd-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+
+.sd-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--blue); background: none; border: 0; padding: 0; font-family: inherit; cursor: pointer; }
+.sd-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; border-radius: 7px; padding: 9px 14px; border: 1px solid transparent; }
+.sd-btn--primary { background: var(--blue); color: #fff; }
+.sd-btn--primary:hover { background: #154fb3; }
+.sd-btn--ghost { background: #f6f7f9; border-color: var(--line); color: var(--ink); width: 100%; justify-content: center; }
+.sd-btn--auto { width: auto; }
+.sd-btn--ghost:hover { background: #eef0f3; }
+
+.sd-table { overflow: hidden; background: #fff; }
+.sd-table__row { display: grid; grid-template-columns: 2.2fr 1.4fr 1.3fr 1.1fr .5fr; align-items: center; padding: 0 22px; height: 58px; border-bottom: 1px solid var(--line); font-size: 12px; }
+.sd-table__head { height: 38px; background: #f8f9fb; font-size: 11px; color: var(--muted); }
+.sd-req-title { display: block; font-size: 12.5px; font-weight: 700; }
+.sd-req-id { display: block; font-size: 10.5px; color: var(--blue); margin-top: 2px; }
+.sd-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 5px; }
+.sd-badge i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.sd-badge--progress { background: #dbe8fd; color: var(--blue); }
+.sd-badge--scheduled { background: #e3eefc; color: #1d6fd8; }
+.sd-badge--completed { background: var(--green-soft); color: var(--green); }
+.sd-badge--review { background: var(--amber-soft); color: var(--amber); }
+.sd-priority { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+.sd-priority.is-high { color: #7c5a2b; }
+.sd-priority.is-high svg { color: #c2791a; }
+.sd-open { text-align: right; }
+.sd-open a { display: inline-grid; place-items: center; width: 24px; height: 24px; color: var(--ink); border-radius: 6px; }
+.sd-open a:hover { background: #f1f3f6; }
+.sd-table__foot { display: flex; justify-content: space-between; align-items: center; padding: 0 22px; height: 40px; font-size: 10.5px; color: var(--muted); }
+.sd-chip { font-size: 10px; border: 1px solid var(--line); background: #f6f7f9; border-radius: 5px; padding: 3px 8px; color: #4b5563; }
+
+.sd-input { width: 100%; height: 36px; border: 1px solid #d9dde3; border-radius: 7px; background: #fff; padding: 0 12px; font: inherit; font-size: 11.5px; color: var(--ink); }
+.sd-input::placeholder { color: #9ca3af; }
+.sd-input:focus { outline: 2px solid var(--blue-line); border-color: var(--blue); }
+.sd-input.has-error { border-color: #dc2626; }
+select.sd-input { appearance: none; padding-right: 32px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center; }
+
+@media (max-width: 720px) {
+  .sd-table { overflow-x: auto; }
+  .sd-table__row { min-width: 640px; }
+}

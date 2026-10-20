@@ -1,0 +1,26 @@
+.sd-form-page { max-width: 740px; margin: 0 auto; padding: 44px 24px 72px; }
+.sd-back { display: inline-flex; align-items: center; gap: 8px; background: none; border: 0; padding: 0; color: var(--blue); font-size: 12.5px; font-weight: 500; font-family: inherit; cursor: pointer; margin-bottom: 26px; }
+.sd-form-head .sd-eyebrow { margin-bottom: 10px; }
+.sd-form-head h1 { font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
+.sd-form-sub { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); margin-bottom: 30px; }
+.sd-form h2 { font-size: 14.5px; font-weight: 500; margin-bottom: 20px; }
+.sd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px; }
+.sd-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.sd-field--full { grid-column: 1 / -1; }
+.sd-field label, .sd-label { font-size: 11px; font-weight: 600; }
+.sd-field label i, .sd-label i { color: #dc2626; font-style: normal; margin-left: 2px; }
+.sd-field label em, .sd-label em { color: var(--muted); font-style: normal; font-weight: 400; }
+textarea.sd-input { height: auto; min-height: 80px; padding: 10px 12px; resize: vertical; }
+.sd-error { font-size: 10.5px; color: #dc2626; }
+.sd-hint { font-size: 11px; color: var(--muted); align-self: center; padding-top: 22px; }
+.sd-drop { border: 1px dashed #cfd5dd; border-radius: 10px; background: #fff; padding: 16px; display: grid; gap: 14px; }
+.sd-drop__text { display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--muted); }
+.sd-drop__text svg { color: #4b5563; }
+.sd-drop input[type=file] { width: 100%; border: 1px solid #d9dde3; border-radius: 7px; padding: 10px 12px; font: inherit; font-size: 11.5px; background: #fff; }
+.sd-files { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 11px; color: #4b5563; }
+.sd-form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+@media (max-width: 720px) {
+  .sd-grid { grid-template-columns: 1fr; }
+  .sd-hint { padding-top: 0; }
+}

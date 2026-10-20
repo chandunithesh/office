@@ -1,0 +1,28 @@
+.sd-header { background: #fff;  border-bottom: 1px solid var(--line); }
+.sd-header__inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; gap: 36px; }
+.sd-brand { display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font-family: inherit; }
+.sd-brand__logo { width: 36px; height: 36px; border-radius: 9px; background: var(--blue); color: #fff; display: grid; place-items: center; }
+.sd-brand__name { display: block; font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+.sd-brand__sub { display: block; font-size: 8.5px; color: var(--muted); letter-spacing: .02em; }
+.sd-nav { display: flex; gap: 22px; height: 100%; }
+.sd-nav__link { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: #4b5563; height: 100%; border-bottom: 2px solid transparent; background: none; border-top: 0; border-left: 0; border-right: 0; padding: 0; font-family: inherit; cursor: pointer; }
+.sd-nav__link.is-active { color: var(--blue); border-bottom-color: var(--blue); }
+.sd-header__right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.sd-icon-btn { background: none; border: 0; color: #4b5563; padding: 6px; display: grid; }
+.sd-divider { width: 1px; height: 28px; background: var(--line); }
+.sd-account { display: flex; align-items: center; gap: 10px; background: none; border: 0; color: #4b5563; padding: 0; }
+.sd-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--blue-soft); color: var(--blue); font-size: 11px; font-weight: 600; display: grid; place-items: center; }
+.sd-account__text { display: flex; flex-direction: column; text-align: left; line-height: 1.25; }
+.sd-account__text strong { font-size: 12px; color: var(--ink); }
+.sd-account__text small { font-size: 10px; color: var(--muted); }
+.sd-logout { white-space: nowrap; }
+
+@media (max-width: 1000px) {
+  .sd-nav { display: none; }
+}
+@media (max-width: 720px) {
+  .sd-header__inner { padding: 0 14px; gap: 12px; }
+  .sd-header__right { gap: 8px; }
+  .sd-account__text { display: none; }
+  .sd-logout span { display: none; }
+}
