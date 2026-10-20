@@ -17,7 +17,6 @@ import {
   Wrench,
 } from "lucide-react";
 import { useEffect, useRef } from "react";
-import aboutIllustration from "./assets/about-illustration.jpg";
 import "./LandingPage.css";
 
 const features = [
@@ -387,60 +386,19 @@ export default function LandingPage() {
                 along the way.
               </p>
             </div>
-            <div
-              className="ff-about-visual"
-              data-reveal
-              style={{ "--reveal-delay": "120ms" }}
-            >
-              <img
-                src={aboutIllustration}
-                alt="Field service teams, skills, and operations overview"
-                className="ff-about-illustration"
-                // #region agent log
-                onLoad={() => {
-                  fetch(
-                    "http://127.0.0.1:7488/ingest/1fcdcd03-cbe4-4839-846f-6c14e80a1923",
-                    {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                        "X-Debug-Session-Id": "1118d2",
-                      },
-                      body: JSON.stringify({
-                        sessionId: "1118d2",
-                        runId: "about-img",
-                        hypothesisId: "A",
-                        location: "LandingPage.js:about-img",
-                        message: "About illustration loaded",
-                        data: { src: aboutIllustration },
-                        timestamp: Date.now(),
-                      }),
-                    },
-                  ).catch(() => {});
-                }}
-                onError={() => {
-                  fetch(
-                    "http://127.0.0.1:7488/ingest/1fcdcd03-cbe4-4839-846f-6c14e80a1923",
-                    {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                        "X-Debug-Session-Id": "1118d2",
-                      },
-                      body: JSON.stringify({
-                        sessionId: "1118d2",
-                        runId: "about-img",
-                        hypothesisId: "A",
-                        location: "LandingPage.js:about-img",
-                        message: "About illustration failed to load",
-                        data: { src: aboutIllustration },
-                        timestamp: Date.now(),
-                      }),
-                    },
-                  ).catch(() => {});
-                }}
-                // #endregion
-              />
+            <div className="ff-flow" data-reveal style={{ "--reveal-delay": "120ms" }}>
+              <span>
+                <Users size={18} /> Customers
+              </span>
+              <span>
+                <Headset size={18} /> Service teams
+              </span>
+              <span>
+                <Wrench size={18} /> Technicians
+              </span>
+              <span>
+                <Boxes size={18} /> Inventory
+              </span>
             </div>
           </div>
         </section>
