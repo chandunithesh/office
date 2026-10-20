@@ -17,6 +17,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useEffect, useRef } from "react";
+import aboutIllustration from "./assets/about-illustration.jpg";
 import "./LandingPage.css";
 
 const features = [
@@ -231,53 +232,43 @@ function DashboardPreview() {
 }
 
 export default function LandingPage() {
-  const contactGridRef = useRef(null);
+  const pageRef = useRef(null);
 
   useEffect(() => {
-    const grid = contactGridRef.current;
-    if (!grid) return;
-    const list = grid.querySelector(".ff-contact-list");
-    const gridStyle = window.getComputedStyle(grid);
-    const listStyle = list ? window.getComputedStyle(list) : null;
-    const firstRow = list?.children[0];
-    const firstRowStyle = firstRow ? window.getComputedStyle(firstRow) : null;
-    // #region agent log
-    fetch("http://127.0.0.1:7488/ingest/1fcdcd03-cbe4-4839-846f-6c14e80a1923", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Debug-Session-Id": "78f789",
+    const root = pageRef.current;
+    if (!root) return;
+
+    const nodes = Array.from(root.querySelectorAll("[data-reveal]"));
+    if (!nodes.length) return undefined;
+
+    const reveal = (el) => el.classList.add("ff-reveal-in");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      nodes.forEach(reveal);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            reveal(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      body: JSON.stringify({
-        sessionId: "78f789",
-        runId: "pre-verify",
-        hypothesisId: "A",
-        location: "LandingPage.js:contact-mount",
-        message: "Contact section DOM and computed layout",
-        data: {
-          gridChildCount: grid.children.length,
-          gridChildTags: Array.from(grid.children).map(
-            (el) => `${el.tagName}.${el.className}`,
-          ),
-          gridColumns: gridStyle.gridTemplateColumns,
-          hasList: Boolean(list),
-          listChildCount: list?.children.length ?? 0,
-          listChildTags: list
-            ? Array.from(list.children).map((el) => el.tagName)
-            : [],
-          listDisplay: listStyle?.display,
-          listFlexDirection: listStyle?.flexDirection,
-          firstRowDisplay: firstRowStyle?.display,
-          firstRowBorder: firstRowStyle?.border,
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
+      { threshold: 0.14, rootMargin: "0px 0px -12% 0px" },
+    );
+
+    nodes.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="ff-page">
+    <div className="ff-page" ref={pageRef}>
       <a className="ff-skip" href="#main">
         Skip to content
       </a>
@@ -381,7 +372,7 @@ export default function LandingPage() {
             icons={[Users, Headset, Wrench, Boxes]}
           />
           <div className="ff-container ff-about-grid">
-            <div>
+            <div data-reveal>
               <span className="ff-eyebrow">Platform overview</span>
               <h2>Everything your service operation needs</h2>
               <p>
@@ -396,19 +387,60 @@ export default function LandingPage() {
                 along the way.
               </p>
             </div>
-            <div className="ff-flow">
-              <span>
-                <Users size={18} /> Customers
-              </span>
-              <span>
-                <Headset size={18} /> Service teams
-              </span>
-              <span>
-                <Wrench size={18} /> Technicians
-              </span>
-              <span>
-                <Boxes size={18} /> Inventory
-              </span>
+            <div
+              className="ff-about-visual"
+              data-reveal
+              style={{ "--reveal-delay": "120ms" }}
+            >
+              <img
+                src={aboutIllustration}
+                alt="Field service teams, skills, and operations overview"
+                className="ff-about-illustration"
+                // #region agent log
+                onLoad={() => {
+                  fetch(
+                    "http://127.0.0.1:7488/ingest/1fcdcd03-cbe4-4839-846f-6c14e80a1923",
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        "X-Debug-Session-Id": "1118d2",
+                      },
+                      body: JSON.stringify({
+                        sessionId: "1118d2",
+                        runId: "about-img",
+                        hypothesisId: "A",
+                        location: "LandingPage.js:about-img",
+                        message: "About illustration loaded",
+                        data: { src: aboutIllustration },
+                        timestamp: Date.now(),
+                      }),
+                    },
+                  ).catch(() => {});
+                }}
+                onError={() => {
+                  fetch(
+                    "http://127.0.0.1:7488/ingest/1fcdcd03-cbe4-4839-846f-6c14e80a1923",
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        "X-Debug-Session-Id": "1118d2",
+                      },
+                      body: JSON.stringify({
+                        sessionId: "1118d2",
+                        runId: "about-img",
+                        hypothesisId: "A",
+                        location: "LandingPage.js:about-img",
+                        message: "About illustration failed to load",
+                        data: { src: aboutIllustration },
+                        timestamp: Date.now(),
+                      }),
+                    },
+                  ).catch(() => {});
+                }}
+                // #endregion
+              />
             </div>
           </div>
         </section>
@@ -420,7 +452,7 @@ export default function LandingPage() {
             icons={[TicketCheck, Clock3, ShieldCheck, ChartNoAxesCombined]}
           />
           <div className="ff-container">
-            <div className="ff-heading">
+            <div className="ff-heading" data-reveal>
               <span className="ff-eyebrow">Features</span>
               <h2>Powerful features. Seamless operations.</h2>
               <p>
@@ -429,8 +461,13 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="ff-feature-grid">
-              {features.map(([Icon, title, text]) => (
-                <article className="ff-feature" key={title}>
+              {features.map(([Icon, title, text], index) => (
+                <article
+                  className="ff-feature"
+                  key={title}
+                  data-reveal
+                  style={{ "--reveal-delay": `${index * 80}ms` }}
+                >
                   <span>
                     <Icon size={19} />
                   </span>
@@ -449,7 +486,7 @@ export default function LandingPage() {
             icons={[ClipboardList, MapPin, Wrench, Check]}
           />
           <div className="ff-container">
-            <div className="ff-heading">
+            <div className="ff-heading" data-reveal>
               <span className="ff-eyebrow">How it works</span>
               <h2>From service request to successful resolution</h2>
               <p>
@@ -458,7 +495,11 @@ export default function LandingPage() {
             </div>
             <ol className="ff-steps">
               {steps.map((step, index) => (
-                <li key={step}>
+                <li
+                  key={step}
+                  data-reveal
+                  style={{ "--reveal-delay": `${index * 70}ms` }}
+                >
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <small>{stepOwners[index]}</small>
                   <strong>{step}</strong>
@@ -475,14 +516,19 @@ export default function LandingPage() {
             icons={[ShieldCheck, Users, Smartphone, Headset]}
           />
           <div className="ff-container">
-            <div className="ff-heading">
+            <div className="ff-heading" data-reveal>
               <span className="ff-eyebrow">Solutions</span>
               <h2>Designed for every role in field service</h2>
               <p>Each person gets tools that match their responsibilities.</p>
             </div>
             <div className="ff-role-grid">
               {roles.map(([name, description], index) => (
-                <article className="ff-role" key={name}>
+                <article
+                  className="ff-role"
+                  key={name}
+                  data-reveal
+                  style={{ "--reveal-delay": `${index * 80}ms` }}
+                >
                   <span>0{index + 1}</span>
                   <div>
                     <h3>{name}</h3>
@@ -492,7 +538,7 @@ export default function LandingPage() {
               ))}
             </div>
             <br />
-            <p className="ff-note">
+            <p className="ff-note" data-reveal>
               <ShieldCheck size={18} />
               <span>
                 <strong>External customers welcome.</strong> Guest requests can
@@ -511,27 +557,27 @@ export default function LandingPage() {
             icons={[PackageCheck, MapPin, ChartNoAxesCombined, ClipboardCheck]}
           />
           <div className="ff-container">
-            <div className="ff-heading">
+            <div className="ff-heading" data-reveal>
               <span className="ff-eyebrow">Benefits</span>
               <h2>One platform. Better service operations.</h2>
             </div>
             <div className="ff-benefits">
-              <div>
+              <div data-reveal>
                 <ClipboardList />
                 <h3>Centralized management</h3>
                 <p>Requests, tickets, and records in one shared system.</p>
               </div>
-              <div>
+              <div data-reveal style={{ "--reveal-delay": "80ms" }}>
                 <MapPin />
                 <h3>Technician visibility</h3>
                 <p>See who is available, clocked in, and assigned.</p>
               </div>
-              <div>
+              <div data-reveal style={{ "--reveal-delay": "160ms" }}>
                 <PackageCheck />
                 <h3>Inventory and warranty</h3>
                 <p>Keep parts, replacements, and warranty status in sync.</p>
               </div>
-              <div>
+              <div data-reveal style={{ "--reveal-delay": "240ms" }}>
                 <ChartNoAxesCombined />
                 <h3>Clearer reporting</h3>
                 <p>Make decisions with timely operational reports.</p>
@@ -542,7 +588,7 @@ export default function LandingPage() {
 
         {/* CTA */}
         <section className="ff-cta">
-          <div className="ff-container ff-cta-inner">
+          <div className="ff-container ff-cta-inner" data-reveal>
             <div>
               <span className="ff-eyebrow">FieldFlow FSM</span>
               <h2>Ready to simplify your service operations?</h2>
@@ -563,8 +609,8 @@ export default function LandingPage() {
             type="contact"
             icons={[Mail, Smartphone, Headset]}
           />
-          <div className="ff-container ff-contact-grid" ref={contactGridRef}>
-            <div>
+          <div className="ff-container ff-contact-grid">
+            <div data-reveal>
               <span className="ff-eyebrow">Contact</span>
               <h2>Talk to our team</h2>
               <p>
@@ -572,7 +618,7 @@ export default function LandingPage() {
                 out.
               </p>
             </div>
-            <div className="ff-contact-list">
+            <div className="ff-contact-list" data-reveal style={{ "--reveal-delay": "120ms" }}>
               <a href="mailto:hello@fieldflow.example">
                 <Mail />
                 <span>
