@@ -84,6 +84,17 @@ const stepOwners = [
   "Platform",
 ];
 
+const stepIcons = [
+  ClipboardList,
+  TicketCheck,
+  Check,
+  MapPin,
+  Wrench,
+  Boxes,
+  ShieldCheck,
+  ChartNoAxesCombined,
+];
+
 const chartHeights = [55, 72, 48, 86, 66, 92, 38];
 
 /* Brand */
@@ -134,7 +145,10 @@ function FSMAnimatedBackground() {
 /* Reusable animated background for other sections */
 function SectionAnimatedBackground({ type, icons: iconsList }) {
   return (
-    <div className={`ff-section-motion ff-${type}-motion`} aria-hidden="true">
+    <div
+      className={`ff-section-motion ff-footer-motion ff-${type}-motion`}
+      aria-hidden="true"
+    >
       {iconsList.map((Icon, index) => (
         <span key={index}>
           <Icon size={24} />
@@ -386,7 +400,11 @@ export default function LandingPage() {
                 along the way.
               </p>
             </div>
-            <div className="ff-flow" data-reveal style={{ "--reveal-delay": "120ms" }}>
+            <div
+              className="ff-flow"
+              data-reveal
+              style={{ "--reveal-delay": "120ms" }}
+            >
               <span>
                 <Users size={18} /> Customers
               </span>
@@ -437,7 +455,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* HOW IT WORKS: Moving workflow icons */}
+        {/* HOW IT WORKS: Connected workflow timeline */}
         <section className="ff-section" id="how-it-works">
           <SectionAnimatedBackground
             type="steps"
@@ -448,22 +466,40 @@ export default function LandingPage() {
               <span className="ff-eyebrow">How it works</span>
               <h2>From service request to successful resolution</h2>
               <p>
-                Eight clear steps take each job from request to closed record.
+                Follow each job as it moves through one connected service
+                workflow.
               </p>
             </div>
-            <ol className="ff-steps">
-              {steps.map((step, index) => (
-                <li
-                  key={step}
-                  data-reveal
-                  style={{ "--reveal-delay": `${index * 70}ms` }}
-                >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <small>{stepOwners[index]}</small>
-                  <strong>{step}</strong>
-                </li>
-              ))}
-            </ol>
+            <div className="ff-workflow">
+              <div className="ff-workflow-bar">
+                <span className="ff-workflow-label">
+                  <i /> Workflow preview
+                </span>
+                <span className="ff-workflow-count">8 connected stages</span>
+              </div>
+              <ol className="ff-steps" aria-label="Service request workflow">
+                {steps.map((step, index) => {
+                  const Icon = stepIcons[index];
+
+                  return (
+                    <li
+                      key={step}
+                      data-reveal
+                      style={{ "--reveal-delay": `${index * 70}ms` }}
+                    >
+                      <span className="ff-step-node" aria-hidden="true">
+                        <Icon size={17} />
+                      </span>
+                      <small>
+                        <span>STEP {String(index + 1).padStart(2, "0")}</span>
+                        {stepOwners[index]}
+                      </small>
+                      <strong>{step}</strong>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
           </div>
         </section>
 
@@ -576,7 +612,11 @@ export default function LandingPage() {
                 out.
               </p>
             </div>
-            <div className="ff-contact-list" data-reveal style={{ "--reveal-delay": "120ms" }}>
+            <div
+              className="ff-contact-list"
+              data-reveal
+              style={{ "--reveal-delay": "120ms" }}
+            >
               <a href="mailto:hello@fieldflow.example">
                 <Mail />
                 <span>
