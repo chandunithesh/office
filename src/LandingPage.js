@@ -606,17 +606,27 @@ export default function LandingPage() {
           <div className="ff-container ff-contact-grid">
             <div data-reveal>
               <span className="ff-eyebrow">Contact</span>
-              <h2>Talk to our team</h2>
-              <p>
-                Questions about bringing your organization onto FieldFlow? Reach
-                out.
-              </p>
+              <h2>Talk to Our Team</h2>
+                <p>
+                  Looking to simplify your field service operations? FieldFlow FSM helps
+                  organizations manage service requests, track work orders, coordinate
+                  technicians, and streamline daily operations from one centralized platform.
+                </p>
+                <br />
+                <p>
+                  Whether you need help managing service tickets, technician assignments,
+                  inventory, warranty claims, or billing, our team is here to help you find
+                  the right solution for your business.
+                </p>
+                <br />
+                <p>
+                  Have questions or ready to get started? Fill out the form below, and our
+                  team will get back to you to discuss your requirements and how FieldFlow
+                  FSM can support your organization.
+                </p>
             </div>
-            <div
-              className="ff-contact-list"
-              data-reveal
-              style={{ "--reveal-delay": "120ms" }}
-            >
+            <div  className="ff-contact-list"  data-reveal style={{ "--reveal-delay": "120ms" }} >
+              <center> <h3>Get in touch</h3></center>
               <a href="mailto:hello@fieldflow.example">
                 <Mail />
                 <span>
