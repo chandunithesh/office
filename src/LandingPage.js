@@ -429,9 +429,6 @@ export default function LandingPage() {
 
             <div>
               <DashboardPreview />
-              <p className="ff-preview-caption">
-                Illustrative preview with sample data.
-              </p>
             </div>
           </div>
         </section>
@@ -749,21 +746,24 @@ export default function LandingPage() {
                   <a href="#features">Analytics &amp; Reporting</a>
                 </div>
 
-                <div className="ff-footer-nav">
-                  <h3>Get in Touch</h3>
-                  <a href="#contact">Contact Us</a>
-                  <a href="mailto:hello@fieldflow.example">Email Support</a>
-                  <a href="#login">Login</a>
-                  <a href="#contact">Get Started</a>
-                </div>
-              </div>
-
-              {/* Copyright and secondary links remain at the bottom */}
-              <div className="ff-footer-bottom">
-                <span>© 2026 FieldFlow FSM. All rights reserved.</span>
-              </div>
+            <div className="ff-footer-nav">
+              <h3>Get in Touch</h3>
+              <a href="#contact">Contact Us</a>
+              <a href="mailto:hello@fieldflow.example">Email Support</a>
+              <a href="#login">Login</a>
+              <a href="#contact">Get Started</a>
             </div>
-          </footer>
+          </div>
+
+          <div className="ff-footer-bottom">
+            <span>© 2026 FieldFlow FSM. All rights reserved.</span>
+            <div>
+              <a href="#home">Back to top ↑</a>
+              <span>Frontend prototype</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
