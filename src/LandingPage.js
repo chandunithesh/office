@@ -371,9 +371,6 @@ export default function LandingPage() {
 
             <div>
               <DashboardPreview />
-              <p className="ff-preview-caption">
-                Illustrative preview with sample data.
-              </p>
             </div>
           </div>
         </section>
@@ -687,13 +684,31 @@ export default function LandingPage() {
               <a href="#login">Login</a>
               <a href="#contact">Get Started</a>
             </div>
+
           </div>
 
-          <div className="ff-footer-bottom">
-            <span>© 2026 FieldFlow FSM. All rights reserved.</span>
+          <nav className="ff-footer-services" aria-label="Customer service links">
+            <a href="#login">
+              <strong>Book a Service</strong>
+              <span>Submit a service request through the customer workspace.</span>
+            </a>
+            <a href="#login">
+              <strong>Track My Technician</strong>
+              <span>Follow your service request and technician updates.</span>
+            </a>
             <div>
-              <a href="#home">Back to top ↑</a>
-              <span>Frontend prototype</span>
+              <strong>Emergency Dispatch Line</strong>
+              <span>24/7 critical breakdowns. Contact us for dispatch assistance.</span>
+            </div>
+            <a href="#login">
+              <strong>Customer Portal Login</strong>
+              <span>Access invoices, work orders, and service history.</span>
+            </a>
+          </nav>
+
+          <div className="ff-footer-bottom">
+            <div className="ff-footer-meta">
+              <span>© 2026 FieldFlow FSM. All rights reserved.</span>
             </div>
           </div>
         </div>
