@@ -244,8 +244,66 @@ function DashboardPreview() {
   );
 }
 
+/* ADDED: Round-robin 3D spotlight.
+   Highlights one child at a time, in order, forever.
+   Pauses while the mouse is over the group. */
+function useRoundRobin(ref, selector, interval = 2200) {
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return undefined;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return undefined;
+
+    const items = Array.from(root.querySelectorAll(selector));
+    if (!items.length) return undefined;
+
+    let index = 0;
+    let paused = false;
+
+    const tick = () => {
+      items.forEach((el, n) =>
+        el.classList.toggle("ff-rr-active", n === index),
+      );
+      index = (index + 1) % items.length;
+    };
+
+    const clear = () =>
+      items.forEach((el) => el.classList.remove("ff-rr-active"));
+    const pause = () => {
+      paused = true;
+      clear();
+    };
+    const resume = () => {
+      paused = false;
+    };
+
+    tick();
+    const timer = setInterval(() => {
+      if (!paused) tick();
+    }, interval);
+    root.addEventListener("mouseenter", pause);
+    root.addEventListener("mouseleave", resume);
+
+    return () => {
+      clearInterval(timer);
+      root.removeEventListener("mouseenter", pause);
+      root.removeEventListener("mouseleave", resume);
+      clear();
+    };
+  }, [ref, selector, interval]);
+}
+
 export default function LandingPage() {
   const pageRef = useRef(null);
+
+  /* ADDED: refs + round-robin hooks for the three circled areas */
+  const flowRef = useRef(null);
+  const featureRef = useRef(null);
+  const roleRef = useRef(null);
+
+  useRoundRobin(flowRef, ":scope > span", 1800);
+  useRoundRobin(featureRef, ".ff-feature", 2200);
+  useRoundRobin(roleRef, ".ff-role", 1800);
 
   useEffect(() => {
     const root = pageRef.current;
@@ -400,8 +458,10 @@ export default function LandingPage() {
                 along the way.
               </p>
             </div>
+            {/* CHANGED: added ref={flowRef} */}
             <div
               className="ff-flow"
+              ref={flowRef}
               data-reveal
               style={{ "--reveal-delay": "120ms" }}
             >
@@ -436,7 +496,8 @@ export default function LandingPage() {
                 together.
               </p>
             </div>
-            <div className="ff-feature-grid">
+            {/* CHANGED: added ref={featureRef} */}
+            <div className="ff-feature-grid" ref={featureRef}>
               {features.map(([Icon, title, text], index) => (
                 <article
                   className="ff-feature"
@@ -515,7 +576,8 @@ export default function LandingPage() {
               <h2>Designed for every role in field service</h2>
               <p>Each person gets tools that match their responsibilities.</p>
             </div>
-            <div className="ff-role-grid">
+            {/* CHANGED: added ref={roleRef} */}
+            <div className="ff-role-grid" ref={roleRef}>
               {roles.map(([name, description], index) => (
                 <article
                   className="ff-role"
@@ -607,26 +669,33 @@ export default function LandingPage() {
             <div data-reveal>
               <span className="ff-eyebrow">Contact</span>
               <h2>Talk to Our Team</h2>
-                <p>
-                  Looking to simplify your field service operations? FieldFlow FSM helps
-                  organizations manage service requests, track work orders, coordinate
-                  technicians, and streamline daily operations from one centralized platform.
-                </p>
-                <br />
-                <p>
-                  Whether you need help managing service tickets, technician assignments,
-                  inventory, warranty claims, or billing, our team is here to help you find
-                  the right solution for your business.
-                </p>
-                <br />
-                <p>
-                  Have questions or ready to get started? Fill out the form below, and our
-                  team will get back to you to discuss your requirements and how FieldFlow
-                  FSM can support your organization.
-                </p>
+              <p>
+                Looking to simplify your field service operations? FieldFlow FSM
+                helps organizations manage service requests, track work orders,
+                coordinate technicians, and streamline daily operations from one
+                centralized platform.
+              </p>
+              <br />
+              <p>
+                Whether you need help managing service tickets, technician
+                assignments, inventory, warranty claims, or billing, our team is
+                here to help you find the right solution for your business.
+              </p>
+              <br />
+              <p>
+                Have questions or ready to get started? Fill out the form below,
+                and our team will get back to you to discuss your requirements
+                and how FieldFlow FSM can support your organization.
+              </p>
             </div>
-            <div  className="ff-contact-list"  data-reveal style={{ "--reveal-delay": "120ms" }} >
-              <center> <h3>Get in touch</h3></center>
+            <div
+              className="ff-contact-list"
+              data-reveal
+              style={{ "--reveal-delay": "120ms" }}
+            >
+              <center>
+                <h3>Get in touch</h3>
+              </center>
               <a href="mailto:hello@fieldflow.example">
                 <Mail />
                 <span>
@@ -653,51 +722,48 @@ export default function LandingPage() {
         </section>
       </main>
 
-      <footer className="ff-footer">
-        <div className="ff-container ff-footer-inner">
-          <div className="ff-footer-top">
-            <div className="ff-footer-brand">
-              <Brand />
-              <p>
-                One connected platform for requests, technicians, inventory,
-                warranty, and billing.
-              </p>
-            </div>
+          <footer className="ff-footer">
+            <div className="ff-container ff-footer-inner">
+              <div className="ff-footer-top">
+                <div className="ff-footer-brand">
+                  <Brand />
+                  <p>
+                    One connected platform for requests, technicians, inventory,
+                    warranty, and billing.
+                  </p>
+                </div>
 
-            <div className="ff-footer-nav">
-              <h3>Quick Links</h3>
-              <a href="#home">Home</a>
-              <a href="#about">About Us</a>
-              <a href="#features">Features</a>
-              <a href="#how-it-works">How It Works</a>
-            </div>
+                <div className="ff-footer-nav">
+                  <h3>Quick Links</h3>
+                  <a href="#home">Home</a>
+                  <a href="#about">About Us</a>
+                  <a href="#features">Features</a>
+                  <a href="#how-it-works">How It Works</a>
+                </div>
 
-            <div className="ff-footer-nav">
-              <h3>Solutions</h3>
-              <a href="#solutions">For Every Role</a>
-              <a href="#features">Ticket Management</a>
-              <a href="#features">Inventory Management</a>
-              <a href="#features">Analytics &amp; Reporting</a>
-            </div>
+                <div className="ff-footer-nav">
+                  <h3>Solutions</h3>
+                  <a href="#solutions">For Every Role</a>
+                  <a href="#features">Ticket Management</a>
+                  <a href="#features">Inventory Management</a>
+                  <a href="#features">Analytics &amp; Reporting</a>
+                </div>
 
-            <div className="ff-footer-nav">
-              <h3>Get in Touch</h3>
-              <a href="#contact">Contact Us</a>
-              <a href="mailto:hello@fieldflow.example">Email Support</a>
-              <a href="#login">Login</a>
-              <a href="#contact">Get Started</a>
-            </div>
-          </div>
+                <div className="ff-footer-nav">
+                  <h3>Get in Touch</h3>
+                  <a href="#contact">Contact Us</a>
+                  <a href="mailto:hello@fieldflow.example">Email Support</a>
+                  <a href="#login">Login</a>
+                  <a href="#contact">Get Started</a>
+                </div>
+              </div>
 
-          <div className="ff-footer-bottom">
-            <span>© 2026 FieldFlow FSM. All rights reserved.</span>
-            <div>
-              <a href="#home">Back to top ↑</a>
-              <span>Frontend prototype</span>
+              {/* Copyright and secondary links remain at the bottom */}
+              <div className="ff-footer-bottom">
+                <span>© 2026 FieldFlow FSM. All rights reserved.</span>
+              </div>
             </div>
-          </div>
-        </div>
-      </footer>
+          </footer>
     </div>
   );
 }

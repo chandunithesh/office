@@ -2008,3 +2008,2805 @@ body.ff-landing-active #root {
     height: 20px;
   }
 }
+
+/* =========================================
+   3D ROUND-ROBIN CARDS
+========================================= */
+
+/* depth for child rotations */
+.ff-flow,
+.ff-feature-grid,
+.ff-role-grid {
+  perspective: 1200px;
+}
+
+.ff-flow > span,
+.ff-feature,
+.ff-role {
+  transform-style: preserve-3d;
+  will-change: translate, rotate, scale;
+}
+
+/* 3D flip-in on scroll (replaces the flat slide-up for these cards) */
+.ff-feature[data-reveal],
+.ff-role[data-reveal] {
+  transform: perspective(900px) translateY(44px) rotateX(-32deg);
+  transform-origin: 50% 0;
+}
+.ff-feature[data-reveal].ff-reveal-in,
+.ff-role[data-reveal].ff-reveal-in {
+  transform: perspective(900px) translateY(0) rotateX(0);
+}
+
+/* smooth transitions for the spotlight properties.
+   The reveal delay applies only to opacity/transform. */
+.ff-flow > span,
+.ff-feature[data-reveal],
+.ff-role[data-reveal] {
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 0.7, 0.3, 1),
+    transform 0.75s cubic-bezier(0.22, 0.7, 0.3, 1),
+    translate 0.6s cubic-bezier(0.22, 0.7, 0.3, 1),
+    rotate 0.6s cubic-bezier(0.22, 0.7, 0.3, 1),
+    scale 0.6s cubic-bezier(0.22, 0.7, 0.3, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease,
+    background 0.5s ease;
+  transition-delay:
+    var(--reveal-delay, 0ms), var(--reveal-delay, 0ms),
+    0ms, 0ms, 0ms, 0ms, 0ms, 0ms;
+}
+
+/* the active (spotlight) card, and the hovered card */
+.ff-flow > span.ff-rr-active,
+.ff-feature.ff-rr-active,
+.ff-role.ff-rr-active,
+.ff-flow > span:hover,
+.ff-role:hover {
+  z-index: 3;
+  translate: 0 -10px 50px;
+  rotate: 1 -1 0 7deg;
+  scale: 1.05;
+  border-color: var(--blue-600);
+  background: var(--blue-50);
+  box-shadow:
+    0 24px 40px -16px rgba(37, 99, 235, 0.35),
+    0 10px 18px -10px rgba(15, 23, 42, 0.2);
+}
+
+.ff-feature.ff-rr-active {
+  background: linear-gradient(180deg, #fff, var(--blue-50));
+}
+
+/* the others recede slightly while one is in the spotlight */
+.ff-flow:has(.ff-rr-active) > :not(.ff-rr-active),
+.ff-feature-grid:has(.ff-rr-active) > :not(.ff-rr-active),
+.ff-role-grid:has(.ff-rr-active) > :not(.ff-rr-active) {
+  scale: 0.985;
+  translate: 0 0 -10px;
+}
+
+/* icon / number badge pops forward on the active card */
+.ff-feature > span,
+.ff-role > span {
+  transition: transform 0.5s ease;
+}
+.ff-feature.ff-rr-active > span,
+.ff-role.ff-rr-active > span {
+  transform: translateZ(30px) scale(1.12);
+}
+.ff-flow > span.ff-rr-active svg {
+  transform: translateY(-3px) scale(1.15);
+  color: var(--teal);
+}
+
+@media (max-width: 760px) {
+  .ff-flow > span.ff-rr-active,
+  .ff-feature.ff-rr-active,
+  .ff-role.ff-rr-active {
+    rotate: 1 -1 0 4deg;
+    scale: 1.03;
+  }
+}
+
+/* =========================================================
+   FF LANDING — ANTI-GRAVITY MOTION UPGRADE
+   Appended overrides: keeps existing class names/layout.
+   No blur, backdrop-filter, or glassmorphism.
+   ========================================================= */
+
+/* Keep the sticky header crisp and fully opaque — no blur. */
+.ff-header {
+  background: #ffffff !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+}
+
+/* A little more depth without translucent / blurred surfaces. */
+.ff-page {
+  --ag-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ag-blue-shadow: 0 18px 34px -18px rgba(37, 99, 235, 0.42);
+  scroll-behavior: smooth;
+}
+
+.ff-hero {
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(96, 165, 250, 0.18), transparent 36%),
+    linear-gradient(180deg, #eff6ff 0%, #ffffff 82%);
+}
+
+/* Floating hero product preview: gentle, continuous anti-gravity motion. */
+.ff-preview {
+  animation:
+    ff-fade-up 0.8s ease-out 0.15s both,
+    ff-ag-float 6.5s ease-in-out 1s infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes ff-ag-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateZ(0deg); }
+  25% { transform: translate3d(0, -8px, 0) rotateX(1deg) rotateZ(-0.25deg); }
+  50% { transform: translate3d(0, -14px, 0) rotateX(0deg) rotateZ(0.25deg); }
+  75% { transform: translate3d(0, -6px, 0) rotateX(-1deg) rotateZ(0deg); }
+}
+
+/* A subtle orbital accent behind the hero content. */
+.ff-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 8%;
+  right: -90px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 28px rgba(37, 99, 235, 0.035),
+    0 0 0 58px rgba(37, 99, 235, 0.025);
+  pointer-events: none;
+  animation: ff-ag-orbit 18s linear infinite;
+}
+
+@keyframes ff-ag-orbit {
+  from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+}
+
+/* Cards rise, tilt slightly, and gain a crisp blue edge on hover. */
+.ff-feature,
+.ff-role,
+.ff-flow > span,
+.ff-contact-list > a,
+.ff-contact-list > div,
+.ff-kpis > div,
+.ff-preview-panel {
+  transition:
+    transform 420ms var(--ag-ease),
+    translate 420ms var(--ag-ease),
+    border-color 300ms ease,
+    box-shadow 420ms ease,
+    background-color 300ms ease;
+}
+
+.ff-feature:hover,
+.ff-role:hover,
+.ff-flow > span:hover,
+.ff-contact-list > a:hover,
+.ff-kpis > div:hover,
+.ff-preview-panel:hover {
+  transform: translateY(-7px);
+  border-color: #93c5fd;
+  box-shadow: var(--ag-blue-shadow);
+}
+
+.ff-feature:nth-child(3n + 1) { --ag-delay: 0ms; }
+.ff-feature:nth-child(3n + 2) { --ag-delay: 120ms; }
+.ff-feature:nth-child(3n) { --ag-delay: 240ms; }
+
+.ff-feature[data-reveal].ff-reveal-in {
+  animation: ff-ag-card-land 700ms var(--ag-ease) both;
+  animation-delay: var(--ag-delay, 0ms);
+}
+
+@keyframes ff-ag-card-land {
+  0% { transform: translate3d(0, 20px, 0) rotateX(-5deg) scale(0.98); }
+  65% { transform: translate3d(0, -4px, 0) rotateX(1deg) scale(1.005); }
+  100% { transform: translate3d(0, 0, 0) rotateX(0) scale(1); }
+}
+
+/* Buttons feel springy but remain controlled and accessible. */
+.ff-button {
+  transform: translateZ(0);
+  transition:
+    transform 220ms var(--ag-ease),
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+
+.ff-button:hover {
+  transform: translateY(-3px) scale(1.015);
+}
+
+.ff-button:active {
+  transform: translateY(1px) scale(0.975);
+}
+
+/* Icons levitate a few pixels instead of using blur/glow effects. */
+.ff-feature > span,
+.ff-benefits > div > svg,
+.ff-flow > span svg,
+.ff-contact-list > a > svg {
+  transition: transform 350ms var(--ag-ease), color 250ms ease;
+}
+
+.ff-feature:hover > span,
+.ff-benefits > div:hover > svg {
+  transform: translateY(-5px) rotate(-4deg);
+}
+
+.ff-flow > span:hover svg,
+.ff-contact-list > a:hover > svg {
+  transform: translateY(-4px) rotate(4deg);
+}
+
+/* Dashboard bars pop up with a tiny stagger. */
+.ff-chart i {
+  transform-origin: bottom;
+  animation: ff-ag-bar-pop 850ms var(--ag-ease) both;
+}
+.ff-chart i:nth-child(2) { animation-delay: 80ms; }
+.ff-chart i:nth-child(3) { animation-delay: 160ms; }
+.ff-chart i:nth-child(4) { animation-delay: 240ms; }
+.ff-chart i:nth-child(5) { animation-delay: 320ms; }
+.ff-chart i:nth-child(6) { animation-delay: 400ms; }
+.ff-chart i:nth-child(7) { animation-delay: 480ms; }
+
+@keyframes ff-ag-bar-pop {
+  0% { transform: scaleY(0); }
+  75% { transform: scaleY(1.06); }
+  100% { transform: scaleY(1); }
+}
+
+/* Keep moving route icons visible without making the page feel busy. */
+.ff-motion-icon {
+  animation: ff-ag-icon-hover 3.8s ease-in-out infinite;
+  box-shadow: 0 5px 0 rgba(37, 99, 235, 0.08);
+}
+
+@keyframes ff-ag-icon-hover {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+/* Animated section icons: varied timing gives an orbital, weightless feel. */
+.ff-section-motion > span {
+  animation: ff-ag-section-float 5.5s ease-in-out infinite;
+}
+.ff-section-motion > span:nth-child(2n) { animation-delay: -1.8s; }
+.ff-section-motion > span:nth-child(3n) { animation-delay: -3.2s; }
+
+@keyframes ff-ag-section-float {
+  0%, 100% { translate: 0 0; rotate: 0deg; }
+  50% { translate: 0 -16px; rotate: 5deg; }
+}
+
+/* Workflow line draws across the timeline; nodes gently hover. */
+.ff-steps li::after {
+  transform-origin: left center;
+}
+.ff-step-node {
+  animation: ff-ag-node-float 4s ease-in-out infinite;
+}
+.ff-steps li:nth-child(2n) .ff-step-node { animation-delay: -1.5s; }
+.ff-steps li:nth-child(3n) .ff-step-node { animation-delay: -2.5s; }
+
+@keyframes ff-ag-node-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+
+/* CTA has a slow-moving highlight, not a blurred/glass layer. */
+.ff-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.ff-cta::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -55%;
+  left: -25%;
+  width: 45%;
+  height: 210%;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.12), transparent);
+  transform: rotate(18deg);
+  animation: ff-ag-sweep 9s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes ff-ag-sweep {
+  0%, 15% { translate: -120% 0; }
+  65%, 100% { translate: 360% 0; }
+}
+
+/* Crisp focus ring and keyboard access. */
+.ff-page a:focus-visible,
+.ff-page button:focus-visible,
+.ff-page input:focus-visible,
+.ff-footer a:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 4px;
+}
+
+/* Don't let the original 3D round-robin effect over-rotate cards. */
+.ff-feature.ff-rr-active,
+.ff-role.ff-rr-active,
+.ff-flow > span.ff-rr-active {
+  transform: translateY(-7px);
+  rotate: 0deg;
+  scale: 1.025;
+  border-color: #60a5fa;
+  box-shadow: 0 18px 34px -18px rgba(37, 99, 235, 0.42);
+}
+
+/* Smaller screens: tone down travel and prevent overflow. */
+@media (max-width: 760px) {
+  .ff-hero::after {
+    top: 2%;
+    right: -190px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .ff-preview {
+    animation: ff-fade-up 0.8s ease-out 0.15s both, ff-ag-float 7.5s ease-in-out 1s infinite;
+  }
+
+  .ff-feature:hover,
+  .ff-role:hover,
+  .ff-flow > span:hover,
+  .ff-contact-list > a:hover,
+  .ff-kpis > div:hover,
+  .ff-preview-panel:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Honor reduced-motion settings: remove continuous movement and reveal delays. */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page {
+    scroll-behavior: auto;
+  }
+
+  .ff-page *,
+  .ff-page *::before,
+  .ff-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   KINETIC SECTION HEADINGS — no blur, no glassmorphism
+   Works with the existing LandingPage.jsx heading structure.
+   ========================================================= */
+
+/* Main page headings: bold, crisp, high-contrast typography */
+.ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+  position: relative;
+  isolation: isolate;
+  text-wrap: balance;
+  letter-spacing: -0.045em;
+  transform-origin: left center;
+  animation: ff-heading-kinetic-in 900ms cubic-bezier(.16, 1, .3, 1) both;
+  will-change: transform, opacity, letter-spacing, clip-path;
+}
+
+/* The hero title gets the strongest kinetic entrance. */
+.ff-page .ff-hero h1 {
+  animation:
+    ff-heading-kinetic-in 950ms cubic-bezier(.16, 1, .3, 1) both,
+    ff-heading-tracking-settle 1200ms cubic-bezier(.16, 1, .3, 1) both;
+  animation-delay: 100ms, 100ms;
+}
+
+/* Section titles slide upward while their tracking tightens into place. */
+.ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+  animation-name: ff-heading-slide-reveal, ff-heading-tracking-settle;
+  animation-duration: 820ms, 1050ms;
+  animation-timing-function: cubic-bezier(.16, 1, .3, 1), cubic-bezier(.16, 1, .3, 1);
+  animation-fill-mode: both, both;
+  animation-delay: 80ms, 80ms;
+}
+
+/* Eyebrow labels arrive first with a compact tracking reveal. */
+.ff-page :is(.ff-hero .ff-eyebrow, .ff-about .ff-eyebrow, .ff-heading .ff-eyebrow,
+             .ff-cta .ff-eyebrow, .ff-contact .ff-eyebrow) {
+  display: inline-flex;
+  animation: ff-eyebrow-snap-in 650ms cubic-bezier(.16, 1, .3, 1) both;
+  transform-origin: left center;
+}
+
+/* Accent text in the hero title gets a crisp moving highlight, not blur. */
+.ff-page .ff-hero h1 > span {
+  display: inline-block;
+  position: relative;
+  background-image: linear-gradient(
+    100deg,
+    currentColor 0%,
+    currentColor 38%,
+    #8be9ff 48%,
+    #b5a3ff 54%,
+    currentColor 68%,
+    currentColor 100%
+  );
+  background-size: 240% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    ff-heading-accent-sweep 1400ms cubic-bezier(.16, 1, .3, 1) 300ms both,
+    ff-heading-accent-pop 750ms cubic-bezier(.2, .85, .25, 1) 180ms both;
+}
+
+/* Subtle word-like motion using the complete heading line box. */
+.ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.12em;
+  width: clamp(2.5rem, 10vw, 5.5rem);
+  height: 3px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: ff-heading-underline-draw 700ms cubic-bezier(.16, 1, .3, 1) 350ms both;
+  pointer-events: none;
+}
+
+/* Section heading wrapper already has data-reveal; preserve that behavior. */
+.ff-page .ff-heading h2 {
+  max-width: 18ch;
+}
+
+/* Hover response for pointer devices: a small spring-like lift, no blur. */
+@media (hover: hover) and (pointer: fine) {
+  .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+    transition: transform 280ms cubic-bezier(.2, .8, .2, 1), letter-spacing 280ms ease;
+  }
+
+  .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2):hover {
+    transform: translateY(-3px);
+    letter-spacing: -0.055em;
+  }
+}
+
+@keyframes ff-heading-kinetic-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0) scale(.965) skewY(2deg);
+    clip-path: inset(0 0 100% 0);
+    letter-spacing: .035em;
+  }
+  65% {
+    opacity: 1;
+    transform: translate3d(0, -3px, 0) scale(1.008) skewY(0);
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) skewY(0);
+    clip-path: inset(0 0 0 0);
+    letter-spacing: -0.045em;
+  }
+}
+
+@keyframes ff-heading-slide-reveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate3d(0, 28px, 0) skewY(1.5deg);
+  }
+  72% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, -2px, 0) skewY(0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0) skewY(0);
+  }
+}
+
+@keyframes ff-heading-tracking-settle {
+  0% { letter-spacing: .045em; }
+  60% { letter-spacing: -.055em; }
+  100% { letter-spacing: -.045em; }
+}
+
+@keyframes ff-heading-accent-sweep {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ff-heading-accent-pop {
+  0% { transform: translateY(10px) scale(.96); }
+  70% { transform: translateY(-2px) scale(1.015); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes ff-eyebrow-snap-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-14px);
+    letter-spacing: .22em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    letter-spacing: normal;
+  }
+}
+
+@keyframes ff-heading-underline-draw {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Keep the heading motion comfortable and accessible. */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2),
+  .ff-page :is(.ff-hero .ff-eyebrow, .ff-about .ff-eyebrow, .ff-heading .ff-eyebrow,
+               .ff-cta .ff-eyebrow, .ff-contact .ff-eyebrow),
+  .ff-page .ff-hero h1 > span,
+  .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
+    animation: none !important;
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+    letter-spacing: inherit;
+    background-position: 50% 50%;
+  }
+
+  .ff-page .ff-hero h1 > span {
+    -webkit-text-fill-color: currentColor;
+    background: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+    letter-spacing: -0.035em;
+  }
+
+  .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
+    height: 2px;
+  }
+}
+
+/* ==========================================================
+   JITTER-INSPIRED "SNAPPY TEXT STRETCH" FOR MAIN HEADINGS
+   Crisp stretch -> slight overshoot -> tight snap-back.
+   No blur, no filters, no glass effects.
+   ========================================================== */
+
+@keyframes ff-snappy-text-stretch {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scaleX(.62) scaleY(.94);
+    letter-spacing: .025em;
+  }
+  48% {
+    opacity: 1;
+    transform: translateY(-2px) scaleX(1.075) scaleY(1.015);
+    letter-spacing: -.035em;
+  }
+  72% {
+    transform: translateY(1px) scaleX(.975) scaleY(1);
+    letter-spacing: -.052em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleX(1) scaleY(1);
+    letter-spacing: -.045em;
+  }
+}
+
+@keyframes ff-snappy-accent-stretch {
+  0% { transform: scaleX(.55); }
+  52% { transform: scaleX(1.12); }
+  76% { transform: scaleX(.96); }
+  100% { transform: scaleX(1); }
+}
+
+/* Hero headline animates immediately on page entry. */
+.ff-page .ff-hero h1 {
+  transform-origin: left center;
+  animation: ff-snappy-text-stretch 820ms cubic-bezier(.2, .85, .25, 1) 100ms both !important;
+  filter: none !important;
+}
+
+/* The highlighted second line stretches independently for a layered snap. */
+.ff-page .ff-hero h1 > span {
+  transform-origin: left center;
+  animation:
+    ff-snappy-accent-stretch 760ms cubic-bezier(.2, .85, .25, 1) 260ms both,
+    ff-heading-accent-sweep 1400ms cubic-bezier(.16, 1, .3, 1) 300ms both !important;
+  filter: none !important;
+}
+
+/* Run the stretch when each section's existing scroll-reveal activates. */
+.ff-page .ff-about [data-reveal].ff-reveal-in h2,
+.ff-page .ff-heading.ff-reveal-in h2,
+.ff-page .ff-cta-inner.ff-reveal-in h2,
+.ff-page .ff-contact-grid > div.ff-reveal-in h2 {
+  transform-origin: left center;
+  animation: ff-snappy-text-stretch 760ms cubic-bezier(.2, .85, .25, 1) both !important;
+  filter: none !important;
+}
+
+/* Contact and CTA use a slightly more compact snap for long headlines. */
+.ff-page .ff-cta-inner.ff-reveal-in h2,
+.ff-page .ff-contact-grid > div.ff-reveal-in h2 {
+  animation-duration: 820ms !important;
+}
+
+/* Keep headings crisp if other styles introduce filters. */
+.ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  filter: none !important;
+  text-shadow: none;
+}
+
+/* Respect accessibility preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-hero h1,
+  .ff-page .ff-hero h1 > span,
+  .ff-page .ff-about [data-reveal].ff-reveal-in h2,
+  .ff-page .ff-heading.ff-reveal-in h2,
+  .ff-page .ff-cta-inner.ff-reveal-in h2,
+  .ff-page .ff-contact-grid > div.ff-reveal-in h2 {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    letter-spacing: inherit;
+  }
+}
+
+/* ==========================================================
+   REFINEMENT: TYPOGRAPHY MOTION ONLY — NO DECORATIVE UNDERLINES
+   Keep the motion mature, clean, and focused on the text itself.
+   ========================================================== */
+
+.ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
+/* Avoid decorative text lines while retaining the snappy stretch flow. */
+.ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+  text-decoration: none !important;
+  text-shadow: none !important;
+}
+
+/* Section headings animate only when their existing reveal state activates:
+   compressed entrance -> slight horizontal overshoot -> clean settle. */
+.ff-page .ff-about [data-reveal].ff-reveal-in h2,
+.ff-page .ff-heading.ff-reveal-in h2,
+.ff-page .ff-cta-inner.ff-reveal-in h2,
+.ff-page .ff-contact-grid > div.ff-reveal-in h2 {
+  animation: ff-snappy-text-stretch 760ms cubic-bezier(.2, .85, .25, 1) both !important;
+}
+
+/* Keep the hero headline's own entrance crisp, without any underline treatment. */
+.ff-page .ff-hero h1 {
+  animation: ff-snappy-text-stretch 820ms cubic-bezier(.2, .85, .25, 1) 100ms both !important;
+}
+
+/* Reduced-motion users get static text and no decorative line. */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* ==========================================================
+   FIX: Play headings on scroll AND initial page load
+   Requires the IntersectionObserver class toggle in LandingPage.jsx.
+   ========================================================== */
+
+.ff-page .ff-hero h1.ff-heading-play,
+.ff-page .ff-about h2.ff-heading-play,
+.ff-page .ff-heading h2.ff-heading-play,
+.ff-page .ff-cta h2.ff-heading-play,
+.ff-page .ff-contact h2.ff-heading-play {
+  animation: ff-snappy-text-stretch 820ms cubic-bezier(.2, .85, .25, 1) both !important;
+}
+
+.ff-page .ff-hero h1.ff-heading-play > span {
+  animation:
+    ff-snappy-accent-stretch 760ms cubic-bezier(.2, .85, .25, 1) 100ms both,
+    ff-heading-accent-sweep 1400ms cubic-bezier(.16, 1, .3, 1) 100ms both !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-hero h1.ff-heading-play,
+  .ff-page .ff-about h2.ff-heading-play,
+  .ff-page .ff-heading h2.ff-heading-play,
+  .ff-page .ff-cta h2.ff-heading-play,
+  .ff-page .ff-contact h2.ff-heading-play,
+  .ff-page .ff-hero h1.ff-heading-play > span {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   FIELDFLOW FSM — PREMIUM PRODUCT EXPERIENCE UPGRADE
+   Direction: confident SaaS, precise motion, crisp surfaces.
+   No blur, no backdrop-filter, no decorative heading underlines.
+   ============================================================ */
+
+:root {
+  --ff-premium-ink: #101d35;
+  --ff-premium-muted: #60718c;
+  --ff-premium-blue: #245cff;
+  --ff-premium-cyan: #38c8f5;
+  --ff-premium-line: #dce6f5;
+  --ff-premium-surface: #ffffff;
+  --ff-premium-soft: #f4f8ff;
+  --ff-premium-ease: cubic-bezier(.2, .8, .2, 1);
+  --ff-premium-spring: cubic-bezier(.16, 1, .3, 1);
+}
+
+/* More intentional type hierarchy and cleaner rhythm. */
+.ff-page {
+  color: var(--ff-premium-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ff-page :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+.ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+  text-decoration: none !important;
+  text-shadow: none !important;
+  overflow-wrap: normal;
+}
+
+/* Hero: stronger editorial layout, crisp accent color, confident spacing. */
+.ff-page .ff-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+.ff-page .ff-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(56, 200, 245, .13), transparent 34%),
+    radial-gradient(ellipse at 10% 88%, rgba(36, 92, 255, .08), transparent 36%);
+}
+
+.ff-page .ff-hero h1 {
+  max-width: 13ch;
+  line-height: .99;
+  letter-spacing: -.055em;
+  font-weight: 820;
+}
+
+.ff-page .ff-hero h1 > span {
+  background-image: linear-gradient(100deg, #245cff 4%, #168bdc 52%, #13a9c8 100%);
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Eyebrows: premium label treatment without extra decoration. */
+.ff-page .ff-eyebrow {
+  font-size: .82rem;
+  font-weight: 750;
+  letter-spacing: .045em;
+}
+
+/* Section titles: strong size, measured line length, no underline pseudo-elements. */
+.ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+  max-width: 19ch;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  font-weight: 790;
+}
+
+.ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
+  display: none !important;
+  content: none !important;
+}
+
+.ff-page .ff-heading > p,
+.ff-page .ff-about-grid p,
+.ff-page .ff-contact-grid p {
+  max-width: 66ch;
+  line-height: 1.78;
+}
+
+/* Header: sharp, high-contrast, clear navigation feedback. */
+.ff-page .ff-header {
+  border-bottom: 1px solid rgba(220, 230, 245, .9);
+  box-shadow: 0 5px 20px rgba(16, 29, 53, .035);
+}
+
+.ff-page .ff-menu a {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.ff-page .ff-menu a:hover {
+  color: var(--ff-premium-blue);
+  transform: translateY(-1px);
+}
+
+.ff-page .ff-brand-mark {
+  transition: transform 260ms var(--ff-premium-spring);
+}
+
+.ff-page .ff-brand:hover .ff-brand-mark {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+/* Buttons: decisive interaction feedback, no glow blur. */
+.ff-page .ff-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition:
+    transform 220ms var(--ff-premium-spring),
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.ff-page .ff-button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -30%;
+  bottom: -30%;
+  left: -65%;
+  width: 38%;
+  transform: skewX(-18deg);
+  background: rgba(255, 255, 255, .22);
+  transition: left 480ms var(--ff-premium-ease);
+  pointer-events: none;
+}
+
+.ff-page .ff-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(36, 92, 255, .16);
+}
+
+.ff-page .ff-button:hover::after {
+  left: 135%;
+}
+
+.ff-page .ff-button:active {
+  transform: translateY(-1px) scale(.985);
+  box-shadow: none;
+}
+
+.ff-page :is(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid #39bdf2;
+  outline-offset: 4px;
+}
+
+/* Dashboard preview: defined edge, stacked depth, subtle floating motion. */
+.ff-page .ff-preview {
+  border: 1px solid #d7e3f5;
+  box-shadow:
+    0 24px 60px rgba(21, 43, 82, .12),
+    0 4px 12px rgba(21, 43, 82, .055);
+  animation: ff-premium-dashboard-arrive 950ms var(--ff-premium-spring) 220ms both,
+             ff-premium-dashboard-float 7s ease-in-out 1.2s infinite;
+  transform-origin: 55% 50%;
+}
+
+.ff-page .ff-preview-top {
+  border-bottom: 1px solid rgba(220, 230, 245, .95);
+}
+
+.ff-page .ff-preview-panel {
+  transition: transform 240ms var(--ff-premium-spring), border-color 240ms ease,
+              box-shadow 240ms ease;
+}
+
+.ff-page .ff-preview-panel:hover {
+  transform: translateY(-3px);
+  border-color: #b8cdf4;
+  box-shadow: 0 9px 20px rgba(21, 43, 82, .07);
+}
+
+/* Cards: responsive lift, clear edges, consistent hover states. */
+.ff-page :is(.ff-feature, .ff-role, .ff-benefits > div, .ff-contact-list) {
+  border: 1px solid var(--ff-premium-line);
+  transition:
+    transform 300ms var(--ff-premium-spring),
+    box-shadow 300ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div):hover {
+    transform: translateY(-7px);
+    border-color: #b9cdf7;
+    box-shadow: 0 18px 35px rgba(24, 53, 105, .10);
+  }
+
+  .ff-page .ff-feature:hover > span {
+    transform: translateY(-2px) rotate(-4deg) scale(1.05);
+  }
+}
+
+.ff-page .ff-feature > span {
+  transition: transform 260ms var(--ff-premium-spring);
+}
+
+/* Reveal content with a composed stagger, using existing data-reveal markup. */
+.ff-page [data-reveal] {
+  transition:
+    opacity 650ms var(--ff-premium-spring),
+    transform 750ms var(--ff-premium-spring);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.ff-page [data-reveal].ff-reveal-in {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Headings get their own replayable stretch when React adds this class. */
+.ff-page .ff-hero h1.ff-heading-play,
+.ff-page .ff-about h2.ff-heading-play,
+.ff-page .ff-heading h2.ff-heading-play,
+.ff-page .ff-cta h2.ff-heading-play,
+.ff-page .ff-contact h2.ff-heading-play {
+  animation: ff-premium-heading-snap 820ms var(--ff-premium-spring) both !important;
+}
+
+.ff-page .ff-hero h1.ff-heading-play > span {
+  animation: ff-premium-heading-accent 760ms var(--ff-premium-spring) 100ms both !important;
+}
+
+@keyframes ff-premium-heading-snap {
+  0% { opacity: 0; transform: translate3d(0, 20px, 0) scaleX(.78); letter-spacing: .015em; }
+  52% { opacity: 1; transform: translate3d(0, -3px, 0) scaleX(1.045); letter-spacing: -.055em; }
+  76% { transform: translate3d(0, 1px, 0) scaleX(.99); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scaleX(1); letter-spacing: -.045em; }
+}
+
+@keyframes ff-premium-heading-accent {
+  0% { transform: scaleX(.72); }
+  58% { transform: scaleX(1.07); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes ff-premium-dashboard-arrive {
+  0% { opacity: 0; transform: translate3d(0, 24px, 0) rotateX(4deg) scale(.97); }
+  72% { opacity: 1; transform: translate3d(0, -3px, 0) rotateX(0) scale(1.005); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); }
+}
+
+@keyframes ff-premium-dashboard-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+
+/* Workflow: animate progress nodes and emphasize the active stage. */
+.ff-page .ff-step-node {
+  transition: transform 240ms var(--ff-premium-spring), box-shadow 240ms ease;
+}
+
+.ff-page .ff-steps li {
+  transition: transform 240ms var(--ff-premium-spring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ff-page .ff-steps li:hover {
+    transform: translateY(-4px);
+  }
+  .ff-page .ff-steps li:hover .ff-step-node {
+    transform: scale(1.09);
+    box-shadow: 0 6px 15px rgba(36, 92, 255, .18);
+  }
+}
+
+/* Animated route icons stay crisp and move with restrained energy. */
+.ff-page .ff-motion-icon,
+.ff-page .ff-section-motion > span {
+  will-change: transform;
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+
+/* CTA: stronger finish and clear action hierarchy. */
+.ff-page .ff-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ff-page .ff-cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(255,255,255,.07), transparent 48%, rgba(56,200,245,.12));
+}
+
+.ff-page .ff-cta .ff-light:hover {
+  box-shadow: 0 12px 26px rgba(4, 18, 45, .2);
+}
+
+/* Contact details become easier to scan and feel interactive. */
+.ff-page .ff-contact-list > a,
+.ff-page .ff-contact-list > div {
+  transition: transform 240ms var(--ff-premium-spring), border-color 220ms ease;
+}
+
+.ff-page .ff-contact-list > a:hover {
+  transform: translateX(4px);
+  border-color: #b8cdf4;
+}
+
+/* Footer navigation feels deliberate, not static. */
+.ff-page .ff-footer-nav a {
+  display: inline-flex;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.ff-page .ff-footer-nav a:hover {
+  color: #7ddfff;
+  transform: translateX(3px);
+}
+
+/* Mobile: preserve hierarchy without over-scaling or clipping. */
+@media (max-width: 760px) {
+  .ff-page .ff-hero h1 {
+    max-width: 12ch;
+    line-height: 1.04;
+  }
+
+  .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
+    line-height: 1.12;
+  }
+
+  .ff-page .ff-preview {
+    animation: ff-premium-dashboard-arrive 800ms var(--ff-premium-spring) 150ms both;
+  }
+}
+
+/* Accessibility: disable continuous motion and large transitions if requested. */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page *,
+  .ff-page *::before,
+  .ff-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .ff-page .ff-preview {
+    translate: none !important;
+  }
+}
+
+/* ============================================================
+   CONTACT PANEL REDESIGN — REAL VISUAL CHANGE
+   Replaces the plain outlined list with a premium contact card.
+   Crisp surfaces only: no blur, no glass, no heading underlines.
+   ============================================================ */
+
+.ff-page .ff-contact-list {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 14px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid #20385e !important;
+  border-radius: 26px !important;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(47, 111, 255, .25), transparent 42%),
+    linear-gradient(145deg, #101d35 0%, #13284a 58%, #10213d 100%) !important;
+  box-shadow:
+    0 26px 60px rgba(16, 29, 53, .18),
+    0 5px 14px rgba(16, 29, 53, .08) !important;
+}
+
+/* A restrained accent rail gives the panel a deliberate product-design edge. */
+.ff-page .ff-contact-list::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 26px;
+  bottom: 26px;
+  width: 4px;
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(180deg, #42d4ff, #4b75ff 58%, #8c7bff);
+}
+
+.ff-page .ff-contact-list::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 230px;
+  height: 230px;
+  right: -115px;
+  top: -125px;
+  border: 1px solid rgba(144, 183, 255, .16);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 24px rgba(144, 183, 255, .035),
+    0 0 0 48px rgba(144, 183, 255, .025);
+  pointer-events: none;
+}
+
+.ff-page .ff-contact-list > center {
+  margin: 0 0 8px;
+  text-align: left;
+}
+
+.ff-page .ff-contact-list > center h3 {
+  margin: 0;
+  color: #fff !important;
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 780;
+  letter-spacing: -.035em;
+}
+
+.ff-page .ff-contact-list > center::after {
+  content: "We usually respond within one business day";
+  display: block;
+  margin-top: 7px;
+  color: #b8c8e2;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+/* Each contact method becomes a distinct, aligned information row. */
+.ff-page .ff-contact-list > a,
+.ff-page .ff-contact-list > div {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 50px minmax(0, 1fr);
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 18px 19px !important;
+  border: 1px solid rgba(218, 231, 255, .15) !important;
+  border-radius: 17px !important;
+  background: rgba(255, 255, 255, .065) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055) !important;
+  text-decoration: none;
+  transform: translateY(0);
+  transition:
+    transform 280ms cubic-bezier(.16, 1, .3, 1),
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+/* Keep lucide icons in their own solid, high-contrast tile. */
+.ff-page .ff-contact-list > a > svg,
+.ff-page .ff-contact-list > div > svg {
+  width: 48px !important;
+  height: 48px !important;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid rgba(110, 166, 255, .30);
+  border-radius: 14px;
+  color: #77cfff !important;
+  background: linear-gradient(145deg, rgba(46, 104, 255, .22), rgba(44, 197, 244, .10));
+  stroke-width: 1.8;
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), background 220ms ease;
+}
+
+.ff-page .ff-contact-list > a > span,
+.ff-page .ff-contact-list > div > span {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.ff-page .ff-contact-list small {
+  color: #b7c8e3 !important;
+  font-size: .86rem;
+  font-weight: 600;
+  letter-spacing: .025em;
+}
+
+.ff-page .ff-contact-list strong {
+  color: #fff !important;
+  font-size: clamp(.98rem, 1.4vw, 1.12rem);
+  font-weight: 720;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+/* Hover states feel like a polished interface, not a static template. */
+@media (hover: hover) and (pointer: fine) {
+  .ff-page .ff-contact-list > a:hover,
+  .ff-page .ff-contact-list > div:hover {
+    transform: translateY(-3px) !important;
+    border-color: rgba(109, 191, 255, .58) !important;
+    background: rgba(255, 255, 255, .105) !important;
+    box-shadow: 0 12px 25px rgba(3, 12, 31, .18) !important;
+  }
+
+  .ff-page .ff-contact-list > a:hover > svg,
+  .ff-page .ff-contact-list > div:hover > svg {
+    transform: translateY(-2px) scale(1.04);
+    background: linear-gradient(145deg, rgba(46, 104, 255, .38), rgba(44, 197, 244, .20));
+  }
+}
+
+/* Entrance animation for the contact panel and its rows. */
+.ff-page .ff-contact-list.ff-reveal-in {
+  animation: ff-contact-panel-enter 760ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.ff-page .ff-contact-list.ff-reveal-in > a,
+.ff-page .ff-contact-list.ff-reveal-in > div {
+  animation: ff-contact-row-enter 650ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.ff-page .ff-contact-list.ff-reveal-in > a:nth-of-type(1) { animation-delay: 90ms; }
+.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(2) { animation-delay: 170ms; }
+.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(3) { animation-delay: 250ms; }
+
+@keyframes ff-contact-panel-enter {
+  from { opacity: 0; transform: translateY(18px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes ff-contact-row-enter {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 560px) {
+  .ff-page .ff-contact-list {
+    padding: 20px 16px 18px 20px;
+    gap: 11px;
+    border-radius: 21px !important;
+  }
+
+  .ff-page .ff-contact-list > a,
+  .ff-page .ff-contact-list > div {
+    grid-template-columns: 43px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  .ff-page .ff-contact-list > a > svg,
+  .ff-page .ff-contact-list > div > svg {
+    width: 43px !important;
+    height: 43px !important;
+    padding: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-contact-list,
+  .ff-page .ff-contact-list > a,
+  .ff-page .ff-contact-list > div {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   FIELD FLOW — PROFESSIONAL ANIME-INSPIRED COLOR SYSTEM
+   Color-rich surfaces with restrained SaaS polish.
+   No blur, no glassmorphism, no decorative heading underlines.
+   ============================================================ */
+
+:root {
+  --ff-violet: #7657f6;
+  --ff-blue: #3268f5;
+  --ff-cyan: #19a7c9;
+  --ff-teal: #159b8b;
+  --ff-green: #27845f;
+  --ff-amber: #c88620;
+  --ff-rose: #cf557b;
+  --ff-indigo: #4d58cf;
+  --ff-ink: #13233e;
+  --ff-muted: #5d6f89;
+}
+
+/* Unified box treatment: more color, still enterprise-friendly. */
+.ff-page :is(.ff-feature, .ff-role, .ff-benefits > div, .ff-contact-list > a, .ff-contact-list > div) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-width: 1px !important;
+  border-style: solid !important;
+  box-shadow: 0 5px 14px rgba(27, 49, 88, .055) !important;
+  transition:
+    transform 300ms cubic-bezier(.16, 1, .3, 1),
+    box-shadow 300ms ease,
+    border-color 220ms ease,
+    background 220ms ease !important;
+}
+
+/* A clean color wash and top edge are clipped inside each card. */
+.ff-page :is(.ff-feature, .ff-role, .ff-benefits > div)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: .72;
+  pointer-events: none;
+  background: linear-gradient(135deg, var(--card-wash, #f3f6ff), #fff 72%);
+}
+
+.ff-page :is(.ff-feature, .ff-role, .ff-benefits > div)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--card-accent, #3268f5), color-mix(in srgb, var(--card-accent, #3268f5) 38%, white));
+  transform: scaleX(.32);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+
+.ff-page :is(.ff-feature, .ff-role, .ff-benefits > div):hover::after {
+  transform: scaleX(1);
+}
+
+/* Features: coordinated pastel palettes with saturated icon accents. */
+.ff-page .ff-feature:nth-child(6n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important; }
+.ff-page .ff-feature:nth-child(6n + 2) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important; }
+.ff-page .ff-feature:nth-child(6n + 3) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important; }
+.ff-page .ff-feature:nth-child(6n + 4) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important; }
+.ff-page .ff-feature:nth-child(6n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important; }
+.ff-page .ff-feature:nth-child(6n + 6) { --card-accent: #cf557b; --card-wash: #fff0f5; border-color: #f4d4e0 !important; }
+
+/* Roles: use a calmer, related set so the page feels art-directed. */
+.ff-page .ff-role:nth-child(6n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important; }
+.ff-page .ff-role:nth-child(6n + 2) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important; }
+.ff-page .ff-role:nth-child(6n + 3) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important; }
+.ff-page .ff-role:nth-child(6n + 4) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important; }
+.ff-page .ff-role:nth-child(6n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important; }
+.ff-page .ff-role:nth-child(6n + 6) { --card-accent: #cf557b; --card-wash: #fff0f5; border-color: #f4d4e0 !important; }
+
+/* Benefits use a subtle, coordinated spectrum instead of identical white boxes. */
+.ff-page .ff-benefits > div:nth-child(5n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important; }
+.ff-page .ff-benefits > div:nth-child(5n + 2) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important; }
+.ff-page .ff-benefits > div:nth-child(5n + 3) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important; }
+.ff-page .ff-benefits > div:nth-child(5n + 4) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important; }
+.ff-page .ff-benefits > div:nth-child(5n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important; }
+
+/* Icon tiles inherit each card's accent but retain readable contrast. */
+.ff-page .ff-feature > span,
+.ff-page .ff-role > span,
+.ff-page .ff-benefits > div > span {
+  color: var(--card-accent, #3268f5) !important;
+  background: color-mix(in srgb, var(--card-accent, #3268f5) 12%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--card-accent, #3268f5) 22%, white);
+  border-radius: 12px;
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), background 220ms ease;
+}
+
+/* Contact panel stays dark, with jewel-tone contact rows. */
+.ff-page .ff-contact-list > a,
+.ff-page .ff-contact-list > div {
+  background: linear-gradient(120deg, rgba(255,255,255,.10), rgba(255,255,255,.045)) !important;
+  border-color: rgba(155, 190, 255, .24) !important;
+}
+
+.ff-page .ff-contact-list > a:nth-of-type(1) { --contact-accent: #69a2ff; }
+.ff-page .ff-contact-list > div:nth-of-type(2) { --contact-accent: #42d8c3; }
+.ff-page .ff-contact-list > div:nth-of-type(3) { --contact-accent: #c1a2ff; }
+
+.ff-page .ff-contact-list > a > svg,
+.ff-page .ff-contact-list > div > svg {
+  color: var(--contact-accent, #77cfff) !important;
+  border-color: color-mix(in srgb, var(--contact-accent, #77cfff) 40%, transparent) !important;
+  background: color-mix(in srgb, var(--contact-accent, #77cfff) 15%, #13284a) !important;
+}
+
+/* Workflow steps get individual accent colors while preserving the line. */
+.ff-page .ff-steps li:nth-child(6n + 1) { --step-accent: #3268f5; }
+.ff-page .ff-steps li:nth-child(6n + 2) { --step-accent: #159b8b; }
+.ff-page .ff-steps li:nth-child(6n + 3) { --step-accent: #7657f6; }
+.ff-page .ff-steps li:nth-child(6n + 4) { --step-accent: #d28a22; }
+.ff-page .ff-steps li:nth-child(6n + 5) { --step-accent: #168db8; }
+.ff-page .ff-steps li:nth-child(6n + 6) { --step-accent: #cf557b; }
+
+.ff-page .ff-steps li .ff-step-node {
+  color: var(--step-accent, #3268f5);
+  border-color: color-mix(in srgb, var(--step-accent, #3268f5) 35%, white);
+  background: color-mix(in srgb, var(--step-accent, #3268f5) 10%, white);
+}
+
+/* Colored section backgrounds alternate very subtly to improve page rhythm. */
+.ff-page .ff-features,
+.ff-page .ff-benefits {
+  background-color: #f6f8ff;
+}
+
+.ff-page .ff-roles,
+.ff-page .ff-how {
+  background-color: #ffffff;
+}
+
+.ff-page .ff-about {
+  background:
+    radial-gradient(ellipse at 90% 25%, rgba(50, 104, 245, .065), transparent 36%),
+    #ffffff;
+}
+
+/* Hover remains controlled: color, lift and border—not neon glow. */
+@media (hover: hover) and (pointer: fine) {
+  .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(24, 48, 90, .10) !important;
+  }
+}
+
+/* Fallback: avoid color-mix dependency in older browsers by retaining base colors. */
+@supports not (color: color-mix(in srgb, white, black)) {
+  .ff-page .ff-feature > span,
+  .ff-page .ff-role > span,
+  .ff-page .ff-benefits > div > span {
+    color: #3268f5 !important;
+    background: #edf3ff !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div)::after {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   FIELD FLOW — SIGNATURE VISUAL UPGRADE
+   Art direction: premium product UI, cinematic blue atmosphere,
+   vivid but controlled color, editorial spacing, tactile cards.
+   No blur/backdrop-filter and no decorative heading underlines.
+   ============================================================ */
+
+:root {
+  --ff-bg-ink: #0b1630;
+  --ff-bg-deep: #10264b;
+  --ff-blue-strong: #2e63f5;
+  --ff-cyan-bright: #46d7f5;
+  --ff-lilac: #9a85ff;
+  --ff-card-border: #dbe5f7;
+  --ff-copy: #5c6d88;
+  --ff-white: #ffffff;
+}
+
+/* Site-wide visual rhythm */
+.ff-page {
+  background: #fff;
+  color: #14233d;
+}
+
+.ff-page .ff-section {
+  position: relative;
+  padding-block: clamp(68px, 8vw, 112px);
+}
+
+.ff-page .ff-container {
+  width: min(1200px, calc(100% - 48px));
+}
+
+.ff-page .ff-heading {
+  max-width: 760px;
+  margin-bottom: clamp(30px, 4vw, 48px);
+}
+
+.ff-page .ff-heading h2,
+.ff-page .ff-about h2,
+.ff-page .ff-contact h2 {
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.04;
+  letter-spacing: -.055em;
+  font-weight: 820;
+}
+
+.ff-page .ff-heading > p,
+.ff-page .ff-about-grid p,
+.ff-page .ff-contact-grid p {
+  color: var(--ff-copy);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Hero: more dramatic, but still credible for an enterprise product. */
+.ff-page .ff-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(70px, 8vw, 118px);
+  background:
+    radial-gradient(ellipse at 82% 12%, rgba(70, 215, 245, .17), transparent 31%),
+    radial-gradient(ellipse at 4% 90%, rgba(91, 105, 255, .10), transparent 38%),
+    linear-gradient(180deg, #f4f8ff 0%, #ffffff 82%);
+}
+
+.ff-page .ff-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .42;
+  background-image: radial-gradient(#8da9dd 0.7px, transparent 0.7px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
+}
+
+.ff-page .ff-hero-grid {
+  gap: clamp(36px, 5vw, 76px);
+}
+
+.ff-page .ff-hero h1 {
+  max-width: 11.5ch;
+  font-size: clamp(3.25rem, 6.5vw, 5.8rem);
+  line-height: .94;
+  letter-spacing: -.075em;
+  font-weight: 850;
+}
+
+.ff-page .ff-hero h1 > span {
+  background: linear-gradient(100deg, #2e63f5 5%, #436cf8 42%, #159fc8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ff-page .ff-hero-copy > p {
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.8;
+  color: #586b87;
+}
+
+.ff-page .ff-eyebrow {
+  padding: 8px 12px;
+  border: 1px solid #cbdcff;
+  border-radius: 999px;
+  color: #2458d9;
+  background: linear-gradient(110deg, #ffffff, #edf4ff);
+  box-shadow: 0 4px 12px rgba(46, 99, 245, .055);
+}
+
+/* Dashboard preview: visually framed like a real product, not a flat box. */
+.ff-page .ff-preview {
+  border: 1px solid #cbdaf3 !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  box-shadow:
+    0 34px 80px rgba(22, 49, 100, .16),
+    0 8px 20px rgba(22, 49, 100, .07) !important;
+  transform-origin: 60% 50%;
+}
+
+.ff-page .ff-preview-top {
+  min-height: 48px;
+  background: linear-gradient(90deg, #fff, #f5f8ff) !important;
+}
+
+.ff-page .ff-preview-panel {
+  border: 1px solid #e0e8f6 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(145deg, #ffffff, #f7faff) !important;
+  box-shadow: 0 3px 10px rgba(25, 47, 88, .045);
+}
+
+.ff-page .ff-kpis > div:nth-child(1) { --kpi: #3268f5; }
+.ff-page .ff-kpis > div:nth-child(2) { --kpi: #159b8b; }
+.ff-page .ff-kpis > div:nth-child(3) { --kpi: #7657f6; }
+.ff-page .ff-kpis > div:nth-child(4) { --kpi: #d28a22; }
+
+.ff-page .ff-kpis > div {
+  border-top: 3px solid var(--kpi, #3268f5) !important;
+}
+
+/* Feature cards: deeper surfaces, stronger color accents, and tactile hover. */
+.ff-page .ff-feature-grid {
+  gap: 20px;
+}
+
+.ff-page .ff-feature {
+  min-height: 205px;
+  padding: 26px;
+  border-radius: 20px !important;
+  background: linear-gradient(145deg, var(--card-wash, #f2f6ff), #fff 82%) !important;
+  box-shadow: 0 7px 18px rgba(28, 52, 95, .055) !important;
+}
+
+.ff-page .ff-feature > span {
+  width: 48px;
+  height: 48px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 12px color-mix(in srgb, var(--card-accent, #3268f5) 15%, transparent);
+}
+
+.ff-page .ff-feature h3 {
+  margin-top: 18px;
+  color: #172944;
+  font-size: 1.08rem;
+  letter-spacing: -.025em;
+  font-weight: 760;
+}
+
+.ff-page .ff-feature p {
+  color: #60718b;
+  line-height: 1.72;
+}
+
+.ff-page .ff-feature::after {
+  height: 4px;
+  transform: scaleX(.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ff-page .ff-feature:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 22px 42px rgba(24, 48, 90, .12) !important;
+  }
+}
+
+/* About section: use a subtle split tone and larger, more intentional spacing. */
+.ff-page .ff-about {
+  background:
+    radial-gradient(ellipse at 92% 18%, rgba(50, 104, 245, .075), transparent 32%),
+    #ffffff;
+}
+
+.ff-page .ff-about-grid {
+  gap: clamp(36px, 6vw, 88px);
+}
+
+.ff-page .ff-points li {
+  padding-block: 8px;
+  color: #405573;
+}
+
+/* Workflow: framed product module and clearer step nodes. */
+.ff-page .ff-how,
+.ff-page .ff-section:not(.ff-soft):not(.ff-about) {
+  background-color: #fff;
+}
+
+.ff-page .ff-workflow {
+  border: 1px solid #d5e1f4 !important;
+  border-radius: 22px !important;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff, #f7faff) !important;
+  box-shadow: 0 20px 48px rgba(26, 51, 95, .085) !important;
+}
+
+.ff-page .ff-workflow-bar {
+  background: linear-gradient(90deg, #f7faff, #edf4ff) !important;
+  border-bottom: 1px solid #dbe6f6;
+}
+
+.ff-page .ff-step-node {
+  width: 44px;
+  height: 44px;
+  border-width: 1px;
+  box-shadow: 0 5px 14px rgba(35, 74, 145, .08);
+}
+
+/* Solutions/roles: distinct cards with enough contrast and breathing room. */
+.ff-page .ff-role-grid {
+  gap: 16px;
+}
+
+.ff-page .ff-role {
+  min-height: 110px;
+  padding: 20px;
+  border-radius: 16px !important;
+  background: linear-gradient(140deg, var(--card-wash, #f3f6ff), #fff 88%) !important;
+}
+
+.ff-page .ff-role h3 {
+  color: #172944;
+  font-weight: 750;
+}
+
+.ff-page .ff-role p {
+  color: #60718b;
+  line-height: 1.6;
+}
+
+/* Benefits: make the cards feel like small product highlights. */
+.ff-page .ff-benefits > div {
+  padding: 22px;
+  border-radius: 17px !important;
+  background: linear-gradient(145deg, var(--card-wash, #f3f6ff), #fff 86%) !important;
+}
+
+.ff-page .ff-benefits > div h3 {
+  color: #172944;
+  font-weight: 760;
+}
+
+.ff-page .ff-benefits > div p {
+  color: #60718b;
+  line-height: 1.68;
+}
+
+/* CTA: dramatic contrast and clear action hierarchy. */
+.ff-page .ff-cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(58px, 7vw, 88px);
+  background:
+    radial-gradient(ellipse at 85% 5%, rgba(70, 215, 245, .18), transparent 33%),
+    radial-gradient(ellipse at 8% 95%, rgba(154, 133, 255, .18), transparent 35%),
+    linear-gradient(120deg, #0b1630 0%, #10264b 55%, #163565 100%) !important;
+}
+
+.ff-page .ff-cta::after {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: -170px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(145, 184, 255, .18);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 32px rgba(145, 184, 255, .035),
+    0 0 0 68px rgba(145, 184, 255, .025);
+  pointer-events: none;
+}
+
+.ff-page .ff-cta h2 {
+  color: #fff !important;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -.06em;
+}
+
+.ff-page .ff-cta p {
+  color: #c1d0e8;
+}
+
+/* Footer: stronger brand anchor and cleaner contrast. */
+.ff-page .ff-footer {
+  background: #081329 !important;
+  color: #dce7fa;
+  border-top: 1px solid rgba(148, 177, 226, .18);
+}
+
+.ff-page .ff-footer p,
+.ff-page .ff-footer small {
+  color: #a8bad6;
+}
+
+.ff-page .ff-footer a {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.ff-page .ff-footer a:hover {
+  color: #70d8ff;
+}
+
+/* Contact cards retain the dark premium panel introduced previously. */
+.ff-page .ff-contact-list {
+  border-radius: 24px !important;
+}
+
+/* Mobile sizing: preserve the art direction without crowding. */
+@media (max-width: 900px) {
+  .ff-page .ff-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ff-page .ff-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  .ff-page .ff-preview {
+    max-width: 760px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .ff-page .ff-container {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .ff-page .ff-section {
+    padding-block: 58px;
+  }
+
+  .ff-page .ff-feature {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .ff-page .ff-heading h2,
+  .ff-page .ff-about h2,
+  .ff-page .ff-contact h2 {
+    font-size: clamp(1.85rem, 8vw, 2.55rem);
+  }
+}
+
+/* ============================================================
+   FIELD FLOW — EDITORIAL COLOR BLOCKS + PRODUCT-QUALITY MOTION
+   Inspired by the user's references:
+   pastel color fields, abstract geometric art, crisp typography,
+   elegant depth and scroll-triggered reveal.
+   No blur, no glassmorphism, no heading underline.
+   ============================================================ */
+
+.ff-page {
+  --ff-motion-ease: cubic-bezier(.2, .75, .25, 1);
+  --ff-blue-card: #e4efff;
+  --ff-lilac-card: #f2e7ff;
+  --ff-mint-card: #ddf8e9;
+  --ff-amber-card: #fff0c5;
+  --ff-rose-card: #ffe4e8;
+  --ff-sky-card: #e0f3ff;
+}
+
+/* Feature/role/benefit cards become designed color surfaces, not white boxes. */
+.ff-page .ff-feature,
+.ff-page .ff-role,
+.ff-page .ff-benefits > div {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px !important;
+  border: 1px solid var(--card-border, #d9e4f6) !important;
+  background: var(--card-bg, #edf3ff) !important;
+  box-shadow: 0 2px 0 rgba(25, 38, 65, .025), 0 8px 20px rgba(26, 45, 82, .055) !important;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 420ms var(--ff-motion-ease),
+    box-shadow 420ms var(--ff-motion-ease),
+    border-color 300ms ease,
+    background-color 300ms ease !important;
+}
+
+/* Abstract geometric artwork, like the reference cards. */
+.ff-page .ff-feature::before,
+.ff-page .ff-role::before,
+.ff-page .ff-benefits > div::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 170px;
+  height: 170px;
+  right: -48px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  border-radius: 38px;
+  opacity: .5;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--card-art, #3268f5) 26%, white),
+      color-mix(in srgb, var(--card-art, #3268f5) 8%, white));
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition:
+    transform 700ms var(--ff-motion-ease),
+    opacity 400ms ease,
+    border-radius 500ms ease;
+}
+
+/* Second geometric layer creates a distinctive, clean abstract motif. */
+.ff-page .ff-feature::after,
+.ff-page .ff-role::after,
+.ff-page .ff-benefits > div::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 76px;
+  height: 76px;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border: 1px solid color-mix(in srgb, var(--card-art, #3268f5) 24%, white);
+  border-radius: 22px;
+  opacity: .85;
+  pointer-events: none;
+  transition:
+    transform 700ms var(--ff-motion-ease),
+    border-radius 500ms ease,
+    opacity 400ms ease;
+}
+
+/* Curated card colors: bright enough to feel designed, muted enough for B2B. */
+.ff-page .ff-feature:nth-child(6n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5; }
+.ff-page .ff-feature:nth-child(6n + 2) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a; }
+.ff-page .ff-feature:nth-child(6n + 3) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec; }
+.ff-page .ff-feature:nth-child(6n + 4) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22; }
+.ff-page .ff-feature:nth-child(6n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8; }
+.ff-page .ff-feature:nth-child(6n + 6) { --card-bg: #ffe6eb; --card-border: #f5cbd5; --card-art: #cf557b; }
+
+.ff-page .ff-role:nth-child(6n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5; }
+.ff-page .ff-role:nth-child(6n + 2) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22; }
+.ff-page .ff-role:nth-child(6n + 3) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a; }
+.ff-page .ff-role:nth-child(6n + 4) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec; }
+.ff-page .ff-role:nth-child(6n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8; }
+.ff-page .ff-role:nth-child(6n + 6) { --card-bg: #ffe6eb; --card-border: #f5cbd5; --card-art: #cf557b; }
+
+.ff-page .ff-benefits > div:nth-child(5n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5; }
+.ff-page .ff-benefits > div:nth-child(5n + 2) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a; }
+.ff-page .ff-benefits > div:nth-child(5n + 3) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec; }
+.ff-page .ff-benefits > div:nth-child(5n + 4) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22; }
+.ff-page .ff-benefits > div:nth-child(5n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8; }
+
+/* Text remains above the decorative art and stays comfortably readable. */
+.ff-page .ff-feature > *,
+.ff-page .ff-role > *,
+.ff-page .ff-benefits > div > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ff-page .ff-feature h3,
+.ff-page .ff-role h3,
+.ff-page .ff-benefits > div h3 {
+  max-width: 25ch;
+  color: #152744 !important;
+  font-weight: 780;
+  letter-spacing: -.025em;
+}
+
+.ff-page .ff-feature p,
+.ff-page .ff-role p,
+.ff-page .ff-benefits > div p {
+  max-width: 38ch;
+  color: #425875 !important;
+  line-height: 1.65;
+}
+
+/* Icon badges are bright focal points, with no cartoonish effects. */
+.ff-page .ff-feature > span,
+.ff-page .ff-role > span,
+.ff-page .ff-benefits > div > span {
+  color: var(--card-art, #3268f5) !important;
+  background: rgba(255, 255, 255, .82) !important;
+  border: 1px solid rgba(255, 255, 255, .92);
+  box-shadow: 0 5px 14px rgba(29, 52, 94, .07);
+  transition: transform 420ms var(--ff-motion-ease), box-shadow 300ms ease;
+}
+
+/* Premium hover: lift, rotate the abstract art, and gently enlarge the icon. */
+@media (hover: hover) and (pointer: fine) {
+  .ff-page .ff-feature:hover,
+  .ff-page .ff-role:hover,
+  .ff-page .ff-benefits > div:hover {
+    transform: translate3d(0, -7px, 0) !important;
+    border-color: color-mix(in srgb, var(--card-art, #3268f5) 42%, white) !important;
+    box-shadow: 0 22px 42px rgba(25, 45, 83, .13) !important;
+  }
+
+  .ff-page .ff-feature:hover::before,
+  .ff-page .ff-role:hover::before,
+  .ff-page .ff-benefits > div:hover::before {
+    transform: translateY(-50%) rotate(12deg) scale(1.08);
+    opacity: .72;
+    border-radius: 52px;
+  }
+
+  .ff-page .ff-feature:hover::after,
+  .ff-page .ff-role:hover::after,
+  .ff-page .ff-benefits > div:hover::after {
+    transform: translateY(-50%) rotate(60deg) scale(1.08);
+    opacity: 1;
+  }
+
+  .ff-page .ff-feature:hover > span,
+  .ff-page .ff-role:hover > span,
+  .ff-page .ff-benefits > div:hover > span {
+    transform: translateY(-3px) rotate(-5deg) scale(1.06);
+    box-shadow: 0 9px 18px rgba(29, 52, 94, .12);
+  }
+}
+
+/* Scroll reveal: use the existing data-reveal / ff-reveal-in hooks. */
+.ff-page [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0) scale(.985);
+  transition:
+    opacity 700ms var(--ff-motion-ease),
+    transform 850ms var(--ff-motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.ff-page [data-reveal].ff-reveal-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Stagger cards for a composed, editorial entrance. */
+.ff-page .ff-feature-grid > :nth-child(1),
+.ff-page .ff-role-grid > :nth-child(1) { --reveal-delay: 0ms; }
+.ff-page .ff-feature-grid > :nth-child(2),
+.ff-page .ff-role-grid > :nth-child(2) { --reveal-delay: 80ms; }
+.ff-page .ff-feature-grid > :nth-child(3),
+.ff-page .ff-role-grid > :nth-child(3) { --reveal-delay: 160ms; }
+.ff-page .ff-feature-grid > :nth-child(4),
+.ff-page .ff-role-grid > :nth-child(4) { --reveal-delay: 240ms; }
+.ff-page .ff-feature-grid > :nth-child(5),
+.ff-page .ff-role-grid > :nth-child(5) { --reveal-delay: 320ms; }
+.ff-page .ff-feature-grid > :nth-child(6),
+.ff-page .ff-role-grid > :nth-child(6) { --reveal-delay: 400ms; }
+
+/* The hero preview enters with a slight perspective tilt, then settles. */
+.ff-page .ff-preview {
+  animation: ff-product-card-arrive 900ms var(--ff-motion-ease) both;
+}
+
+@keyframes ff-product-card-arrive {
+  0% { opacity: 0; transform: perspective(1000px) translate3d(0, 28px, 0) rotateX(5deg) scale(.97); }
+  70% { opacity: 1; transform: perspective(1000px) translate3d(0, -3px, 0) rotateX(0) scale(1.005); }
+  100% { opacity: 1; transform: perspective(1000px) translate3d(0, 0, 0) rotateX(0) scale(1); }
+}
+
+/* Section headings enter with a restrained tracking-and-settle effect. */
+.ff-page .ff-heading h2,
+.ff-page .ff-about h2,
+.ff-page .ff-contact h2,
+.ff-page .ff-cta h2 {
+  text-wrap: balance;
+}
+
+.ff-page .ff-heading [data-reveal],
+.ff-page .ff-about h2[data-reveal],
+.ff-page .ff-contact h2[data-reveal],
+.ff-page .ff-cta h2[data-reveal] {
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-page [data-reveal],
+  .ff-page .ff-preview,
+  .ff-page .ff-feature,
+  .ff-page .ff-role,
+  .ff-page .ff-benefits > div,
+  .ff-page .ff-feature::before,
+  .ff-page .ff-feature::after,
+  .ff-page .ff-role::before,
+  .ff-page .ff-role::after,
+  .ff-page .ff-benefits > div::before,
+  .ff-page .ff-benefits > div::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================
+   FIELD FLOW — COMPACT TYPOGRAPHY OVERRIDE
+   Preserve the design. Reduce oversized text.
+   ========================================== */
+
+.ff-page .ff-hero h1 {
+  font-size: clamp(2rem, 3.8vw, 3rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.ff-page .ff-heading h2,
+.ff-page .ff-about h2,
+.ff-page .ff-contact h2,
+.ff-page .ff-cta h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.ff-page .ff-feature h3,
+.ff-page .ff-role h3,
+.ff-page .ff-benefits > div h3 {
+  font-size: 0.95rem !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.ff-page .ff-feature p,
+.ff-page .ff-role p,
+.ff-page .ff-benefits > div p {
+  font-size: 0.82rem !important;
+  line-height: 1.55 !important;
+}
+
+.ff-page .ff-heading > p,
+.ff-page .ff-about-grid p,
+.ff-page .ff-contact-grid p,
+.ff-page .ff-hero-copy > p {
+  font-size: 0.88rem !important;
+  line-height: 1.65 !important;
+}
+
+.ff-page .ff-eyebrow {
+  font-size: 0.7rem !important;
+}
+
+.ff-page .ff-feature {
+  min-height: 0 !important;
+  padding: 20px !important;
+}
+
+.ff-page .ff-role {
+  min-height: 0 !important;
+  padding: 15px !important;
+}
+
+.ff-page .ff-benefits > div {
+  padding: 17px !important;
+}
+
+/* Keep text compact on mobile too. */
+@media (max-width: 640px) {
+  .ff-page .ff-hero h1 {
+    font-size: clamp(1.9rem, 7vw, 2.5rem) !important;
+  }
+
+  .ff-page .ff-heading h2,
+  .ff-page .ff-about h2,
+  .ff-page .ff-contact h2,
+  .ff-page .ff-cta h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .ff-page .ff-feature h3,
+  .ff-page .ff-role h3,
+  .ff-page .ff-benefits > div h3 {
+    font-size: 0.92rem !important;
+  }
+
+  .ff-page .ff-feature p,
+  .ff-page .ff-role p,
+  .ff-page .ff-benefits > div p {
+    font-size: 0.8rem !important;
+  }
+}
+.ff-button.ff-solid {
+  color: white;
+}
+
+/* ==========================================
+   FIELD FLOW — CLEAN PROFESSIONAL CONTACT UI
+   Append at the end of LandingPage.css
+   ========================================== */
+
+.ff-page .ff-contact {
+  padding: 80px 0;
+  background: #f8fafc !important;
+  color: #0f172a;
+}
+
+.ff-page .ff-contact-grid {
+  align-items: center;
+  gap: 56px;
+}
+
+/* Contact heading */
+.ff-page .ff-contact h2 {
+  margin-bottom: 12px;
+  color: #0f172a !important;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+
+.ff-page .ff-contact p {
+  color: #475569 !important;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Remove the oversized dark panel */
+.ff-page .ff-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Individual contact rows */
+.ff-page .ff-contact-list > a,
+.ff-page .ff-contact-list > div {
+  display: grid !important;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 20px !important;
+
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgb(15 23 42 / 4%) !important;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+/* Consistent brand-blue icons */
+.ff-page .ff-contact-list > a > svg,
+.ff-page .ff-contact-list > div > svg {
+  width: 46px !important;
+  height: 46px !important;
+  padding: 11px;
+
+  border: 1px solid #dbeafe !important;
+  border-radius: 10px !important;
+
+  color: #2563eb !important;
+  background: #eff6ff !important;
+  stroke-width: 1.8;
+}
+
+/* Contact labels */
+.ff-page .ff-contact-list small {
+  color: #64748b !important;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Contact information */
+.ff-page .ff-contact-list strong {
+  color: #0f172a !important;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Restrained hover interaction */
+.ff-page .ff-contact-list > a:hover {
+  transform: translateY(-2px);
+  border-color: #93c5fd !important;
+  background: #ffffff !important;
+  box-shadow: 0 5px 16px rgb(15 23 42 / 6%) !important;
+}
+
+.ff-page .ff-contact-list > a:hover > svg {
+  color: #1d4ed8 !important;
+  background: #dbeafe !important;
+}
+
+/* Keyboard accessibility */
+.ff-page .ff-contact-list > a:focus-visible {
+  outline: 3px solid #2563eb !important;
+  outline-offset: 3px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .ff-page .ff-contact {
+    padding: 56px 0;
+  }
+
+  .ff-page .ff-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ff-page .ff-contact-list > a,
+  .ff-page .ff-contact-list > div {
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ff-page .ff-contact-list > a,
+  .ff-page .ff-contact-list > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px !important;
+  }
+
+  .ff-page .ff-contact-list > a > svg,
+  .ff-page .ff-contact-list > div > svg {
+    width: 42px !important;
+    height: 42px !important;
+    padding: 10px;
+  }
+
+  .ff-page .ff-contact-list strong {
+    font-size: 14px;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-contact-list > a,
+  .ff-page .ff-contact-list > a > svg {
+    transition: none !important;
+  }
+
+  .ff-page .ff-contact-list > a:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   FIELDFLOW FSM — NEXT-GEN SAAS FOOTER
+   Clean editorial layout | Premium dark theme | Responsive
+   ========================================================= */
+
+.ff-page .ff-footer {
+  --footer-bg: #080f1e;
+  --footer-text: #f8fafc;
+  --footer-muted: #98a6bd;
+  --footer-blue: #7ba7ff;
+  --footer-line: rgba(255, 255, 255, 0.11);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 76px 0 24px;
+  color: var(--footer-text);
+  background: var(--footer-bg) !important;
+  border-top: 1px solid var(--footer-line);
+}
+
+/* Restrained blue atmosphere */
+.ff-page .ff-footer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -220px;
+  right: -100px;
+  width: 520px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(37, 99, 235, 0.14) 0%,
+    rgba(37, 99, 235, 0.04) 42%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+/* Main footer layout */
+.ff-page .ff-footer-top {
+  display: grid;
+  grid-template-columns:
+    minmax(230px, 1.45fr)
+    minmax(120px, 0.7fr)
+    minmax(170px, 1fr)
+    minmax(150px, 0.85fr);
+  gap: clamp(24px, 4vw, 64px);
+  padding-bottom: 64px;
+}
+
+/* Brand */
+.ff-page .ff-footer-brand {
+  min-width: 0;
+}
+
+.ff-page .ff-footer-brand .ff-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+  text-decoration: none;
+}
+
+.ff-page .ff-footer-brand .ff-brand-mark {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 13px;
+  background: linear-gradient(145deg, #3779ff, #2051d8);
+  color: #ffffff;
+  box-shadow: 0 5px 18px rgba(37, 99, 235, 0.2);
+}
+
+.ff-page .ff-footer-brand p {
+  max-width: 290px;
+  margin: 22px 0 0;
+  color: var(--footer-muted) !important;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* Navigation groups */
+.ff-page .ff-footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ff-page .ff-footer-nav h3 {
+  margin: 5px 0 9px;
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ff-page .ff-footer-nav a {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  color: var(--footer-muted) !important;
+  font-size: 14px;
+  line-height: 1.65;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.ff-page .ff-footer-nav a:hover {
+  color: #ffffff !important;
+  transform: translateX(3px);
+}
+
+/* Small arrow indicator for contact actions */
+.ff-page .ff-footer-nav a[href^="mailto:"]::after {
+  content: " ↗";
+  color: var(--footer-blue);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.ff-page .ff-footer-nav a[href^="mailto:"]:hover::after {
+  opacity: 1;
+}
+
+/* Keyboard accessibility */
+.ff-page .ff-footer a:focus-visible {
+  outline: 2px solid var(--footer-blue);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+/* Bottom bar */
+.ff-page .ff-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.ff-page .ff-footer-bottom > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.ff-page .ff-footer-bottom a {
+  color: var(--footer-muted) !important;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.ff-page .ff-footer-bottom a:hover {
+  color: #ffffff !important;
+}
+
+/* Back to top */
+.ff-page .ff-footer-bottom a[href="#top"],
+.ff-page .ff-footer-bottom a[href="#home"] {
+  color: #ffffff !important;
+}
+
+.ff-page .ff-footer-bottom a[href="#top"]:hover,
+.ff-page .ff-footer-bottom a[href="#home"]:hover {
+  color: var(--footer-blue) !important;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .ff-page .ff-footer {
+    padding-top: 60px;
+  }
+
+  .ff-page .ff-footer-top {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 42px 32px;
+    padding-bottom: 48px;
+  }
+
+  .ff-page .ff-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .ff-page .ff-footer-brand p {
+    max-width: 440px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .ff-page .ff-footer {
+    padding: 46px 0 20px;
+  }
+
+  .ff-page .ff-footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 22px;
+    padding-bottom: 38px;
+  }
+
+  .ff-page .ff-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .ff-page .ff-footer-brand p {
+    max-width: 340px;
+    margin-top: 16px;
+  }
+
+  .ff-page .ff-footer-brand .ff-brand {
+    font-size: 19px;
+  }
+
+  .ff-page .ff-footer-brand .ff-brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .ff-page .ff-footer-nav {
+    gap: 13px;
+  }
+
+  .ff-page .ff-footer-nav h3 {
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  .ff-page .ff-footer-nav a {
+    font-size: 13px;
+  }
+
+  .ff-page .ff-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 20px;
+  }
+
+  .ff-page .ff-footer-bottom > div {
+    gap: 14px 20px;
+  }
+}
+
+/* Extra-small screens */
+@media (max-width: 360px) {
+  .ff-page .ff-footer-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ff-page .ff-footer-brand {
+    grid-column: auto;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-footer-nav a,
+  .ff-page .ff-footer-bottom a,
+  .ff-page .ff-footer-nav a[href^="mailto:"]::after {
+    transition: none !important;
+  }
+
+  .ff-page .ff-footer-nav a:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================
+   FIELDFLOW — FOOTER NETWORK ANIMATION
+   Targets the empty space on the right
+   ========================================== */
+
+.ff-page .ff-footer-top {
+  position: relative;
+}
+
+/* Animated network panel */
+.ff-page .ff-footer-top::after {
+  content: "";
+  position: absolute;
+  top: -42px;
+  right: 0;
+  width: 31%;
+  height: 150px;
+  box-sizing: border-box;
+  pointer-events: none;
+  border: 1px solid rgba(96, 165, 250, 0.13);
+  border-radius: 18px;
+
+  background-image:
+    radial-gradient(circle, #60a5fa 1.8px, transparent 2.5px),
+    radial-gradient(circle, #38bdf8 1.5px, transparent 2.5px),
+    radial-gradient(circle, #818cf8 1.8px, transparent 2.5px),
+    linear-gradient(
+      35deg,
+      transparent 48.8%,
+      rgba(96, 165, 250, 0.14) 49.5%,
+      rgba(96, 165, 250, 0.14) 50%,
+      transparent 50.7%
+    ),
+    linear-gradient(
+      -28deg,
+      transparent 48.8%,
+      rgba(96, 165, 250, 0.12) 49.5%,
+      rgba(96, 165, 250, 0.12) 50%,
+      transparent 50.7%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(37, 99, 235, 0.12),
+      transparent 72%
+    );
+
+  background-size:
+    83px 65px,
+    117px 83px,
+    137px 91px,
+    110px 90px,
+    135px 105px,
+    100% 100%;
+
+  background-position:
+    0 0,
+    35px 20px,
+    65px 5px,
+    0 0,
+    20px 10px,
+    center;
+
+  animation: ff-footer-network 12s ease-in-out infinite alternate;
+}
+
+/* Subtle moving light */
+.ff-page .ff-footer-top::before {
+  content: "";
+  position: absolute;
+  top: -42px;
+  right: 0;
+  width: 31%;
+  height: 150px;
+  border-radius: 18px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(96, 165, 250, 0.07) 45%,
+    rgba(45, 212, 191, 0.10) 50%,
+    transparent 70%
+  );
+
+  background-size: 220% 100%;
+  animation: ff-footer-light 8s ease-in-out infinite;
+}
+
+@keyframes ff-footer-network {
+  0% {
+    background-position:
+      0 0,
+      35px 20px,
+      65px 5px,
+      0 0,
+      20px 10px,
+      center;
+    border-color: rgba(96, 165, 250, 0.10);
+  }
+
+  100% {
+    background-position:
+      24px 12px,
+      15px 32px,
+      85px 18px,
+      15px 8px,
+      5px 25px,
+      center;
+    border-color: rgba(96, 165, 250, 0.25);
+  }
+}
+
+@keyframes ff-footer-light {
+  0% {
+    background-position: 100% 0;
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    background-position: 0 0;
+    opacity: 0.45;
+  }
+}
+
+/* Hide the animation on narrower layouts */
+@media (max-width: 1000px) {
+  .ff-page .ff-footer-top::before,
+  .ff-page .ff-footer-top::after {
+    display: none;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-footer-top::before,
+  .ff-page .ff-footer-top::after {
+    animation: none;
+  }
+}
