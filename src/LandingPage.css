@@ -375,12 +375,6 @@ body.ff-landing-active #root {
 .ff-points svg {
   color: var(--green);
 }
-.ff-preview-caption {
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 12px;
-  text-align: right;
-}
 
 /* ---------- Preview: product window ---------- */
 .ff-preview {
@@ -426,7 +420,6 @@ body.ff-landing-active #root {
   font-size: 12px;
   font-weight: 600;
 }
-
 .ff-preview-content {
   margin: 0;
   padding: 16px;
@@ -516,37 +509,29 @@ body.ff-landing-active #root {
     var(--line) 29px
   );
 }
-
 .ff-chart i {
   width: 12%;
   border-radius: 4px 4px 0 0;
   background: #2563eb; /* Professional blue */
 }
-
 .ff-chart i:nth-child(2) {
   background: #0f766e; /* Deep teal */
 }
-
 .ff-chart i:nth-child(3) {
   background: #64748b; /* Slate gray */
 }
-
 .ff-chart i:nth-child(4) {
   background: #7c3aed; /* Muted purple */
 }
-
 .ff-chart i:nth-child(5) {
   background: #0891b2; /* Cyan blue */
 }
-
 .ff-chart i:nth-child(6) {
   background: #475569; /* Dark slate */
 }
-
 .ff-chart i:nth-child(7) {
   background: #14b8a6; /* Soft teal */
 }
-
 .ff-week {
   display: flex;
   justify-content: space-around;
@@ -594,57 +579,6 @@ body.ff-landing-active #root {
   background: #e2e8f0;
   color: #334155;
 }
-.ff-tech-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 2px;
-  color: var(--copy);
-  font-size: 11px;
-}
-.ff-avatars {
-  display: flex;
-  padding-left: 4px;
-}
-.ff-avatars i {
-  display: grid;
-  width: 26px;
-  height: 26px;
-  place-items: center;
-  margin-left: -6px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: var(--amber);
-  color: #fff;
-  font-size: 9px;
-  font-style: normal;
-  font-weight: 700;
-}
-.ff-avatars i:nth-child(2) {
-  background: var(--teal);
-}
-.ff-avatars i:nth-child(3) {
-  background: var(--violet);
-}
-.ff-avatars i:nth-child(4) {
-  background: var(--blue-600);
-}
-.ff-alert {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid #fde68a;
-  background: var(--amber-bg);
-  color: #92400e;
-  font-size: 11px;
-  font-weight: 500;
-}
-.ff-alert svg {
-  flex: none;
-  color: var(--amber);
-}
 
 /* ---------- About ---------- */
 .ff-about {
@@ -676,20 +610,6 @@ body.ff-landing-active #root {
   font-size: 16px;
   line-height: 1.75;
 }
-
-.ff-about-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ff-about-illustration {
-  display: block;
-  width: min(100%, 360px);
-  height: auto;
-  object-fit: contain;
-}
-
 .ff-flow {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1175,16 +1095,6 @@ body.ff-landing-active #root {
   background: #2563eb;
   color: #ffffff;
 }
-.ff-footer-inner > p {
-  max-width: 360px;
-  margin: 0;
-  color: #8ea3c4;
-  font-size: 13px;
-}
-.ff-footer-inner > span {
-  color: #6f86ab;
-  font-size: 12px;
-}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
@@ -1395,12 +1305,10 @@ body.ff-landing-active #root {
     flex-direction: column;
   }
 }
-
 .ff-button.ff-light {
   background: #1d4ed8;
   border-color: #1d4ed8;
 }
-
 .ff-button.ff-light:hover {
   background: #2563eb;
   border-color: #2563eb;
@@ -1409,21 +1317,18 @@ body.ff-landing-active #root {
 /* =========================================
    FOOTER WITH NAVIGATION LINKS
 ========================================= */
-
 .ff-footer {
   position: relative;
   padding: 55px 0 20px;
   background: #0f172a;
   color: #cbd5e1;
 }
-
 .ff-footer-top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 38px;
 }
-
 .ff-footer-brand p {
   max-width: 300px;
   margin-top: 18px;
@@ -1431,39 +1336,33 @@ body.ff-landing-active #root {
   font-size: 14px;
   line-height: 1.8;
 }
-
 .ff-footer-nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 13px;
 }
-
 .ff-footer-nav h3 {
   margin: 0 0 7px;
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
 }
-
 .ff-footer-nav a {
   color: #94a3b8;
   font-size: 14px;
   text-decoration: none;
   transition: color 0.25s ease, transform 0.25s ease;
 }
-
 .ff-footer-nav a:hover {
   color: #60a5fa;
   transform: translateX(4px);
 }
-
 .ff-footer-nav a:focus-visible,
 .ff-footer-bottom a:focus-visible {
   outline: 2px solid #60a5fa;
   outline-offset: 4px;
 }
-
 .ff-footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1475,20 +1374,17 @@ body.ff-landing-active #root {
   color: #94a3b8;
   font-size: 13px;
 }
-
 .ff-footer-bottom > div {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 22px;
 }
-
 .ff-footer-bottom a {
   color: #cbd5e1;
   text-decoration: none;
   transition: color 0.25s ease;
 }
-
 .ff-footer-bottom a:hover {
   color: #60a5fa;
 }
@@ -1500,17 +1396,14 @@ body.ff-landing-active #root {
     gap: 35px;
   }
 }
-
 @media (max-width: 520px) {
   .ff-footer {
     padding-top: 40px;
   }
-
   .ff-footer-top {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-
   .ff-footer-bottom {
     align-items: flex-start;
     flex-direction: column;
@@ -1530,12 +1423,10 @@ body.ff-landing-active #root {
     transform 0.75s cubic-bezier(0.22, 0.7, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
-
 [data-reveal].ff-reveal-in {
   opacity: 1;
   transform: translateY(0);
 }
-
 .ff-feature[data-reveal].ff-reveal-in:hover {
   transform: translateY(-5px);
 }
@@ -1551,11 +1442,9 @@ body.ff-landing-active #root {
     transform: translateY(0);
   }
 }
-
 .ff-hero-copy {
   animation: ff-fade-up 0.7s ease-out both;
 }
-
 .ff-preview {
   animation: ff-fade-up 0.8s ease-out 0.15s both;
 }
@@ -1569,18 +1458,22 @@ body.ff-landing-active #root {
     transform: scaleY(1);
   }
 }
-
 .ff-chart i {
   transform-origin: bottom;
   animation: ff-bar-grow 0.8s cubic-bezier(.2, .7, .3, 1) both;
 }
-
-.ff-chart i:nth-child(2) { animation-delay: 0.08s; }
-.ff-chart i:nth-child(3) { animation-delay: 0.16s; }
-.ff-chart i:nth-child(4) { animation-delay: 0.24s; }
-.ff-chart i:nth-child(5) { animation-delay: 0.32s; }
-.ff-chart i:nth-child(6) { animation-delay: 0.40s; }
-.ff-chart i:nth-child(7) { animation-delay: 0.48s; }
+.ff-chart i:nth-child(2) { animation-delay: 0.08s;
+}
+.ff-chart i:nth-child(3) { animation-delay: 0.16s;
+}
+.ff-chart i:nth-child(4) { animation-delay: 0.24s;
+}
+.ff-chart i:nth-child(5) { animation-delay: 0.32s;
+}
+.ff-chart i:nth-child(6) { animation-delay: 0.40s;
+}
+.ff-chart i:nth-child(7) { animation-delay: 0.48s;
+}
 
 /* 3. Live service status indicator */
 @keyframes ff-status-pulse {
@@ -1591,7 +1484,6 @@ body.ff-landing-active #root {
     box-shadow: 0 0 0 6px rgba(22, 163, 74, 0);
   }
 }
-
 .ff-eyebrow i,
 .ff-live {
   animation: ff-status-pulse 2s ease-out infinite;
@@ -1604,7 +1496,6 @@ body.ff-landing-active #root {
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 }
-
 .ff-feature:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
@@ -1617,11 +1508,9 @@ body.ff-landing-active #root {
     box-shadow 0.2s ease,
     background 0.2s ease;
 }
-
 .ff-button:hover {
   transform: translateY(-2px);
 }
-
 .ff-button:active {
   transform: translateY(0) scale(0.98);
 }
@@ -1642,11 +1531,9 @@ body.ff-landing-active #root {
   }
 }
 
-
 /* =========================================
    FSM MOVING ICONS AND DOTTED ROUTES
 ========================================= */
-
 .ff-motion-bg {
   position: absolute;
   right: 0;
@@ -1658,7 +1545,6 @@ body.ff-landing-active #root {
   pointer-events: none;
   opacity: 0.65;
 }
-
 .ff-flight {
   position: absolute;
   left: -35%;
@@ -1677,24 +1563,20 @@ body.ff-landing-active #root {
   background-position: center;
   animation: ff-route-travel 22s linear infinite;
 }
-
 .ff-flight-one {
   top: 8px;
   animation-duration: 22s;
 }
-
 .ff-flight-two {
   top: 36px;
   animation-duration: 28s;
   animation-delay: -10s;
 }
-
 .ff-flight-three {
   top: 64px;
   animation-duration: 24s;
   animation-delay: -17s;
 }
-
 .ff-motion-icon {
   display: grid;
   place-items: center;
@@ -1708,19 +1590,16 @@ body.ff-landing-active #root {
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
   animation: ff-icon-float 2.5s ease-in-out infinite;
 }
-
 .ff-flight-two .ff-motion-icon {
   color: #0f766e;
   border-color: rgba(15, 118, 110, 0.5);
   box-shadow: 0 8px 25px rgba(15, 118, 110, 0.2);
 }
-
 .ff-flight-three .ff-motion-icon {
   color: #7c3aed;
   border-color: rgba(124, 58, 237, 0.5);
   box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
 }
-
 @keyframes ff-route-travel {
   from {
     transform: translateX(0);
@@ -1729,7 +1608,6 @@ body.ff-landing-active #root {
     transform: translateX(160vw);
   }
 }
-
 @keyframes ff-icon-float {
   0%, 100% {
     translate: 0 0;
@@ -1742,14 +1620,12 @@ body.ff-landing-active #root {
 /* =========================================
    SHARED ANIMATED SECTION BACKGROUNDS
 ========================================= */
-
 .ff-about,
 .ff-section {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
-
 .ff-about-grid,
 .ff-section > .ff-container {
   position: relative;
@@ -1768,7 +1644,6 @@ body.ff-landing-active #root {
   pointer-events: none;
   opacity: 1;
 }
-
 .ff-section-motion > span {
   position: absolute;
   display: grid;
@@ -1782,7 +1657,6 @@ body.ff-landing-active #root {
   box-shadow: 0 8px 28px rgba(37, 99, 235, 0.13);
   backdrop-filter: blur(3px);
 }
-
 .ff-section-motion > span svg {
   width: 28px;
   height: 28px;
@@ -1793,21 +1667,17 @@ body.ff-landing-active #root {
 .ff-about-motion > span {
   animation: ff-about-float 6s ease-in-out infinite;
 }
-
 .ff-about-motion > span:nth-child(2) {
   animation-duration: 7s;
   animation-direction: reverse;
 }
-
 .ff-about-motion > span:nth-child(3) {
   animation-duration: 5s;
 }
-
 .ff-about-motion > span:nth-child(4) {
   animation-duration: 8s;
   animation-direction: reverse;
 }
-
 @keyframes ff-about-float {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -1823,15 +1693,12 @@ body.ff-landing-active #root {
   animation: ff-features-spin 10s linear infinite,
     ff-features-float 4s ease-in-out infinite;
 }
-
 .ff-features-motion > span:nth-child(2) {
   animation-direction: reverse, alternate;
 }
-
 .ff-features-motion > span:nth-child(3) {
   animation-direction: reverse, alternate;
 }
-
 @keyframes ff-features-spin {
   from {
     rotate: 0deg;
@@ -1840,7 +1707,6 @@ body.ff-landing-active #root {
     rotate: 360deg;
   }
 }
-
 @keyframes ff-features-float {
   0%, 100% {
     translate: 0 0;
@@ -1854,19 +1720,15 @@ body.ff-landing-active #root {
 .ff-steps-motion > span {
   animation: ff-steps-drift 5s ease-in-out infinite;
 }
-
 .ff-steps-motion > span:nth-child(2) {
   animation-delay: -2s;
 }
-
 .ff-steps-motion > span:nth-child(3) {
   animation-delay: -4s;
 }
-
 .ff-steps-motion > span:nth-child(4) {
   animation-delay: -6s;
 }
-
 @keyframes ff-steps-drift {
   0%, 100% {
     transform: translate(0, 0) rotate(0deg);
@@ -1880,11 +1742,9 @@ body.ff-landing-active #root {
 .ff-solutions-motion > span {
   animation: ff-solutions-drift 4s ease-in-out infinite;
 }
-
 .ff-solutions-motion > span:nth-child(even) {
   animation-delay: -2s;
 }
-
 @keyframes ff-solutions-drift {
   0%, 100% {
     transform: translateY(0) scale(1);
@@ -1898,11 +1758,9 @@ body.ff-landing-active #root {
 .ff-benefits-motion > span {
   animation: ff-benefits-orbit 6s ease-in-out infinite;
 }
-
 .ff-benefits-motion > span:nth-child(even) {
   animation-delay: -3s;
 }
-
 @keyframes ff-benefits-orbit {
   0%, 100% {
     transform: translate(0, 0) rotate(0deg);
@@ -1916,15 +1774,12 @@ body.ff-landing-active #root {
 .ff-contact-motion > span {
   animation: ff-contact-bounce 2.5s ease-in-out infinite;
 }
-
 .ff-contact-motion > span:nth-child(2) {
   animation-delay: -0.8s;
 }
-
 .ff-contact-motion > span:nth-child(3) {
   animation-delay: -1.6s;
 }
-
 @keyframes ff-contact-bounce {
   0%, 100% {
     transform: translateY(0) scale(1);
@@ -1933,14 +1788,12 @@ body.ff-landing-active #root {
     transform: translateY(-22px) scale(1.08);
   }
 }
-
 .ff-section-motion.ff-footer-motion {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
   opacity: 0.48;
 }
-
 .ff-section-motion.ff-footer-motion > span {
   position: relative;
   inset: auto;
@@ -1952,7 +1805,6 @@ body.ff-landing-active #root {
 /* =========================================
    CONTENT ICON HOVER EFFECTS
 ========================================= */
-
 .ff-feature > span svg,
 .ff-flow > span svg,
 .ff-benefits > div > svg,
@@ -1960,13 +1812,11 @@ body.ff-landing-active #root {
 .ff-contact-list > div > svg {
   transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .ff-feature:hover > span svg,
 .ff-benefits > div:hover > svg {
   transform: translateY(-4px) scale(1.1);
   color: #2563eb;
 }
-
 .ff-flow > span:hover svg,
 .ff-contact-list > a:hover > svg {
   transform: translateY(-4px);
@@ -1976,7 +1826,6 @@ body.ff-landing-active #root {
 /* =========================================
    RESPONSIVE DESIGN
 ========================================= */
-
 @media (max-width: 760px) {
   .ff-motion-bg {
     opacity: 0.5;
@@ -2019,7 +1868,6 @@ body.ff-landing-active #root {
 .ff-role-grid {
   perspective: 1200px;
 }
-
 .ff-flow > span,
 .ff-feature,
 .ff-role {
@@ -2073,7 +1921,6 @@ body.ff-landing-active #root {
     0 24px 40px -16px rgba(37, 99, 235, 0.35),
     0 10px 18px -10px rgba(15, 23, 42, 0.2);
 }
-
 .ff-feature.ff-rr-active {
   background: linear-gradient(180deg, #fff, var(--blue-50));
 }
@@ -2099,7 +1946,6 @@ body.ff-landing-active #root {
   transform: translateY(-3px) scale(1.15);
   color: var(--teal);
 }
-
 @media (max-width: 760px) {
   .ff-flow > span.ff-rr-active,
   .ff-feature.ff-rr-active,
@@ -2129,7 +1975,6 @@ body.ff-landing-active #root {
   --ag-blue-shadow: 0 18px 34px -18px rgba(37, 99, 235, 0.42);
   scroll-behavior: smooth;
 }
-
 .ff-hero {
   background:
     radial-gradient(ellipse at 82% 18%, rgba(96, 165, 250, 0.18), transparent 36%),
@@ -2144,7 +1989,6 @@ body.ff-landing-active #root {
   transform-origin: center;
   will-change: transform;
 }
-
 @keyframes ff-ag-float {
   0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateZ(0deg); }
   25% { transform: translate3d(0, -8px, 0) rotateX(1deg) rotateZ(-0.25deg); }
@@ -2169,7 +2013,6 @@ body.ff-landing-active #root {
   pointer-events: none;
   animation: ff-ag-orbit 18s linear infinite;
 }
-
 @keyframes ff-ag-orbit {
   from { transform: rotate(0deg) translateX(8px) rotate(0deg); }
   to { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
@@ -2190,7 +2033,6 @@ body.ff-landing-active #root {
     box-shadow 420ms ease,
     background-color 300ms ease;
 }
-
 .ff-feature:hover,
 .ff-role:hover,
 .ff-flow > span:hover,
@@ -2201,16 +2043,16 @@ body.ff-landing-active #root {
   border-color: #93c5fd;
   box-shadow: var(--ag-blue-shadow);
 }
-
-.ff-feature:nth-child(3n + 1) { --ag-delay: 0ms; }
-.ff-feature:nth-child(3n + 2) { --ag-delay: 120ms; }
-.ff-feature:nth-child(3n) { --ag-delay: 240ms; }
-
+.ff-feature:nth-child(3n + 1) { --ag-delay: 0ms;
+}
+.ff-feature:nth-child(3n + 2) { --ag-delay: 120ms;
+}
+.ff-feature:nth-child(3n) { --ag-delay: 240ms;
+}
 .ff-feature[data-reveal].ff-reveal-in {
   animation: ff-ag-card-land 700ms var(--ag-ease) both;
   animation-delay: var(--ag-delay, 0ms);
 }
-
 @keyframes ff-ag-card-land {
   0% { transform: translate3d(0, 20px, 0) rotateX(-5deg) scale(0.98); }
   65% { transform: translate3d(0, -4px, 0) rotateX(1deg) scale(1.005); }
@@ -2226,11 +2068,9 @@ body.ff-landing-active #root {
     background-color 220ms ease,
     border-color 220ms ease;
 }
-
 .ff-button:hover {
   transform: translateY(-3px) scale(1.015);
 }
-
 .ff-button:active {
   transform: translateY(1px) scale(0.975);
 }
@@ -2242,12 +2082,10 @@ body.ff-landing-active #root {
 .ff-contact-list > a > svg {
   transition: transform 350ms var(--ag-ease), color 250ms ease;
 }
-
 .ff-feature:hover > span,
 .ff-benefits > div:hover > svg {
   transform: translateY(-5px) rotate(-4deg);
 }
-
 .ff-flow > span:hover svg,
 .ff-contact-list > a:hover > svg {
   transform: translateY(-4px) rotate(4deg);
@@ -2258,13 +2096,18 @@ body.ff-landing-active #root {
   transform-origin: bottom;
   animation: ff-ag-bar-pop 850ms var(--ag-ease) both;
 }
-.ff-chart i:nth-child(2) { animation-delay: 80ms; }
-.ff-chart i:nth-child(3) { animation-delay: 160ms; }
-.ff-chart i:nth-child(4) { animation-delay: 240ms; }
-.ff-chart i:nth-child(5) { animation-delay: 320ms; }
-.ff-chart i:nth-child(6) { animation-delay: 400ms; }
-.ff-chart i:nth-child(7) { animation-delay: 480ms; }
-
+.ff-chart i:nth-child(2) { animation-delay: 80ms;
+}
+.ff-chart i:nth-child(3) { animation-delay: 160ms;
+}
+.ff-chart i:nth-child(4) { animation-delay: 240ms;
+}
+.ff-chart i:nth-child(5) { animation-delay: 320ms;
+}
+.ff-chart i:nth-child(6) { animation-delay: 400ms;
+}
+.ff-chart i:nth-child(7) { animation-delay: 480ms;
+}
 @keyframes ff-ag-bar-pop {
   0% { transform: scaleY(0); }
   75% { transform: scaleY(1.06); }
@@ -2276,7 +2119,6 @@ body.ff-landing-active #root {
   animation: ff-ag-icon-hover 3.8s ease-in-out infinite;
   box-shadow: 0 5px 0 rgba(37, 99, 235, 0.08);
 }
-
 @keyframes ff-ag-icon-hover {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(3deg); }
@@ -2286,9 +2128,10 @@ body.ff-landing-active #root {
 .ff-section-motion > span {
   animation: ff-ag-section-float 5.5s ease-in-out infinite;
 }
-.ff-section-motion > span:nth-child(2n) { animation-delay: -1.8s; }
-.ff-section-motion > span:nth-child(3n) { animation-delay: -3.2s; }
-
+.ff-section-motion > span:nth-child(2n) { animation-delay: -1.8s;
+}
+.ff-section-motion > span:nth-child(3n) { animation-delay: -3.2s;
+}
 @keyframes ff-ag-section-float {
   0%, 100% { translate: 0 0; rotate: 0deg; }
   50% { translate: 0 -16px; rotate: 5deg; }
@@ -2301,9 +2144,10 @@ body.ff-landing-active #root {
 .ff-step-node {
   animation: ff-ag-node-float 4s ease-in-out infinite;
 }
-.ff-steps li:nth-child(2n) .ff-step-node { animation-delay: -1.5s; }
-.ff-steps li:nth-child(3n) .ff-step-node { animation-delay: -2.5s; }
-
+.ff-steps li:nth-child(2n) .ff-step-node { animation-delay: -1.5s;
+}
+.ff-steps li:nth-child(3n) .ff-step-node { animation-delay: -2.5s;
+}
 @keyframes ff-ag-node-float {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -4px; }
@@ -2493,7 +2337,6 @@ body.ff-landing-active #root {
     letter-spacing: -0.055em;
   }
 }
-
 @keyframes ff-heading-kinetic-in {
   0% {
     opacity: 0;
@@ -2513,7 +2356,6 @@ body.ff-landing-active #root {
     letter-spacing: -0.045em;
   }
 }
-
 @keyframes ff-heading-slide-reveal {
   0% {
     opacity: 0;
@@ -2531,24 +2373,20 @@ body.ff-landing-active #root {
     transform: translate3d(0, 0, 0) skewY(0);
   }
 }
-
 @keyframes ff-heading-tracking-settle {
   0% { letter-spacing: .045em; }
   60% { letter-spacing: -.055em; }
   100% { letter-spacing: -.045em; }
 }
-
 @keyframes ff-heading-accent-sweep {
   0% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
 @keyframes ff-heading-accent-pop {
   0% { transform: translateY(10px) scale(.96); }
   70% { transform: translateY(-2px) scale(1.015); }
   100% { transform: translateY(0) scale(1); }
 }
-
 @keyframes ff-eyebrow-snap-in {
   0% {
     opacity: 0;
@@ -2561,7 +2399,6 @@ body.ff-landing-active #root {
     letter-spacing: normal;
   }
 }
-
 @keyframes ff-heading-underline-draw {
   0% { transform: scaleX(0); }
   100% { transform: scaleX(1); }
@@ -2587,12 +2424,10 @@ body.ff-landing-active #root {
     background: none;
   }
 }
-
 @media (max-width: 640px) {
   .ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
     letter-spacing: -0.035em;
   }
-
   .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
     height: 2px;
   }
@@ -2603,7 +2438,6 @@ body.ff-landing-active #root {
    Crisp stretch -> slight overshoot -> tight snap-back.
    No blur, no filters, no glass effects.
    ========================================================== */
-
 @keyframes ff-snappy-text-stretch {
   0% {
     opacity: 0;
@@ -2625,7 +2459,6 @@ body.ff-landing-active #root {
     letter-spacing: -.045em;
   }
 }
-
 @keyframes ff-snappy-accent-stretch {
   0% { transform: scaleX(.55); }
   52% { transform: scaleX(1.12); }
@@ -2692,7 +2525,6 @@ body.ff-landing-active #root {
    REFINEMENT: TYPOGRAPHY MOTION ONLY — NO DECORATIVE UNDERLINES
    Keep the motion mature, clean, and focused on the text itself.
    ========================================================== */
-
 .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
   content: none !important;
   display: none !important;
@@ -2731,7 +2563,6 @@ body.ff-landing-active #root {
    FIX: Play headings on scroll AND initial page load
    Requires the IntersectionObserver class toggle in LandingPage.jsx.
    ========================================================== */
-
 .ff-page .ff-hero h1.ff-heading-play,
 .ff-page .ff-about h2.ff-heading-play,
 .ff-page .ff-heading h2.ff-heading-play,
@@ -2740,38 +2571,15 @@ body.ff-landing-active #root {
   animation: ff-snappy-text-stretch 820ms cubic-bezier(.2, .85, .25, 1) both !important;
 }
 
-.ff-page .ff-hero h1.ff-heading-play > span {
-  animation:
-    ff-snappy-accent-stretch 760ms cubic-bezier(.2, .85, .25, 1) 100ms both,
-    ff-heading-accent-sweep 1400ms cubic-bezier(.16, 1, .3, 1) 100ms both !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ff-page .ff-hero h1.ff-heading-play,
-  .ff-page .ff-about h2.ff-heading-play,
-  .ff-page .ff-heading h2.ff-heading-play,
-  .ff-page .ff-cta h2.ff-heading-play,
-  .ff-page .ff-contact h2.ff-heading-play,
-  .ff-page .ff-hero h1.ff-heading-play > span {
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
 /* ============================================================
    FIELDFLOW FSM — PREMIUM PRODUCT EXPERIENCE UPGRADE
    Direction: confident SaaS, precise motion, crisp surfaces.
    No blur, no backdrop-filter, no decorative heading underlines.
    ============================================================ */
-
 :root {
   --ff-premium-ink: #101d35;
-  --ff-premium-muted: #60718c;
   --ff-premium-blue: #245cff;
-  --ff-premium-cyan: #38c8f5;
   --ff-premium-line: #dce6f5;
-  --ff-premium-surface: #ffffff;
-  --ff-premium-soft: #f4f8ff;
   --ff-premium-ease: cubic-bezier(.2, .8, .2, 1);
   --ff-premium-spring: cubic-bezier(.16, 1, .3, 1);
 }
@@ -2782,11 +2590,9 @@ body.ff-landing-active #root {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
 .ff-page :is(h1, h2, h3) {
   text-wrap: balance;
 }
-
 .ff-page :is(.ff-hero h1, .ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2) {
   text-decoration: none !important;
   text-shadow: none !important;
@@ -2799,7 +2605,6 @@ body.ff-landing-active #root {
   isolation: isolate;
   overflow: clip;
 }
-
 .ff-page .ff-hero::before {
   content: "";
   position: absolute;
@@ -2810,14 +2615,12 @@ body.ff-landing-active #root {
     radial-gradient(ellipse at 82% 18%, rgba(56, 200, 245, .13), transparent 34%),
     radial-gradient(ellipse at 10% 88%, rgba(36, 92, 255, .08), transparent 36%);
 }
-
 .ff-page .ff-hero h1 {
   max-width: 13ch;
   line-height: .99;
   letter-spacing: -.055em;
   font-weight: 820;
 }
-
 .ff-page .ff-hero h1 > span {
   background-image: linear-gradient(100deg, #245cff 4%, #168bdc 52%, #13a9c8 100%);
   background-size: 100% 100%;
@@ -2840,12 +2643,10 @@ body.ff-landing-active #root {
   letter-spacing: -.045em;
   font-weight: 790;
 }
-
 .ff-page :is(.ff-about h2, .ff-heading h2, .ff-cta h2, .ff-contact h2)::after {
   display: none !important;
   content: none !important;
 }
-
 .ff-page .ff-heading > p,
 .ff-page .ff-about-grid p,
 .ff-page .ff-contact-grid p {
@@ -2858,20 +2659,16 @@ body.ff-landing-active #root {
   border-bottom: 1px solid rgba(220, 230, 245, .9);
   box-shadow: 0 5px 20px rgba(16, 29, 53, .035);
 }
-
 .ff-page .ff-menu a {
   transition: color 180ms ease, transform 180ms ease;
 }
-
 .ff-page .ff-menu a:hover {
   color: var(--ff-premium-blue);
   transform: translateY(-1px);
 }
-
 .ff-page .ff-brand-mark {
   transition: transform 260ms var(--ff-premium-spring);
 }
-
 .ff-page .ff-brand:hover .ff-brand-mark {
   transform: rotate(-8deg) scale(1.06);
 }
@@ -2888,7 +2685,6 @@ body.ff-landing-active #root {
     border-color 220ms ease,
     background-color 220ms ease;
 }
-
 .ff-page .ff-button::after {
   content: "";
   position: absolute;
@@ -2902,21 +2698,17 @@ body.ff-landing-active #root {
   transition: left 480ms var(--ff-premium-ease);
   pointer-events: none;
 }
-
 .ff-page .ff-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 22px rgba(36, 92, 255, .16);
 }
-
 .ff-page .ff-button:hover::after {
   left: 135%;
 }
-
 .ff-page .ff-button:active {
   transform: translateY(-1px) scale(.985);
   box-shadow: none;
 }
-
 .ff-page :is(a, button, input, textarea, select):focus-visible {
   outline: 3px solid #39bdf2;
   outline-offset: 4px;
@@ -2932,16 +2724,13 @@ body.ff-landing-active #root {
              ff-premium-dashboard-float 7s ease-in-out 1.2s infinite;
   transform-origin: 55% 50%;
 }
-
 .ff-page .ff-preview-top {
   border-bottom: 1px solid rgba(220, 230, 245, .95);
 }
-
 .ff-page .ff-preview-panel {
   transition: transform 240ms var(--ff-premium-spring), border-color 240ms ease,
               box-shadow 240ms ease;
 }
-
 .ff-page .ff-preview-panel:hover {
   transform: translateY(-3px);
   border-color: #b8cdf4;
@@ -2957,19 +2746,16 @@ body.ff-landing-active #root {
     border-color 220ms ease,
     background-color 220ms ease;
 }
-
 @media (hover: hover) and (pointer: fine) {
   .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div):hover {
     transform: translateY(-7px);
     border-color: #b9cdf7;
     box-shadow: 0 18px 35px rgba(24, 53, 105, .10);
   }
-
   .ff-page .ff-feature:hover > span {
     transform: translateY(-2px) rotate(-4deg) scale(1.05);
   }
 }
-
 .ff-page .ff-feature > span {
   transition: transform 260ms var(--ff-premium-spring);
 }
@@ -2981,7 +2767,6 @@ body.ff-landing-active #root {
     transform 750ms var(--ff-premium-spring);
   transition-delay: var(--reveal-delay, 0ms);
 }
-
 .ff-page [data-reveal].ff-reveal-in {
   transition-delay: var(--reveal-delay, 0ms);
 }
@@ -2994,30 +2779,17 @@ body.ff-landing-active #root {
 .ff-page .ff-contact h2.ff-heading-play {
   animation: ff-premium-heading-snap 820ms var(--ff-premium-spring) both !important;
 }
-
-.ff-page .ff-hero h1.ff-heading-play > span {
-  animation: ff-premium-heading-accent 760ms var(--ff-premium-spring) 100ms both !important;
-}
-
 @keyframes ff-premium-heading-snap {
   0% { opacity: 0; transform: translate3d(0, 20px, 0) scaleX(.78); letter-spacing: .015em; }
   52% { opacity: 1; transform: translate3d(0, -3px, 0) scaleX(1.045); letter-spacing: -.055em; }
   76% { transform: translate3d(0, 1px, 0) scaleX(.99); }
   100% { opacity: 1; transform: translate3d(0, 0, 0) scaleX(1); letter-spacing: -.045em; }
 }
-
-@keyframes ff-premium-heading-accent {
-  0% { transform: scaleX(.72); }
-  58% { transform: scaleX(1.07); }
-  100% { transform: scaleX(1); }
-}
-
 @keyframes ff-premium-dashboard-arrive {
   0% { opacity: 0; transform: translate3d(0, 24px, 0) rotateX(4deg) scale(.97); }
   72% { opacity: 1; transform: translate3d(0, -3px, 0) rotateX(0) scale(1.005); }
   100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); }
 }
-
 @keyframes ff-premium-dashboard-float {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -7px; }
@@ -3027,11 +2799,9 @@ body.ff-landing-active #root {
 .ff-page .ff-step-node {
   transition: transform 240ms var(--ff-premium-spring), box-shadow 240ms ease;
 }
-
 .ff-page .ff-steps li {
   transition: transform 240ms var(--ff-premium-spring);
 }
-
 @media (hover: hover) and (pointer: fine) {
   .ff-page .ff-steps li:hover {
     transform: translateY(-4px);
@@ -3055,7 +2825,6 @@ body.ff-landing-active #root {
   isolation: isolate;
   overflow: hidden;
 }
-
 .ff-page .ff-cta::before {
   content: "";
   position: absolute;
@@ -3064,7 +2833,6 @@ body.ff-landing-active #root {
   pointer-events: none;
   background: linear-gradient(110deg, rgba(255,255,255,.07), transparent 48%, rgba(56,200,245,.12));
 }
-
 .ff-page .ff-cta .ff-light:hover {
   box-shadow: 0 12px 26px rgba(4, 18, 45, .2);
 }
@@ -3074,7 +2842,6 @@ body.ff-landing-active #root {
 .ff-page .ff-contact-list > div {
   transition: transform 240ms var(--ff-premium-spring), border-color 220ms ease;
 }
-
 .ff-page .ff-contact-list > a:hover {
   transform: translateX(4px);
   border-color: #b8cdf4;
@@ -3085,7 +2852,6 @@ body.ff-landing-active #root {
   display: inline-flex;
   transition: color 180ms ease, transform 180ms ease;
 }
-
 .ff-page .ff-footer-nav a:hover {
   color: #7ddfff;
   transform: translateX(3px);
@@ -3128,7 +2894,6 @@ body.ff-landing-active #root {
    Replaces the plain outlined list with a premium contact card.
    Crisp surfaces only: no blur, no glass, no heading underlines.
    ============================================================ */
-
 .ff-page .ff-contact-list {
   position: relative;
   isolation: isolate;
@@ -3158,7 +2923,6 @@ body.ff-landing-active #root {
   border-radius: 0 6px 6px 0;
   background: linear-gradient(180deg, #42d4ff, #4b75ff 58%, #8c7bff);
 }
-
 .ff-page .ff-contact-list::after {
   content: "";
   position: absolute;
@@ -3174,12 +2938,10 @@ body.ff-landing-active #root {
     0 0 0 48px rgba(144, 183, 255, .025);
   pointer-events: none;
 }
-
 .ff-page .ff-contact-list > center {
   margin: 0 0 8px;
   text-align: left;
 }
-
 .ff-page .ff-contact-list > center h3 {
   margin: 0;
   color: #fff !important;
@@ -3187,7 +2949,6 @@ body.ff-landing-active #root {
   font-weight: 780;
   letter-spacing: -.035em;
 }
-
 .ff-page .ff-contact-list > center::after {
   content: "We usually respond within one business day";
   display: block;
@@ -3235,21 +2996,18 @@ body.ff-landing-active #root {
   stroke-width: 1.8;
   transition: transform 280ms cubic-bezier(.16, 1, .3, 1), background 220ms ease;
 }
-
 .ff-page .ff-contact-list > a > span,
 .ff-page .ff-contact-list > div > span {
   display: grid;
   gap: 5px;
   min-width: 0;
 }
-
 .ff-page .ff-contact-list small {
   color: #b7c8e3 !important;
   font-size: .86rem;
   font-weight: 600;
   letter-spacing: .025em;
 }
-
 .ff-page .ff-contact-list strong {
   color: #fff !important;
   font-size: clamp(.98rem, 1.4vw, 1.12rem);
@@ -3279,33 +3037,30 @@ body.ff-landing-active #root {
 .ff-page .ff-contact-list.ff-reveal-in {
   animation: ff-contact-panel-enter 760ms cubic-bezier(.16, 1, .3, 1) both;
 }
-
 .ff-page .ff-contact-list.ff-reveal-in > a,
 .ff-page .ff-contact-list.ff-reveal-in > div {
   animation: ff-contact-row-enter 650ms cubic-bezier(.16, 1, .3, 1) both;
 }
-
-.ff-page .ff-contact-list.ff-reveal-in > a:nth-of-type(1) { animation-delay: 90ms; }
-.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(2) { animation-delay: 170ms; }
-.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(3) { animation-delay: 250ms; }
-
+.ff-page .ff-contact-list.ff-reveal-in > a:nth-of-type(1) { animation-delay: 90ms;
+}
+.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(2) { animation-delay: 170ms;
+}
+.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(3) { animation-delay: 250ms;
+}
 @keyframes ff-contact-panel-enter {
   from { opacity: 0; transform: translateY(18px) scale(.985); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-
 @keyframes ff-contact-row-enter {
   from { opacity: 0; transform: translateX(18px); }
   to { opacity: 1; transform: translateX(0); }
 }
-
 @media (max-width: 560px) {
   .ff-page .ff-contact-list {
     padding: 20px 16px 18px 20px;
     gap: 11px;
     border-radius: 21px !important;
   }
-
   .ff-page .ff-contact-list > a,
   .ff-page .ff-contact-list > div {
     grid-template-columns: 43px minmax(0, 1fr);
@@ -3313,7 +3068,6 @@ body.ff-landing-active #root {
     padding: 14px 12px !important;
     border-radius: 14px !important;
   }
-
   .ff-page .ff-contact-list > a > svg,
   .ff-page .ff-contact-list > div > svg {
     width: 43px !important;
@@ -3321,7 +3075,6 @@ body.ff-landing-active #root {
     padding: 10px;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .ff-page .ff-contact-list,
   .ff-page .ff-contact-list > a,
@@ -3336,18 +3089,7 @@ body.ff-landing-active #root {
    Color-rich surfaces with restrained SaaS polish.
    No blur, no glassmorphism, no decorative heading underlines.
    ============================================================ */
-
 :root {
-  --ff-violet: #7657f6;
-  --ff-blue: #3268f5;
-  --ff-cyan: #19a7c9;
-  --ff-teal: #159b8b;
-  --ff-green: #27845f;
-  --ff-amber: #c88620;
-  --ff-rose: #cf557b;
-  --ff-indigo: #4d58cf;
-  --ff-ink: #13233e;
-  --ff-muted: #5d6f89;
 }
 
 /* Unified box treatment: more color, still enterprise-friendly. */
@@ -3375,7 +3117,6 @@ body.ff-landing-active #root {
   pointer-events: none;
   background: linear-gradient(135deg, var(--card-wash, #f3f6ff), #fff 72%);
 }
-
 .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div)::after {
   content: "";
   position: absolute;
@@ -3389,33 +3130,49 @@ body.ff-landing-active #root {
   transition: transform 320ms cubic-bezier(.16, 1, .3, 1);
   pointer-events: none;
 }
-
 .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div):hover::after {
   transform: scaleX(1);
 }
 
 /* Features: coordinated pastel palettes with saturated icon accents. */
-.ff-page .ff-feature:nth-child(6n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important; }
-.ff-page .ff-feature:nth-child(6n + 2) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important; }
-.ff-page .ff-feature:nth-child(6n + 3) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important; }
-.ff-page .ff-feature:nth-child(6n + 4) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important; }
-.ff-page .ff-feature:nth-child(6n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important; }
-.ff-page .ff-feature:nth-child(6n + 6) { --card-accent: #cf557b; --card-wash: #fff0f5; border-color: #f4d4e0 !important; }
+.ff-page .ff-feature:nth-child(6n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important;
+}
+.ff-page .ff-feature:nth-child(6n + 2) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important;
+}
+.ff-page .ff-feature:nth-child(6n + 3) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important;
+}
+.ff-page .ff-feature:nth-child(6n + 4) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important;
+}
+.ff-page .ff-feature:nth-child(6n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important;
+}
+.ff-page .ff-feature:nth-child(6n + 6) { --card-accent: #cf557b; --card-wash: #fff0f5; border-color: #f4d4e0 !important;
+}
 
 /* Roles: use a calmer, related set so the page feels art-directed. */
-.ff-page .ff-role:nth-child(6n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important; }
-.ff-page .ff-role:nth-child(6n + 2) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important; }
-.ff-page .ff-role:nth-child(6n + 3) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important; }
-.ff-page .ff-role:nth-child(6n + 4) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important; }
-.ff-page .ff-role:nth-child(6n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important; }
-.ff-page .ff-role:nth-child(6n + 6) { --card-accent: #cf557b; --card-wash: #fff0f5; border-color: #f4d4e0 !important; }
+.ff-page .ff-role:nth-child(6n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important;
+}
+.ff-page .ff-role:nth-child(6n + 2) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important;
+}
+.ff-page .ff-role:nth-child(6n + 3) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important;
+}
+.ff-page .ff-role:nth-child(6n + 4) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important;
+}
+.ff-page .ff-role:nth-child(6n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important;
+}
+.ff-page .ff-role:nth-child(6n + 6) { --card-accent: #cf557b; --card-wash: #fff0f5; border-color: #f4d4e0 !important;
+}
 
 /* Benefits use a subtle, coordinated spectrum instead of identical white boxes. */
-.ff-page .ff-benefits > div:nth-child(5n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important; }
-.ff-page .ff-benefits > div:nth-child(5n + 2) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important; }
-.ff-page .ff-benefits > div:nth-child(5n + 3) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important; }
-.ff-page .ff-benefits > div:nth-child(5n + 4) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important; }
-.ff-page .ff-benefits > div:nth-child(5n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important; }
+.ff-page .ff-benefits > div:nth-child(5n + 1) { --card-accent: #3268f5; --card-wash: #edf3ff; border-color: #d4e1ff !important;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 2) { --card-accent: #159b8b; --card-wash: #e8faf6; border-color: #c8eee6 !important;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 3) { --card-accent: #7657f6; --card-wash: #f1edff; border-color: #dfd6ff !important;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 4) { --card-accent: #d28a22; --card-wash: #fff5e3; border-color: #f2dfba !important;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 5) { --card-accent: #168db8; --card-wash: #e8f7fc; border-color: #c9eaf5 !important;
+}
 
 /* Icon tiles inherit each card's accent but retain readable contrast. */
 .ff-page .ff-feature > span,
@@ -3434,11 +3191,12 @@ body.ff-landing-active #root {
   background: linear-gradient(120deg, rgba(255,255,255,.10), rgba(255,255,255,.045)) !important;
   border-color: rgba(155, 190, 255, .24) !important;
 }
-
-.ff-page .ff-contact-list > a:nth-of-type(1) { --contact-accent: #69a2ff; }
-.ff-page .ff-contact-list > div:nth-of-type(2) { --contact-accent: #42d8c3; }
-.ff-page .ff-contact-list > div:nth-of-type(3) { --contact-accent: #c1a2ff; }
-
+.ff-page .ff-contact-list > a:nth-of-type(1) { --contact-accent: #69a2ff;
+}
+.ff-page .ff-contact-list > div:nth-of-type(2) { --contact-accent: #42d8c3;
+}
+.ff-page .ff-contact-list > div:nth-of-type(3) { --contact-accent: #c1a2ff;
+}
 .ff-page .ff-contact-list > a > svg,
 .ff-page .ff-contact-list > div > svg {
   color: var(--contact-accent, #77cfff) !important;
@@ -3447,13 +3205,18 @@ body.ff-landing-active #root {
 }
 
 /* Workflow steps get individual accent colors while preserving the line. */
-.ff-page .ff-steps li:nth-child(6n + 1) { --step-accent: #3268f5; }
-.ff-page .ff-steps li:nth-child(6n + 2) { --step-accent: #159b8b; }
-.ff-page .ff-steps li:nth-child(6n + 3) { --step-accent: #7657f6; }
-.ff-page .ff-steps li:nth-child(6n + 4) { --step-accent: #d28a22; }
-.ff-page .ff-steps li:nth-child(6n + 5) { --step-accent: #168db8; }
-.ff-page .ff-steps li:nth-child(6n + 6) { --step-accent: #cf557b; }
-
+.ff-page .ff-steps li:nth-child(6n + 1) { --step-accent: #3268f5;
+}
+.ff-page .ff-steps li:nth-child(6n + 2) { --step-accent: #159b8b;
+}
+.ff-page .ff-steps li:nth-child(6n + 3) { --step-accent: #7657f6;
+}
+.ff-page .ff-steps li:nth-child(6n + 4) { --step-accent: #d28a22;
+}
+.ff-page .ff-steps li:nth-child(6n + 5) { --step-accent: #168db8;
+}
+.ff-page .ff-steps li:nth-child(6n + 6) { --step-accent: #cf557b;
+}
 .ff-page .ff-steps li .ff-step-node {
   color: var(--step-accent, #3268f5);
   border-color: color-mix(in srgb, var(--step-accent, #3268f5) 35%, white);
@@ -3465,12 +3228,6 @@ body.ff-landing-active #root {
 .ff-page .ff-benefits {
   background-color: #f6f8ff;
 }
-
-.ff-page .ff-roles,
-.ff-page .ff-how {
-  background-color: #ffffff;
-}
-
 .ff-page .ff-about {
   background:
     radial-gradient(ellipse at 90% 25%, rgba(50, 104, 245, .065), transparent 36%),
@@ -3494,7 +3251,6 @@ body.ff-landing-active #root {
     background: #edf3ff !important;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div)::after {
     transition: none !important;
@@ -3507,16 +3263,8 @@ body.ff-landing-active #root {
    vivid but controlled color, editorial spacing, tactile cards.
    No blur/backdrop-filter and no decorative heading underlines.
    ============================================================ */
-
 :root {
-  --ff-bg-ink: #0b1630;
-  --ff-bg-deep: #10264b;
-  --ff-blue-strong: #2e63f5;
-  --ff-cyan-bright: #46d7f5;
-  --ff-lilac: #9a85ff;
-  --ff-card-border: #dbe5f7;
   --ff-copy: #5c6d88;
-  --ff-white: #ffffff;
 }
 
 /* Site-wide visual rhythm */
@@ -3524,21 +3272,17 @@ body.ff-landing-active #root {
   background: #fff;
   color: #14233d;
 }
-
 .ff-page .ff-section {
   position: relative;
   padding-block: clamp(68px, 8vw, 112px);
 }
-
 .ff-page .ff-container {
   width: min(1200px, calc(100% - 48px));
 }
-
 .ff-page .ff-heading {
   max-width: 760px;
   margin-bottom: clamp(30px, 4vw, 48px);
 }
-
 .ff-page .ff-heading h2,
 .ff-page .ff-about h2,
 .ff-page .ff-contact h2 {
@@ -3547,7 +3291,6 @@ body.ff-landing-active #root {
   letter-spacing: -.055em;
   font-weight: 820;
 }
-
 .ff-page .ff-heading > p,
 .ff-page .ff-about-grid p,
 .ff-page .ff-contact-grid p {
@@ -3566,7 +3309,6 @@ body.ff-landing-active #root {
     radial-gradient(ellipse at 4% 90%, rgba(91, 105, 255, .10), transparent 38%),
     linear-gradient(180deg, #f4f8ff 0%, #ffffff 82%);
 }
-
 .ff-page .ff-hero::before {
   content: "";
   position: absolute;
@@ -3577,11 +3319,9 @@ body.ff-landing-active #root {
   background-size: 22px 22px;
   mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
 }
-
 .ff-page .ff-hero-grid {
   gap: clamp(36px, 5vw, 76px);
 }
-
 .ff-page .ff-hero h1 {
   max-width: 11.5ch;
   font-size: clamp(3.25rem, 6.5vw, 5.8rem);
@@ -3589,21 +3329,18 @@ body.ff-landing-active #root {
   letter-spacing: -.075em;
   font-weight: 850;
 }
-
 .ff-page .ff-hero h1 > span {
   background: linear-gradient(100deg, #2e63f5 5%, #436cf8 42%, #159fc8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .ff-page .ff-hero-copy > p {
   max-width: 52ch;
   font-size: clamp(1rem, 1.3vw, 1.12rem);
   line-height: 1.8;
   color: #586b87;
 }
-
 .ff-page .ff-eyebrow {
   padding: 8px 12px;
   border: 1px solid #cbdcff;
@@ -3623,24 +3360,24 @@ body.ff-landing-active #root {
     0 8px 20px rgba(22, 49, 100, .07) !important;
   transform-origin: 60% 50%;
 }
-
 .ff-page .ff-preview-top {
   min-height: 48px;
   background: linear-gradient(90deg, #fff, #f5f8ff) !important;
 }
-
 .ff-page .ff-preview-panel {
   border: 1px solid #e0e8f6 !important;
   border-radius: 12px !important;
   background: linear-gradient(145deg, #ffffff, #f7faff) !important;
   box-shadow: 0 3px 10px rgba(25, 47, 88, .045);
 }
-
-.ff-page .ff-kpis > div:nth-child(1) { --kpi: #3268f5; }
-.ff-page .ff-kpis > div:nth-child(2) { --kpi: #159b8b; }
-.ff-page .ff-kpis > div:nth-child(3) { --kpi: #7657f6; }
-.ff-page .ff-kpis > div:nth-child(4) { --kpi: #d28a22; }
-
+.ff-page .ff-kpis > div:nth-child(1) { --kpi: #3268f5;
+}
+.ff-page .ff-kpis > div:nth-child(2) { --kpi: #159b8b;
+}
+.ff-page .ff-kpis > div:nth-child(3) { --kpi: #7657f6;
+}
+.ff-page .ff-kpis > div:nth-child(4) { --kpi: #d28a22;
+}
 .ff-page .ff-kpis > div {
   border-top: 3px solid var(--kpi, #3268f5) !important;
 }
@@ -3649,7 +3386,6 @@ body.ff-landing-active #root {
 .ff-page .ff-feature-grid {
   gap: 20px;
 }
-
 .ff-page .ff-feature {
   min-height: 205px;
   padding: 26px;
@@ -3657,7 +3393,6 @@ body.ff-landing-active #root {
   background: linear-gradient(145deg, var(--card-wash, #f2f6ff), #fff 82%) !important;
   box-shadow: 0 7px 18px rgba(28, 52, 95, .055) !important;
 }
-
 .ff-page .ff-feature > span {
   width: 48px;
   height: 48px;
@@ -3666,7 +3401,6 @@ body.ff-landing-active #root {
   border-radius: 15px !important;
   box-shadow: 0 5px 12px color-mix(in srgb, var(--card-accent, #3268f5) 15%, transparent);
 }
-
 .ff-page .ff-feature h3 {
   margin-top: 18px;
   color: #172944;
@@ -3674,17 +3408,14 @@ body.ff-landing-active #root {
   letter-spacing: -.025em;
   font-weight: 760;
 }
-
 .ff-page .ff-feature p {
   color: #60718b;
   line-height: 1.72;
 }
-
 .ff-page .ff-feature::after {
   height: 4px;
   transform: scaleX(.18);
 }
-
 @media (hover: hover) and (pointer: fine) {
   .ff-page .ff-feature:hover {
     transform: translateY(-8px) !important;
@@ -3698,11 +3429,9 @@ body.ff-landing-active #root {
     radial-gradient(ellipse at 92% 18%, rgba(50, 104, 245, .075), transparent 32%),
     #ffffff;
 }
-
 .ff-page .ff-about-grid {
   gap: clamp(36px, 6vw, 88px);
 }
-
 .ff-page .ff-points li {
   padding-block: 8px;
   color: #405573;
@@ -3713,7 +3442,6 @@ body.ff-landing-active #root {
 .ff-page .ff-section:not(.ff-soft):not(.ff-about) {
   background-color: #fff;
 }
-
 .ff-page .ff-workflow {
   border: 1px solid #d5e1f4 !important;
   border-radius: 22px !important;
@@ -3721,12 +3449,10 @@ body.ff-landing-active #root {
   background: linear-gradient(180deg, #ffffff, #f7faff) !important;
   box-shadow: 0 20px 48px rgba(26, 51, 95, .085) !important;
 }
-
 .ff-page .ff-workflow-bar {
   background: linear-gradient(90deg, #f7faff, #edf4ff) !important;
   border-bottom: 1px solid #dbe6f6;
 }
-
 .ff-page .ff-step-node {
   width: 44px;
   height: 44px;
@@ -3738,19 +3464,16 @@ body.ff-landing-active #root {
 .ff-page .ff-role-grid {
   gap: 16px;
 }
-
 .ff-page .ff-role {
   min-height: 110px;
   padding: 20px;
   border-radius: 16px !important;
   background: linear-gradient(140deg, var(--card-wash, #f3f6ff), #fff 88%) !important;
 }
-
 .ff-page .ff-role h3 {
   color: #172944;
   font-weight: 750;
 }
-
 .ff-page .ff-role p {
   color: #60718b;
   line-height: 1.6;
@@ -3762,12 +3485,10 @@ body.ff-landing-active #root {
   border-radius: 17px !important;
   background: linear-gradient(145deg, var(--card-wash, #f3f6ff), #fff 86%) !important;
 }
-
 .ff-page .ff-benefits > div h3 {
   color: #172944;
   font-weight: 760;
 }
-
 .ff-page .ff-benefits > div p {
   color: #60718b;
   line-height: 1.68;
@@ -3783,7 +3504,6 @@ body.ff-landing-active #root {
     radial-gradient(ellipse at 8% 95%, rgba(154, 133, 255, .18), transparent 35%),
     linear-gradient(120deg, #0b1630 0%, #10264b 55%, #163565 100%) !important;
 }
-
 .ff-page .ff-cta::after {
   content: "";
   position: absolute;
@@ -3798,14 +3518,12 @@ body.ff-landing-active #root {
     0 0 0 68px rgba(145, 184, 255, .025);
   pointer-events: none;
 }
-
 .ff-page .ff-cta h2 {
   color: #fff !important;
   font-size: clamp(2.25rem, 4vw, 3.5rem);
   line-height: 1.02;
   letter-spacing: -.06em;
 }
-
 .ff-page .ff-cta p {
   color: #c1d0e8;
 }
@@ -3816,16 +3534,13 @@ body.ff-landing-active #root {
   color: #dce7fa;
   border-top: 1px solid rgba(148, 177, 226, .18);
 }
-
 .ff-page .ff-footer p,
 .ff-page .ff-footer small {
   color: #a8bad6;
 }
-
 .ff-page .ff-footer a {
   transition: color 180ms ease, transform 180ms ease;
 }
-
 .ff-page .ff-footer a:hover {
   color: #70d8ff;
 }
@@ -3851,21 +3566,17 @@ body.ff-landing-active #root {
     width: 100%;
   }
 }
-
 @media (max-width: 640px) {
   .ff-page .ff-container {
     width: min(100% - 32px, 1200px);
   }
-
   .ff-page .ff-section {
     padding-block: 58px;
   }
-
   .ff-page .ff-feature {
     min-height: 0;
     padding: 22px;
   }
-
   .ff-page .ff-heading h2,
   .ff-page .ff-about h2,
   .ff-page .ff-contact h2 {
@@ -3880,15 +3591,8 @@ body.ff-landing-active #root {
    elegant depth and scroll-triggered reveal.
    No blur, no glassmorphism, no heading underline.
    ============================================================ */
-
 .ff-page {
   --ff-motion-ease: cubic-bezier(.2, .75, .25, 1);
-  --ff-blue-card: #e4efff;
-  --ff-lilac-card: #f2e7ff;
-  --ff-mint-card: #ddf8e9;
-  --ff-amber-card: #fff0c5;
-  --ff-rose-card: #ffe4e8;
-  --ff-sky-card: #e0f3ff;
 }
 
 /* Feature/role/benefit cards become designed color surfaces, not white boxes. */
@@ -3959,25 +3663,40 @@ body.ff-landing-active #root {
 }
 
 /* Curated card colors: bright enough to feel designed, muted enough for B2B. */
-.ff-page .ff-feature:nth-child(6n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5; }
-.ff-page .ff-feature:nth-child(6n + 2) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a; }
-.ff-page .ff-feature:nth-child(6n + 3) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec; }
-.ff-page .ff-feature:nth-child(6n + 4) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22; }
-.ff-page .ff-feature:nth-child(6n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8; }
-.ff-page .ff-feature:nth-child(6n + 6) { --card-bg: #ffe6eb; --card-border: #f5cbd5; --card-art: #cf557b; }
-
-.ff-page .ff-role:nth-child(6n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5; }
-.ff-page .ff-role:nth-child(6n + 2) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22; }
-.ff-page .ff-role:nth-child(6n + 3) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a; }
-.ff-page .ff-role:nth-child(6n + 4) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec; }
-.ff-page .ff-role:nth-child(6n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8; }
-.ff-page .ff-role:nth-child(6n + 6) { --card-bg: #ffe6eb; --card-border: #f5cbd5; --card-art: #cf557b; }
-
-.ff-page .ff-benefits > div:nth-child(5n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5; }
-.ff-page .ff-benefits > div:nth-child(5n + 2) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a; }
-.ff-page .ff-benefits > div:nth-child(5n + 3) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec; }
-.ff-page .ff-benefits > div:nth-child(5n + 4) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22; }
-.ff-page .ff-benefits > div:nth-child(5n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8; }
+.ff-page .ff-feature:nth-child(6n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5;
+}
+.ff-page .ff-feature:nth-child(6n + 2) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a;
+}
+.ff-page .ff-feature:nth-child(6n + 3) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec;
+}
+.ff-page .ff-feature:nth-child(6n + 4) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22;
+}
+.ff-page .ff-feature:nth-child(6n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8;
+}
+.ff-page .ff-feature:nth-child(6n + 6) { --card-bg: #ffe6eb; --card-border: #f5cbd5; --card-art: #cf557b;
+}
+.ff-page .ff-role:nth-child(6n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5;
+}
+.ff-page .ff-role:nth-child(6n + 2) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22;
+}
+.ff-page .ff-role:nth-child(6n + 3) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a;
+}
+.ff-page .ff-role:nth-child(6n + 4) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec;
+}
+.ff-page .ff-role:nth-child(6n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8;
+}
+.ff-page .ff-role:nth-child(6n + 6) { --card-bg: #ffe6eb; --card-border: #f5cbd5; --card-art: #cf557b;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 1) { --card-bg: #e2edff; --card-border: #c7dcff; --card-art: #3674f5;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 2) { --card-bg: #e0f8ef; --card-border: #bcebd9; --card-art: #19a58a;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 3) { --card-bg: #f2e6ff; --card-border: #e0caff; --card-art: #9b59ec;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 4) { --card-bg: #fff0d7; --card-border: #f3d9aa; --card-art: #d28a22;
+}
+.ff-page .ff-benefits > div:nth-child(5n + 5) { --card-bg: #def4ff; --card-border: #bfe8f8; --card-art: #168db8;
+}
 
 /* Text remains above the decorative art and stays comfortably readable. */
 .ff-page .ff-feature > *,
@@ -3986,7 +3705,6 @@ body.ff-landing-active #root {
   position: relative;
   z-index: 1;
 }
-
 .ff-page .ff-feature h3,
 .ff-page .ff-role h3,
 .ff-page .ff-benefits > div h3 {
@@ -3995,7 +3713,6 @@ body.ff-landing-active #root {
   font-weight: 780;
   letter-spacing: -.025em;
 }
-
 .ff-page .ff-feature p,
 .ff-page .ff-role p,
 .ff-page .ff-benefits > div p {
@@ -4057,7 +3774,6 @@ body.ff-landing-active #root {
     transform 850ms var(--ff-motion-ease);
   transition-delay: var(--reveal-delay, 0ms);
 }
-
 .ff-page [data-reveal].ff-reveal-in {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
@@ -4065,23 +3781,28 @@ body.ff-landing-active #root {
 
 /* Stagger cards for a composed, editorial entrance. */
 .ff-page .ff-feature-grid > :nth-child(1),
-.ff-page .ff-role-grid > :nth-child(1) { --reveal-delay: 0ms; }
+.ff-page .ff-role-grid > :nth-child(1) { --reveal-delay: 0ms;
+}
 .ff-page .ff-feature-grid > :nth-child(2),
-.ff-page .ff-role-grid > :nth-child(2) { --reveal-delay: 80ms; }
+.ff-page .ff-role-grid > :nth-child(2) { --reveal-delay: 80ms;
+}
 .ff-page .ff-feature-grid > :nth-child(3),
-.ff-page .ff-role-grid > :nth-child(3) { --reveal-delay: 160ms; }
+.ff-page .ff-role-grid > :nth-child(3) { --reveal-delay: 160ms;
+}
 .ff-page .ff-feature-grid > :nth-child(4),
-.ff-page .ff-role-grid > :nth-child(4) { --reveal-delay: 240ms; }
+.ff-page .ff-role-grid > :nth-child(4) { --reveal-delay: 240ms;
+}
 .ff-page .ff-feature-grid > :nth-child(5),
-.ff-page .ff-role-grid > :nth-child(5) { --reveal-delay: 320ms; }
+.ff-page .ff-role-grid > :nth-child(5) { --reveal-delay: 320ms;
+}
 .ff-page .ff-feature-grid > :nth-child(6),
-.ff-page .ff-role-grid > :nth-child(6) { --reveal-delay: 400ms; }
+.ff-page .ff-role-grid > :nth-child(6) { --reveal-delay: 400ms;
+}
 
 /* The hero preview enters with a slight perspective tilt, then settles. */
 .ff-page .ff-preview {
   animation: ff-product-card-arrive 900ms var(--ff-motion-ease) both;
 }
-
 @keyframes ff-product-card-arrive {
   0% { opacity: 0; transform: perspective(1000px) translate3d(0, 28px, 0) rotateX(5deg) scale(.97); }
   70% { opacity: 1; transform: perspective(1000px) translate3d(0, -3px, 0) rotateX(0) scale(1.005); }
@@ -4095,14 +3816,12 @@ body.ff-landing-active #root {
 .ff-page .ff-cta h2 {
   text-wrap: balance;
 }
-
 .ff-page .ff-heading [data-reveal],
 .ff-page .ff-about h2[data-reveal],
 .ff-page .ff-contact h2[data-reveal],
 .ff-page .ff-cta h2[data-reveal] {
   transform-origin: center;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .ff-page [data-reveal],
   .ff-page .ff-preview,
@@ -4126,13 +3845,11 @@ body.ff-landing-active #root {
    FIELD FLOW — COMPACT TYPOGRAPHY OVERRIDE
    Preserve the design. Reduce oversized text.
    ========================================== */
-
 .ff-page .ff-hero h1 {
   font-size: clamp(2rem, 3.8vw, 3rem) !important;
   line-height: 1 !important;
   letter-spacing: -0.045em !important;
 }
-
 .ff-page .ff-heading h2,
 .ff-page .ff-about h2,
 .ff-page .ff-contact h2,
@@ -4141,7 +3858,6 @@ body.ff-landing-active #root {
   line-height: 1.15 !important;
   letter-spacing: -0.035em !important;
 }
-
 .ff-page .ff-feature h3,
 .ff-page .ff-role h3,
 .ff-page .ff-benefits > div h3 {
@@ -4149,14 +3865,12 @@ body.ff-landing-active #root {
   line-height: 1.35 !important;
   letter-spacing: -0.015em !important;
 }
-
 .ff-page .ff-feature p,
 .ff-page .ff-role p,
 .ff-page .ff-benefits > div p {
   font-size: 0.82rem !important;
   line-height: 1.55 !important;
 }
-
 .ff-page .ff-heading > p,
 .ff-page .ff-about-grid p,
 .ff-page .ff-contact-grid p,
@@ -4164,21 +3878,17 @@ body.ff-landing-active #root {
   font-size: 0.88rem !important;
   line-height: 1.65 !important;
 }
-
 .ff-page .ff-eyebrow {
   font-size: 0.7rem !important;
 }
-
 .ff-page .ff-feature {
   min-height: 0 !important;
   padding: 20px !important;
 }
-
 .ff-page .ff-role {
   min-height: 0 !important;
   padding: 15px !important;
 }
-
 .ff-page .ff-benefits > div {
   padding: 17px !important;
 }
@@ -4216,13 +3926,11 @@ body.ff-landing-active #root {
    FIELD FLOW — CLEAN PROFESSIONAL CONTACT UI
    Append at the end of LandingPage.css
    ========================================== */
-
 .ff-page .ff-contact {
   padding: 80px 0;
   background: #f8fafc !important;
   color: #0f172a;
 }
-
 .ff-page .ff-contact-grid {
   align-items: center;
   gap: 56px;
@@ -4237,7 +3945,6 @@ body.ff-landing-active #root {
   letter-spacing: -0.8px;
   line-height: 1.2;
 }
-
 .ff-page .ff-contact p {
   color: #475569 !important;
   font-size: 16px;
@@ -4318,7 +4025,6 @@ body.ff-landing-active #root {
   background: #ffffff !important;
   box-shadow: 0 5px 16px rgb(15 23 42 / 6%) !important;
 }
-
 .ff-page .ff-contact-list > a:hover > svg {
   color: #1d4ed8 !important;
   background: #dbeafe !important;
@@ -4346,7 +4052,6 @@ body.ff-landing-active #root {
     padding: 16px !important;
   }
 }
-
 @media (max-width: 420px) {
   .ff-page .ff-contact-list > a,
   .ff-page .ff-contact-list > div {
@@ -4354,14 +4059,12 @@ body.ff-landing-active #root {
     gap: 12px;
     padding: 14px !important;
   }
-
   .ff-page .ff-contact-list > a > svg,
   .ff-page .ff-contact-list > div > svg {
     width: 42px !important;
     height: 42px !important;
     padding: 10px;
   }
-
   .ff-page .ff-contact-list strong {
     font-size: 14px;
   }
@@ -4383,7 +4086,6 @@ body.ff-landing-active #root {
    FIELDFLOW FSM — NEXT-GEN SAAS FOOTER
    Clean editorial layout | Premium dark theme | Responsive
    ========================================================= */
-
 .ff-page .ff-footer {
   --footer-bg: #080f1e;
   --footer-text: #f8fafc;
@@ -4435,7 +4137,6 @@ body.ff-landing-active #root {
 .ff-page .ff-footer-brand {
   min-width: 0;
 }
-
 .ff-page .ff-footer-brand .ff-brand {
   display: inline-flex;
   align-items: center;
@@ -4446,7 +4147,6 @@ body.ff-landing-active #root {
   letter-spacing: -0.7px;
   text-decoration: none;
 }
-
 .ff-page .ff-footer-brand .ff-brand-mark {
   display: inline-grid;
   place-items: center;
@@ -4459,7 +4159,6 @@ body.ff-landing-active #root {
   color: #ffffff;
   box-shadow: 0 5px 18px rgba(37, 99, 235, 0.2);
 }
-
 .ff-page .ff-footer-brand p {
   max-width: 290px;
   margin: 22px 0 0;
@@ -4476,7 +4175,6 @@ body.ff-landing-active #root {
   gap: 16px;
   min-width: 0;
 }
-
 .ff-page .ff-footer-nav h3 {
   margin: 5px 0 9px;
   color: #ffffff !important;
@@ -4485,7 +4183,6 @@ body.ff-landing-active #root {
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
-
 .ff-page .ff-footer-nav a {
   position: relative;
   display: inline-block;
@@ -4499,7 +4196,6 @@ body.ff-landing-active #root {
     color 180ms ease,
     transform 180ms ease;
 }
-
 .ff-page .ff-footer-nav a:hover {
   color: #ffffff !important;
   transform: translateX(3px);
@@ -4512,7 +4208,6 @@ body.ff-landing-active #root {
   opacity: 0;
   transition: opacity 180ms ease;
 }
-
 .ff-page .ff-footer-nav a[href^="mailto:"]:hover::after {
   opacity: 1;
 }
@@ -4537,20 +4232,17 @@ body.ff-landing-active #root {
   font-size: 12px;
   line-height: 1.7;
 }
-
 .ff-page .ff-footer-bottom > div {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 24px;
 }
-
 .ff-page .ff-footer-bottom a {
   color: var(--footer-muted) !important;
   text-decoration: none;
   transition: color 180ms ease;
 }
-
 .ff-page .ff-footer-bottom a:hover {
   color: #ffffff !important;
 }
@@ -4560,7 +4252,6 @@ body.ff-landing-active #root {
 .ff-page .ff-footer-bottom a[href="#home"] {
   color: #ffffff !important;
 }
-
 .ff-page .ff-footer-bottom a[href="#top"]:hover,
 .ff-page .ff-footer-bottom a[href="#home"]:hover {
   color: var(--footer-blue) !important;
@@ -4671,7 +4362,6 @@ body.ff-landing-active #root {
    FIELDFLOW — FOOTER NETWORK ANIMATION
    Targets the empty space on the right
    ========================================== */
-
 .ff-page .ff-footer-top {
   position: relative;
 }
@@ -4754,7 +4444,6 @@ body.ff-landing-active #root {
   background-size: 220% 100%;
   animation: ff-footer-light 8s ease-in-out infinite;
 }
-
 @keyframes ff-footer-network {
   0% {
     background-position:
@@ -4778,7 +4467,6 @@ body.ff-landing-active #root {
     border-color: rgba(96, 165, 250, 0.25);
   }
 }
-
 @keyframes ff-footer-light {
   0% {
     background-position: 100% 0;
@@ -4811,15 +4499,12 @@ body.ff-landing-active #root {
   }
 }
 
-
-
 /* =========================================================
    FIELD FLOW MOTION UPDATE
    Inspired by the reference video's clean, editorial motion:
    staggered reveals, calm floating elements, smooth card lifts,
    and a subtle green activity indicator.
    ========================================================= */
-
 .ff-hero {
   background-size: 100% 100%;
 }
@@ -4920,13 +4605,20 @@ body.ff-landing-active #root {
 .ff-chart:hover i {
   filter: saturate(1.18);
 }
-.ff-chart i:nth-child(1) { animation-delay: .02s; }
-.ff-chart i:nth-child(2) { animation-delay: .09s; }
-.ff-chart i:nth-child(3) { animation-delay: .16s; }
-.ff-chart i:nth-child(4) { animation-delay: .23s; }
-.ff-chart i:nth-child(5) { animation-delay: .30s; }
-.ff-chart i:nth-child(6) { animation-delay: .37s; }
-.ff-chart i:nth-child(7) { animation-delay: .44s; }
+.ff-chart i:nth-child(1) { animation-delay: .02s;
+}
+.ff-chart i:nth-child(2) { animation-delay: .09s;
+}
+.ff-chart i:nth-child(3) { animation-delay: .16s;
+}
+.ff-chart i:nth-child(4) { animation-delay: .23s;
+}
+.ff-chart i:nth-child(5) { animation-delay: .30s;
+}
+.ff-chart i:nth-child(6) { animation-delay: .37s;
+}
+.ff-chart i:nth-child(7) { animation-delay: .44s;
+}
 
 /* Dotted icon routes glide gently like the reference's moving visual accents. */
 .ff-flight {
@@ -4935,9 +4627,12 @@ body.ff-landing-active #root {
 .ff-motion-icon {
   animation: ff-route-icon-bob 3.4s ease-in-out infinite;
 }
-.ff-motion-icon:nth-child(2) { animation-delay: -.8s; }
-.ff-motion-icon:nth-child(3) { animation-delay: -1.6s; }
-.ff-motion-icon:nth-child(4) { animation-delay: -2.4s; }
+.ff-motion-icon:nth-child(2) { animation-delay: -.8s;
+}
+.ff-motion-icon:nth-child(3) { animation-delay: -1.6s;
+}
+.ff-motion-icon:nth-child(4) { animation-delay: -2.4s;
+}
 @keyframes ff-route-icon-bob {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -4px; }
@@ -5021,19 +4716,30 @@ body.ff-landing-active #root {
 }
 
 /* Progressive entrance for cards, like the reference property gallery. */
-.ff-feature-grid > :nth-child(1) { --reveal-delay: 80ms; }
-.ff-feature-grid > :nth-child(2) { --reveal-delay: 170ms; }
-.ff-feature-grid > :nth-child(3) { --reveal-delay: 260ms; }
-.ff-feature-grid > :nth-child(4) { --reveal-delay: 350ms; }
-.ff-feature-grid > :nth-child(5) { --reveal-delay: 440ms; }
-.ff-feature-grid > :nth-child(6) { --reveal-delay: 530ms; }
-.ff-workflow > :nth-child(1) { --reveal-delay: 70ms; }
-.ff-workflow > :nth-child(2) { --reveal-delay: 150ms; }
-.ff-workflow > :nth-child(3) { --reveal-delay: 230ms; }
-.ff-workflow > :nth-child(4) { --reveal-delay: 310ms; }
-.ff-workflow > :nth-child(5) { --reveal-delay: 390ms; }
-.ff-workflow > :nth-child(6) { --reveal-delay: 470ms; }
-
+.ff-feature-grid > :nth-child(1) { --reveal-delay: 80ms;
+}
+.ff-feature-grid > :nth-child(2) { --reveal-delay: 170ms;
+}
+.ff-feature-grid > :nth-child(3) { --reveal-delay: 260ms;
+}
+.ff-feature-grid > :nth-child(4) { --reveal-delay: 350ms;
+}
+.ff-feature-grid > :nth-child(5) { --reveal-delay: 440ms;
+}
+.ff-feature-grid > :nth-child(6) { --reveal-delay: 530ms;
+}
+.ff-workflow > :nth-child(1) { --reveal-delay: 70ms;
+}
+.ff-workflow > :nth-child(2) { --reveal-delay: 150ms;
+}
+.ff-workflow > :nth-child(3) { --reveal-delay: 230ms;
+}
+.ff-workflow > :nth-child(4) { --reveal-delay: 310ms;
+}
+.ff-workflow > :nth-child(5) { --reveal-delay: 390ms;
+}
+.ff-workflow > :nth-child(6) { --reveal-delay: 470ms;
+}
 .ff-feature {
   transition:
     transform 450ms cubic-bezier(.2, .8, .2, 1),
@@ -5047,23 +4753,32 @@ body.ff-landing-active #root {
 .ff-feature > span {
   transition: transform 500ms cubic-bezier(.2, .8, .2, 1);
 }
-.ff-feature:hover > span { transform: translateY(-4px) rotate(-4deg); }
+.ff-feature:hover > span { transform: translateY(-4px) rotate(-4deg);
+}
 
 /* Dashboard UI enters in layers rather than as one block. */
-.ff-preview { transform-origin: center; }
+.ff-preview { transform-origin: center;
+}
 .ff-preview.ff-reveal-in .ff-kpis > div,
 .ff-preview.ff-reveal-in .ff-preview-panel {
   animation: ff-editorial-reveal 850ms cubic-bezier(.16, 1, .3, 1) both;
 }
-.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(1) { animation-delay: 100ms; }
-.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(2) { animation-delay: 190ms; }
-.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(3) { animation-delay: 280ms; }
-.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(4) { animation-delay: 370ms; }
-.ff-preview.ff-reveal-in .ff-preview-panel:nth-child(1) { animation-delay: 420ms; }
-.ff-preview.ff-reveal-in .ff-preview-panel:nth-child(2) { animation-delay: 520ms; }
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(1) { animation-delay: 100ms;
+}
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(2) { animation-delay: 190ms;
+}
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(3) { animation-delay: 280ms;
+}
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(4) { animation-delay: 370ms;
+}
+.ff-preview.ff-reveal-in .ff-preview-panel:nth-child(1) { animation-delay: 420ms;
+}
+.ff-preview.ff-reveal-in .ff-preview-panel:nth-child(2) { animation-delay: 520ms;
+}
 
 /* Green live indicator has the small pulse seen in the reference. */
-.ff-live { display: inline-flex; align-items: center; gap: 6px; }
+.ff-live { display: inline-flex; align-items: center; gap: 6px;
+}
 .ff-live::before {
   content: "";
   width: 7px; height: 7px; border-radius: 50%;
@@ -5078,7 +4793,8 @@ body.ff-landing-active #root {
 }
 
 /* Soft parallax-like ambient light behind the hero. */
-.ff-hero { isolation: isolate; }
+.ff-hero { isolation: isolate;
+}
 .ff-hero::after {
   content: "";
   position: absolute;
@@ -5095,11 +4811,14 @@ body.ff-landing-active #root {
   from { transform: translate3d(0, 0, 0) scale(.94); }
   to { transform: translate3d(-24px, 18px, 0) scale(1.06); }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal], [data-reveal].ff-reveal-in,
-  .ff-feature, .ff-feature > span, .ff-hero::after,
-  .ff-live::before, .ff-preview.ff-reveal-in .ff-kpis > div,
+  [data-reveal],
+  [data-reveal].ff-reveal-in,
+  .ff-feature,
+  .ff-feature > span,
+  .ff-hero::after,
+  .ff-live::before,
+  .ff-preview.ff-reveal-in .ff-kpis > div,
   .ff-preview.ff-reveal-in .ff-preview-panel {
     animation: none !important;
     transition: none !important;
@@ -5107,7 +4826,6 @@ body.ff-landing-active #root {
     transform: none !important;
   }
 }
-
 
 /* ================================================================
    REFERENCE-INSPIRED SIGNATURE ANIMATIONS
@@ -5118,7 +4836,8 @@ body.ff-landing-active #root {
   overflow: hidden;
   background-image: radial-gradient(ellipse at 50% 0%, rgba(83, 119, 255, .12), transparent 53%);
 }
-.ff-hero .ff-motion-bg { z-index: -1; opacity: .42; }
+.ff-hero .ff-motion-bg { z-index: -1; opacity: .42;
+}
 .ff-wave-field {
   position: absolute;
   z-index: -1;
@@ -5129,7 +4848,8 @@ body.ff-landing-active #root {
   opacity: .82;
   mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
-.ff-wave-field svg { display: block; width: 108%; height: 100%; overflow: visible; }
+.ff-wave-field svg { display: block; width: 108%; height: 100%; overflow: visible;
+}
 .ff-wave-line {
   fill: none;
   stroke: #6677e8;
@@ -5160,7 +4880,8 @@ body.ff-landing-active #root {
   box-shadow: 18px 18px 42px rgba(64, 86, 145, .10), -12px -12px 30px rgba(255,255,255,.9), inset 1px 1px 0 rgba(255,255,255,.8);
   backdrop-filter: blur(12px);
 }
-.ff-circular-process .ff-steps { gap: 22px; }
+.ff-circular-process .ff-steps { gap: 22px;
+}
 .ff-circular-process .ff-steps li {
   position: relative;
   min-height: 220px;
@@ -5200,7 +4921,8 @@ body.ff-landing-active #root {
   animation: ff-process-icon 4s ease-in-out infinite;
   animation-delay: calc(var(--reveal-delay, 0ms) * -1);
 }
-.ff-circular-process .ff-steps li:nth-child(2n) .ff-step-node { animation-delay: -1.8s; }
+.ff-circular-process .ff-steps li:nth-child(2n) .ff-step-node { animation-delay: -1.8s;
+}
 .ff-circular-process .ff-steps li::after {
   top: 47px;
   height: 2px;
@@ -5209,78 +4931,132 @@ body.ff-landing-active #root {
   animation: ff-process-track 4s linear infinite;
 }
 .ff-circular-process .ff-steps small,
-.ff-circular-process .ff-steps strong { position: relative; z-index: 2; }
-.ff-circular-process .ff-steps small { display: flex; flex-direction: column; gap: 6px; align-items: center; }
-.ff-circular-process .ff-steps small span { font-size: 1.05rem; font-weight: 800; color: #24345c; }
-.ff-circular-process .ff-steps strong { display: block; margin-top: 10px; }
+.ff-circular-process .ff-steps strong { position: relative; z-index: 2;
+}
+.ff-circular-process .ff-steps small { display: flex; flex-direction: column; gap: 6px; align-items: center;
+}
+.ff-circular-process .ff-steps small span { font-size: 1.05rem; font-weight: 800; color: #24345c;
+}
+.ff-circular-process .ff-steps strong { display: block; margin-top: 10px;
+}
 @keyframes ff-process-halo {
   0%, 100% { box-shadow: 12px 12px 26px rgba(69,94,155,.10), -9px -9px 22px rgba(255,255,255,.88), 0 0 0 0 rgba(91,142,255,0); }
   50% { box-shadow: 14px 16px 32px rgba(69,94,155,.14), -9px -9px 22px rgba(255,255,255,.95), 0 0 0 8px rgba(91,142,255,.055); }
 }
-@keyframes ff-process-icon { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-@keyframes ff-process-track { from { background-position: 100% 0; } to { background-position: -120% 0; } }
+@keyframes ff-process-icon { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); }
+}
+@keyframes ff-process-track { from { background-position: 100% 0; } to { background-position: -120% 0; }
+}
 @media (max-width: 760px) {
-  .ff-wave-field { height: 36%; inset-inline: -18%; opacity: .55; }
-  .ff-circular-process { padding: 18px 12px; }
-  .ff-circular-process .ff-steps { gap: 14px; }
-  .ff-circular-process .ff-steps li { min-height: 180px; }
-  .ff-circular-process .ff-steps li::before { width: 90px; top: -5px; }
-  .ff-circular-process .ff-step-node { width: 48px; height: 48px; margin-top: 15px; margin-bottom: 20px; }
+  .ff-wave-field { height: 36%; inset-inline: -18%; opacity: .55;
+  }
+  .ff-circular-process { padding: 18px 12px;
+  }
+  .ff-circular-process .ff-steps { gap: 14px;
+  }
+  .ff-circular-process .ff-steps li { min-height: 180px;
+  }
+  .ff-circular-process .ff-steps li::before { width: 90px; top: -5px;
+  }
+  .ff-circular-process .ff-step-node { width: 48px; height: 48px; margin-top: 15px; margin-bottom: 20px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ff-wave-line, .ff-circular-process .ff-steps li::before, .ff-circular-process .ff-step-node, .ff-circular-process .ff-steps li::after { animation: none !important; }
+  .ff-wave-line,
+  .ff-circular-process .ff-steps li::before,
+  .ff-circular-process .ff-step-node,
+  .ff-circular-process .ff-steps li::after { animation: none !important;
+  }
 }
 
 /* ==========================================================
    FIELDFLOW FSM — SECTION GAP / SPACING FIX
    Tightens excess vertical whitespace without changing content.
    ========================================================== */
-.ff-page .ff-hero { padding: 64px 0 70px !important; }
-.ff-page .ff-hero-grid { gap: 36px !important; }
-.ff-page .ff-hero h1 { margin: 12px 0 12px !important; }
-.ff-page .ff-hero-copy > p { margin-bottom: 18px !important; line-height: 1.6 !important; }
-.ff-page .ff-points { margin-top: 18px !important; }
-.ff-page .ff-about { padding: 48px 0 !important; }
-.ff-page .ff-about-grid { gap: 42px !important; }
-.ff-page .ff-section { padding: 48px 0 !important; }
-.ff-page .ff-section#solutions { padding-bottom: 32px !important; }
-.ff-page .ff-benefits-section { padding-top: 32px !important; padding-bottom: 44px !important; }
-.ff-page .ff-heading { margin-bottom: 20px !important; }
-.ff-page .ff-heading h2 { margin-top: 5px !important; margin-bottom: 6px !important; }
-.ff-page .ff-feature-grid { gap: 14px !important; }
-.ff-page .ff-workflow { margin-top: 16px !important; }
-.ff-page .ff-cta { padding: 40px 0 !important; }
-.ff-page .ff-cta-inner { gap: 22px !important; }
-.ff-page .ff-contact { padding: 48px 0 52px !important; }
-.ff-page .ff-contact-grid { gap: 32px !important; }
-.ff-page .ff-contact-list { gap: 10px !important; }
+.ff-page .ff-hero { padding: 64px 0 70px !important;
+}
+.ff-page .ff-hero-grid { gap: 36px !important;
+}
+.ff-page .ff-hero h1 { margin: 12px 0 12px !important;
+}
+.ff-page .ff-hero-copy > p { margin-bottom: 18px !important; line-height: 1.6 !important;
+}
+.ff-page .ff-points { margin-top: 18px !important;
+}
+.ff-page .ff-about { padding: 48px 0 !important;
+}
+.ff-page .ff-about-grid { gap: 42px !important;
+}
+.ff-page .ff-section { padding: 48px 0 !important;
+}
+.ff-page .ff-section#solutions { padding-bottom: 32px !important;
+}
+.ff-page .ff-benefits-section { padding-top: 32px !important; padding-bottom: 44px !important;
+}
+.ff-page .ff-heading { margin-bottom: 20px !important;
+}
+.ff-page .ff-heading h2 { margin-top: 5px !important; margin-bottom: 6px !important;
+}
+.ff-page .ff-feature-grid { gap: 14px !important;
+}
+.ff-page .ff-workflow { margin-top: 16px !important;
+}
+.ff-page .ff-cta { padding: 40px 0 !important;
+}
+.ff-page .ff-cta-inner { gap: 22px !important;
+}
+.ff-page .ff-contact { padding: 48px 0 52px !important;
+}
+.ff-page .ff-contact-grid { gap: 32px !important;
+}
+.ff-page .ff-contact-list { gap: 10px !important;
+}
 .ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div { padding: 12px 14px !important; }
-.ff-page .ff-footer-inner { gap: 24px !important; }
-.ff-page .ff-footer-top { gap: 24px !important; }
-.ff-page .ff-footer-bottom { margin-top: 24px !important; padding-top: 16px !important; }
-
+.ff-page .ff-contact-list > div { padding: 12px 14px !important;
+}
+.ff-page .ff-footer-inner { gap: 24px !important;
+}
+.ff-page .ff-footer-top { gap: 24px !important;
+}
+.ff-page .ff-footer-bottom { margin-top: 24px !important; padding-top: 16px !important;
+}
 @media (max-width: 1000px) {
-  .ff-page .ff-hero { padding: 52px 0 56px !important; }
-  .ff-page .ff-hero-grid { gap: 28px !important; }
+  .ff-page .ff-hero { padding: 52px 0 56px !important;
+  }
+  .ff-page .ff-hero-grid { gap: 28px !important;
+  }
   .ff-page .ff-about,
-  .ff-page .ff-section { padding: 40px 0 !important; }
-  .ff-page .ff-about-grid { gap: 28px !important; }
-  .ff-page .ff-contact { padding: 40px 0 44px !important; }
+  .ff-page .ff-section { padding: 40px 0 !important;
+  }
+  .ff-page .ff-about-grid { gap: 28px !important;
+  }
+  .ff-page .ff-contact { padding: 40px 0 44px !important;
+  }
 }
 @media (max-width: 760px) {
-  .ff-page .ff-hero { padding: 38px 0 42px !important; }
-  .ff-page .ff-hero-grid { gap: 24px !important; }
+  .ff-page .ff-hero { padding: 38px 0 42px !important;
+  }
+  .ff-page .ff-hero-grid { gap: 24px !important;
+  }
   .ff-page .ff-about,
-  .ff-page .ff-section { padding: 32px 0 !important; }
-  .ff-page .ff-section#solutions { padding-bottom: 28px !important; }
-  .ff-page .ff-benefits-section { padding: 28px 0 32px !important; }
-  .ff-page .ff-heading { margin-bottom: 18px !important; }
-  .ff-page .ff-feature-grid { gap: 12px !important; }
-  .ff-page .ff-cta { padding: 32px 0 !important; }
-  .ff-page .ff-contact { padding: 34px 0 36px !important; }
-  .ff-page .ff-contact-grid { gap: 22px !important; }
-  .ff-page .ff-footer-top { gap: 22px !important; }
+  .ff-page .ff-section { padding: 32px 0 !important;
+  }
+  .ff-page .ff-section#solutions { padding-bottom: 28px !important;
+  }
+  .ff-page .ff-benefits-section { padding: 28px 0 32px !important;
+  }
+  .ff-page .ff-heading { margin-bottom: 18px !important;
+  }
+  .ff-page .ff-feature-grid { gap: 12px !important;
+  }
+  .ff-page .ff-cta { padding: 32px 0 !important;
+  }
+  .ff-page .ff-contact { padding: 34px 0 36px !important;
+  }
+  .ff-page .ff-contact-grid { gap: 22px !important;
+  }
+  .ff-page .ff-footer-top { gap: 22px !important;
+  }
 }
 
 /* FOOTER: REMOVE EXCESSIVE EMPTY SPACE */
@@ -5289,7 +5065,6 @@ body.ff-landing-active #root {
   min-height: 0 !important;
   height: auto !important;
 }
-
 .ff-footer-inner {
   display: block !important;
   height: auto !important;
@@ -5297,7 +5072,6 @@ body.ff-landing-active #root {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
-
 .ff-footer-top {
   display: grid !important;
   grid-template-columns: 1.35fr 0.65fr 1fr 1fr;
@@ -5306,7 +5080,6 @@ body.ff-landing-active #root {
   margin: 0 !important;
   padding: 0 !important;
 }
-
 .ff-footer-bottom {
   position: static !important;
   width: 100%;
@@ -5320,27 +5093,611 @@ body.ff-landing-active #root {
   align-items: center;
   gap: 12px;
 }
-
 .ff-footer-top > *,
 .ff-footer-brand p,
 .ff-footer-nav {
   margin-bottom: 0 !important;
 }
-
 @media (max-width: 768px) {
   .ff-footer-top {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px !important;
   }
-
   .ff-footer-bottom {
     flex-wrap: wrap;
   }
 }
-
 @media (max-width: 480px) {
   .ff-footer-top {
     grid-template-columns: 1fr;
     gap: 16px !important;
   }
+}
+
+/* ==========================================================================
+   FIELDFLOW FSM — ULTRA LUXURY PREMIUM LAYER (colors unchanged)
+   Paste at the VERY END of LandingPage.css.
+
+   Uses ONLY your existing palette (navy, royal blue, white, and the
+   existing card accents). Luxury comes from: layered depth, hairline
+   frames, inner highlights, refined interaction, slow graceful motion
+   and a fine grain texture. No new colors, no blur, no font changes.
+   ========================================================================== */
+.ff-page {
+  --lx-ease: cubic-bezier(0.19, 1, 0.22, 1);
+
+  /* Depth built from your navy (#0b1b34 / #101d35), not new hues */
+  --lx-shadow-1: 0 1px 1px rgba(11, 27, 52, 0.04), 0 2px 4px rgba(11, 27, 52, 0.04), 0 8px 18px -10px rgba(11, 27, 52, 0.14);
+  --lx-shadow-2: 0 1px 1px rgba(11, 27, 52, 0.05), 0 6px 12px rgba(11, 27, 52, 0.06), 0 22px 40px -18px rgba(11, 27, 52, 0.22);
+  --lx-shadow-3: 0 2px 2px rgba(11, 27, 52, 0.06), 0 12px 24px rgba(11, 27, 52, 0.08), 0 40px 70px -24px rgba(11, 27, 52, 0.32);
+  --lx-inner: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --lx-hair: rgba(37, 99, 235, 0.14);       /* blue-600 hairline */
+  --lx-hair-strong: rgba(37, 99, 235, 0.34);
+}
+
+/* ---------- Global finish ---------- */
+.ff-page {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt";
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--blue-200, #bfdbfe); color: #0b1b34;
+}
+html { scrollbar-width: thin; scrollbar-color: #2563eb #eff6ff;
+}
+::-webkit-scrollbar { width: 10px;
+}
+::-webkit-scrollbar-track { background: #eff6ff;
+}
+::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; border: 2px solid #eff6ff;
+}
+
+/* ---------- Typography refinement (same fonts, same sizes) ---------- */
+.ff-page .ff-hero h1,
+.ff-page .ff-about h2,
+.ff-page .ff-heading h2,
+.ff-page .ff-cta h2,
+.ff-page .ff-contact h2 {
+  font-weight: 800;
+  text-wrap: balance;
+  -webkit-font-smoothing: antialiased;
+}
+.ff-page .ff-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em !important;
+  font-weight: 700;
+  box-shadow: var(--lx-inner), 0 4px 10px -6px rgba(37, 99, 235, 0.35) !important;
+}
+.ff-page .ff-hero-copy > p,
+.ff-page .ff-heading > p,
+.ff-page .ff-about-grid p {
+  letter-spacing: 0.005em;
+}
+
+/* ---------- Header: hairline finish ---------- */
+.ff-page .ff-header {
+  border-bottom: 0 !important;
+  box-shadow: 0 10px 30px -24px rgba(11, 27, 52, 0.35) !important;
+  position: sticky;
+}
+.ff-page .ff-header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--lx-hair-strong) 20%, var(--lx-hair-strong) 80%, transparent);
+  pointer-events: none;
+}
+.ff-page .ff-links a {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.ff-page .ff-links a::after {
+  content: "";
+  position: absolute;
+  left: 12px; right: 12px; bottom: 3px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: #2563eb;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 450ms var(--lx-ease);
+}
+.ff-page .ff-links a:hover::after { transform: scaleX(1);
+}
+.ff-page .ff-brand-mark {
+  box-shadow: var(--lx-inner), 0 10px 20px -10px rgba(37, 99, 235, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+/* ---------- Buttons: pill, tactile, sheen ---------- */
+.ff-page .ff-button {
+  border-radius: 999px !important;
+  min-height: 46px;
+  padding: 0 26px;
+  letter-spacing: 0.03em;
+  font-weight: 650;
+}
+.ff-page .ff-button.ff-solid {
+  background: linear-gradient(180deg, #3b74f2 0%, #2563eb 55%, #1d4ed8 100%) !important;
+  border-color: #1d4ed8 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 10px 22px -10px rgba(37, 99, 235, 0.75) !important;
+}
+.ff-page .ff-button.ff-solid:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 18px 32px -12px rgba(37, 99, 235, 0.85) !important;
+}
+.ff-page .ff-button.ff-outline {
+  background: #fff !important;
+  box-shadow: var(--lx-inner), var(--lx-shadow-1) !important;
+}
+.ff-page .ff-button.ff-outline:hover {
+  background: #eff6ff !important;
+  box-shadow: var(--lx-inner), 0 14px 26px -14px rgba(37, 99, 235, 0.5) !important;
+}
+.ff-page .ff-button.ff-light {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 14px 28px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* slower, more elegant sheen sweep */
+.ff-page .ff-button::after {
+  width: 40% !important;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent) !important;
+  transition: left 900ms var(--lx-ease) !important;
+}
+
+/* ---------- Hero: fine grain + layered atmosphere ---------- */
+.ff-page .ff-hero { position: relative;
+}
+.ff-page .ff-hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: -120px -60px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.04  0 0 0 0 0.1  0 0 0 0 0.2  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- Product preview: gallery-frame treatment ---------- */
+.ff-page .ff-preview {
+  position: relative;
+  border: 1px solid var(--lx-hair-strong) !important;
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.7),
+    0 0 0 7px var(--lx-hair),
+    0 50px 90px -40px rgba(11, 27, 52, 0.45),
+    0 14px 30px -14px rgba(11, 27, 52, 0.2) !important;
+}
+.ff-page .ff-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.ff-page .ff-preview-panel,
+.ff-page .ff-kpis > div {
+  box-shadow: var(--lx-inner), var(--lx-shadow-1) !important;
+}
+.ff-page .ff-kpis strong { letter-spacing: -0.02em;
+}
+.ff-page .ff-chart i { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Cards: paper depth, keeping every existing accent color ---------- */
+.ff-page .ff-feature,
+.ff-page .ff-role,
+.ff-page .ff-benefits > div {
+  /* ring + inner highlight tinted by each card's own accent */
+  box-shadow:
+    var(--lx-inner),
+    0 0 0 4px color-mix(in srgb, var(--card-art, #2563eb) 6%, transparent),
+    var(--lx-shadow-1) !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ff-page .ff-feature:hover,
+  .ff-page .ff-role:hover,
+  .ff-page .ff-benefits > div:hover {
+    transform: translate3d(0, -8px, 0) !important;
+    border-color: color-mix(in srgb, var(--card-art, #2563eb) 55%, white) !important;
+    box-shadow:
+      var(--lx-inner),
+      0 0 0 5px color-mix(in srgb, var(--card-art, #2563eb) 10%, transparent),
+      var(--lx-shadow-3) !important;
+  }
+}
+.ff-page .ff-feature h3,
+.ff-page .ff-role h3,
+.ff-page .ff-benefits > div h3 { letter-spacing: -0.01em !important; font-weight: 800 !important;
+}
+.ff-page .ff-feature p,
+.ff-page .ff-role p,
+.ff-page .ff-benefits > div p { letter-spacing: 0.005em;
+}
+
+/* icon tiles: jewel finish (same colors, more depth) */
+.ff-page .ff-feature > span,
+.ff-page .ff-role > span,
+.ff-page .ff-benefits > div > span {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px color-mix(in srgb, var(--card-art, #2563eb) 12%, transparent),
+    0 10px 18px -10px color-mix(in srgb, var(--card-art, #2563eb) 55%, transparent) !important;
+}
+.ff-page .ff-benefits > div > svg {
+  box-shadow: var(--lx-inner), 0 10px 18px -10px rgba(37, 99, 235, 0.4);
+}
+
+/* About flow chips */
+.ff-page .ff-flow span {
+  border-radius: 14px;
+  box-shadow: var(--lx-inner), var(--lx-shadow-1);
+}
+.ff-page .ff-flow > span:hover {
+  box-shadow: var(--lx-inner), var(--lx-shadow-2) !important;
+}
+
+/* Callout */
+.ff-page .ff-note {
+  border-radius: 14px;
+  box-shadow: var(--lx-inner), var(--lx-shadow-1);
+}
+
+/* ---------- Workflow module ---------- */
+.ff-page .ff-workflow {
+  position: relative;
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 0 7px var(--lx-hair),
+    var(--lx-shadow-3) !important;
+}
+.ff-page .ff-workflow-bar { box-shadow: var(--lx-inner);
+}
+.ff-page .ff-workflow-label { letter-spacing: 0.12em; text-transform: uppercase;
+}
+.ff-page .ff-step-node,
+.ff-page .ff-circular-process .ff-step-node {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 12px 22px -10px rgba(37, 99, 235, 0.45) !important;
+}
+.ff-page .ff-steps li:hover .ff-step-node {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 16px 28px -10px rgba(37, 99, 235, 0.65) !important;
+}
+
+/* ---------- CTA: same navy, finer detail ---------- */
+.ff-page .ff-cta {
+  border-top: 1px solid rgba(147, 197, 253, 0.28);
+  border-bottom: 1px solid rgba(147, 197, 253, 0.18);
+}
+.ff-page .ff-cta-inner::before {
+  content: "";
+  position: absolute;
+  inset: -56px 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, #000, transparent 70%);
+  mask-image: radial-gradient(ellipse at 70% 50%, #000, transparent 70%);
+}
+.ff-page .ff-cta-inner { position: relative;
+}
+.ff-page .ff-cta .ff-eyebrow { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+}
+
+/* ---------- Contact rows ---------- */
+.ff-page .ff-contact-list > a,
+.ff-page .ff-contact-list > div {
+  box-shadow: var(--lx-inner), var(--lx-shadow-1) !important;
+  border-radius: 14px !important;
+}
+.ff-page .ff-contact-list > a:hover {
+  box-shadow: var(--lx-inner), var(--lx-shadow-2) !important;
+}
+.ff-page .ff-contact-list > a > svg,
+.ff-page .ff-contact-list > div > svg {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 14px -8px rgba(37, 99, 235, 0.45);
+}
+.ff-page .ff-contact-list small { letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px;
+}
+
+/* ---------- Footer: hairline crown ---------- */
+.ff-page .ff-footer { border-top: 0 !important;
+}
+.ff-page .ff-footer::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(123, 167, 255, 0.7) 30%, rgba(123, 167, 255, 0.7) 70%, transparent);
+  pointer-events: none;
+}
+.ff-page .ff-footer-nav h3 { letter-spacing: 0.14em;
+}
+.ff-page .ff-footer-brand .ff-brand-mark {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 10px 22px -8px rgba(37, 99, 235, 0.6);
+}
+
+/* ---------- Floating background icons: crisper jewel tiles ---------- */
+.ff-page .ff-section-motion > span,
+.ff-page .ff-motion-icon {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 24px -14px rgba(37, 99, 235, 0.45) !important;
+}
+
+/* ---------- Motion: slower, graceful, no blur ---------- */
+.ff-page [data-reveal],
+[data-reveal] {
+  filter: none !important;
+  transition:
+    opacity 1100ms var(--lx-ease),
+    transform 1100ms var(--lx-ease) !important;
+}
+.ff-page .ff-feature,
+.ff-page .ff-role,
+.ff-page .ff-benefits > div,
+.ff-page .ff-contact-list > a {
+  transition:
+    transform 600ms var(--lx-ease),
+    box-shadow 600ms var(--lx-ease),
+    border-color 400ms ease,
+    background-color 400ms ease,
+    opacity 1100ms var(--lx-ease) !important;
+}
+
+/* ---------- Focus ring ---------- */
+.ff-page :is(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid #2563eb !important;
+  outline-offset: 4px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .ff-page .ff-preview {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.7), 0 0 0 5px var(--lx-hair), 0 30px 60px -30px rgba(11, 27, 52, 0.4) !important;
+  }
+  .ff-page .ff-links a::after { display: none; }
+  .ff-page .ff-eyebrow { letter-spacing: 0.1em !important; }
+}
+
+/* ==========================================================================
+   WORKFLOW FLOW LINES — connectivity between every step (restored)
+   Root cause: the circular-process rules replaced the line's draw animation
+   but left its base transform at scaleX(0), so the line never appeared, and
+   each step's halo painted over the neighbouring line.
+   ========================================================================== */
+.ff-page .ff-circular-process .ff-steps {
+  --ff-step-gap: 22px;
+  position: relative;
+  isolation: isolate;              /* halos (z:-1) stay inside, above panel bg */
+  background: none !important;     /* drop the old faint static line */
+}
+.ff-page .ff-circular-process .ff-steps li {
+  isolation: auto;                 /* let line + nodes layer across siblings */
+  z-index: auto;
+}
+
+/* line runs from this node's centre to the next node's centre */
+.ff-page .ff-circular-process .ff-steps li::after {
+  display: block !important;
+  z-index: 1;
+  top: 52px;                       /* vertical centre of the 60px node */
+  left: 50%;
+  width: calc(100% + var(--ff-step-gap));
+  height: 2px;
+  border-radius: 2px;
+  transform: scaleX(1) !important;
+  background-color: transparent;
+  background-image:
+    repeating-linear-gradient(90deg, #2563eb 0 9px, transparent 9px 16px),   /* flowing dashes */
+    linear-gradient(90deg, rgba(37, 99, 235, 0.28), rgba(13, 148, 136, 0.28)); /* solid base rail */
+  background-size: 16px 2px, 100% 2px;
+  background-repeat: repeat-x, no-repeat;
+  opacity: 0.85;
+  animation: ff-flow-dashes 1.4s linear infinite !important;
+}
+@keyframes ff-flow-dashes {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 16px 0, 0 0; }
+}
+
+/* no line after the final step */
+.ff-page .ff-circular-process .ff-steps li:last-child::after { display: none !important;
+}
+
+/* nodes sit above the line so it appears to enter and leave each step */
+.ff-page .ff-circular-process .ff-step-node { z-index: 3;
+}
+
+/* tablet / mobile grids: keep lines only between steps on the same row */
+@media (max-width: 760px) {
+  .ff-page .ff-circular-process .ff-steps { --ff-step-gap: 14px; }
+  .ff-page .ff-circular-process .ff-steps li::after { top: 38px; }
+  .ff-page .ff-circular-process .ff-steps li:nth-child(4n)::after { display: none !important; }
+}
+@media (max-width: 480px) {
+  .ff-page .ff-circular-process .ff-steps li:nth-child(4n)::after { display: block !important;
+  }
+  .ff-page .ff-circular-process .ff-steps li:nth-child(even)::after { display: none !important;
+  }
+}
+
+/* ==========================================================================
+   WORKFLOW — "THREADED CARDS" RESTYLE
+   Each step becomes a tall hairline-framed card with its own accent colour
+   (your existing blue / teal / violet / amber / cyan / rose). A flowing rail
+   threads through every card from icon to icon, so connectivity stays clear.
+   Halo circles are removed. Same markup, same palette.
+   ========================================================================== */
+
+/* panel: light, with a faint blueprint dot grid + gallery frame */
+.ff-page .ff-circular-process {
+  border-radius: 22px !important;
+  border: 1px solid var(--lx-hair-strong) !important;
+  background:
+    radial-gradient(rgba(37, 99, 235, 0.10) 1px, transparent 1.3px) 0 0 / 22px 22px,
+    linear-gradient(180deg, #ffffff, #f6f8fc) !important;
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.7),
+    0 0 0 7px var(--lx-hair),
+    var(--lx-shadow-3) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.ff-page .ff-circular-process .ff-steps { --ff-step-gap: 18px; gap: var(--ff-step-gap) !important;
+}
+
+/* the card */
+.ff-page .ff-circular-process .ff-steps li {
+  --step-accent: #2563eb;
+  min-height: 0 !important;
+  padding: 22px 10px 18px !important;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--step-accent) 20%, white);
+  background: linear-gradient(180deg, #ffffff 0%, color-mix(in srgb, var(--step-accent) 5%, white) 100%);
+  box-shadow: var(--lx-inner), var(--lx-shadow-1);
+  transition: box-shadow 500ms var(--lx-ease), border-color 400ms ease;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 1) { --step-accent: #2563eb;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 2) { --step-accent: #0d9488;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 3) { --step-accent: #6d28d9;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 4) { --step-accent: #d97706;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 5) { --step-accent: #0891b2;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 6) { --step-accent: #cf557b;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 7) { --step-accent: #3268f5;
+}
+.ff-page .ff-circular-process .ff-steps li:nth-child(8n + 8) { --step-accent: #159b8b;
+}
+
+/* old halo circle -> slim accent tab on top of the card */
+.ff-page .ff-circular-process .ff-steps li::before {
+  top: -1px !important;
+  left: 50% !important;
+  width: 34% !important;
+  height: 3px !important;
+  aspect-ratio: auto !important;
+  border: 0 !important;
+  border-radius: 0 0 4px 4px !important;
+  background: var(--step-accent) !important;
+  box-shadow: none !important;
+  animation: none !important;
+  z-index: 0 !important;
+  transform: translateX(-50%) !important;
+  transition: width 500ms var(--lx-ease);
+}
+
+/* hover: shadow + accent tab (no card movement, so the rail never misaligns) */
+@media (hover: hover) and (pointer: fine) {
+  .ff-page .ff-circular-process .ff-steps li:hover {
+    transform: none !important;
+    border-color: color-mix(in srgb, var(--step-accent) 55%, white);
+    box-shadow: var(--lx-inner), 0 0 0 4px color-mix(in srgb, var(--step-accent) 8%, transparent), var(--lx-shadow-2);
+  }
+  .ff-page .ff-circular-process .ff-steps li:hover::before { width: 72% !important; }
+  .ff-page .ff-circular-process .ff-steps li:hover .ff-step-node { transform: scale(1.08); }
+}
+
+/* icon node: round, white, accent ring, pulse emerging from under a white gap */
+.ff-page .ff-circular-process .ff-step-node {
+  width: 56px !important;
+  height: 56px !important;
+  margin: 0 auto 16px !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--step-accent) !important;
+  background: #ffffff !important;
+  color: var(--step-accent) !important;
+  transition: transform 450ms var(--lx-ease);
+  animation: ff-lx-node-ring 3.8s ease-out infinite !important;
+  box-shadow:
+    0 0 0 5px #ffffff,
+    0 0 0 5px color-mix(in srgb, var(--step-accent) 30%, transparent),
+    inset 0 1px 0 #ffffff,
+    0 12px 20px -10px color-mix(in srgb, var(--step-accent) 60%, transparent) !important;
+}
+@keyframes ff-lx-node-ring {
+  0% {
+    box-shadow: 0 0 0 5px #fff, 0 0 0 5px color-mix(in srgb, var(--step-accent) 30%, transparent),
+      inset 0 1px 0 #fff, 0 12px 20px -10px color-mix(in srgb, var(--step-accent) 60%, transparent);
+  }
+  70%, 100% {
+    box-shadow: 0 0 0 5px #fff, 0 0 0 14px color-mix(in srgb, var(--step-accent) 0%, transparent),
+      inset 0 1px 0 #fff, 0 12px 20px -10px color-mix(in srgb, var(--step-accent) 60%, transparent);
+  }
+}
+
+/* the rail: step-coloured, threads from icon to icon */
+.ff-page .ff-circular-process .ff-steps li::after {
+  top: 48px !important;            /* = card padding 22 + node radius 28 - 2 */
+  height: 3px !important;
+  border-radius: 3px;
+  opacity: 1;
+  background-image:
+    repeating-linear-gradient(90deg, var(--step-accent) 0 8px, transparent 8px 15px),
+    linear-gradient(90deg, color-mix(in srgb, var(--step-accent) 32%, white), color-mix(in srgb, var(--step-accent) 10%, white)) !important;
+  background-size: 15px 3px, 100% 3px !important;
+  animation: ff-lx-dashes 1.3s linear infinite !important;
+}
+@keyframes ff-lx-dashes {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 15px 0, 0 0; }
+}
+
+/* typography inside each card */
+.ff-page .ff-circular-process .ff-steps small {
+  align-items: center;
+  gap: 4px;
+  min-height: 0;
+  margin-top: 2px;
+  color: #64748b !important;
+  font-size: 11px;
+  font-weight: 600;
+}
+.ff-page .ff-circular-process .ff-steps small span {
+  color: var(--step-accent) !important;
+  font-size: 0.68rem !important;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+.ff-page .ff-circular-process .ff-steps strong {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--step-accent) 16%, white);
+  color: #0b1b34 !important;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+/* responsive */
+@media (max-width: 760px) {
+  .ff-page .ff-circular-process .ff-steps { --ff-step-gap: 12px; }
+  .ff-page .ff-circular-process .ff-steps li { padding: 18px 8px 14px !important; }
+  .ff-page .ff-circular-process .ff-step-node { width: 48px !important; height: 48px !important; margin-bottom: 12px !important; }
+  .ff-page .ff-circular-process .ff-steps li::after { top: 40px !important; }   /* 18 + 24 - 2 */
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ff-page .ff-circular-process .ff-step-node { animation: none !important; }
+  .ff-page [data-reveal] { transform: none !important; opacity: 1 !important; }
+  .ff-page .ff-button::after { transition: none !important; }
+  .ff-page .ff-circular-process .ff-steps li::after { animation: none !important; }
 }
