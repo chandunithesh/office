@@ -3089,8 +3089,6 @@ body.ff-landing-active #root {
    Color-rich surfaces with restrained SaaS polish.
    No blur, no glassmorphism, no decorative heading underlines.
    ============================================================ */
-:root {
-}
 
 /* Unified box treatment: more color, still enterprise-friendly. */
 .ff-page :is(.ff-feature, .ff-role, .ff-benefits > div, .ff-contact-list > a, .ff-contact-list > div) {
