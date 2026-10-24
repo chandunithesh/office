@@ -4810,3 +4810,537 @@ body.ff-landing-active #root {
     animation: none;
   }
 }
+
+
+
+/* =========================================================
+   FIELD FLOW MOTION UPDATE
+   Inspired by the reference video's clean, editorial motion:
+   staggered reveals, calm floating elements, smooth card lifts,
+   and a subtle green activity indicator.
+   ========================================================= */
+
+.ff-hero {
+  background-size: 100% 100%;
+}
+.ff-hero::after {
+  content: "";
+  position: absolute;
+  width: min(46vw, 620px);
+  aspect-ratio: 1;
+  right: -10%;
+  top: 8%;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,.10), rgba(37,99,235,.035) 42%, transparent 70%);
+  animation: ff-orb-drift 12s ease-in-out infinite alternate;
+}
+@keyframes ff-orb-drift {
+  from { transform: translate3d(0, 0, 0) scale(.94); }
+  to { transform: translate3d(-24px, 20px, 0) scale(1.06); }
+}
+
+/* Editorial, staggered entrance for all content entering the viewport. */
+.ff-page [data-reveal] {
+  transition:
+    opacity .8s cubic-bezier(.2,.75,.25,1),
+    transform .8s cubic-bezier(.2,.75,.25,1),
+    filter .8s cubic-bezier(.2,.75,.25,1);
+  filter: blur(3px);
+  will-change: opacity, transform;
+}
+.ff-page [data-reveal].ff-reveal-in {
+  filter: blur(0);
+}
+.ff-page .ff-heading[data-reveal] {
+  transform: translateY(28px);
+}
+.ff-page .ff-heading[data-reveal].ff-reveal-in {
+  transform: translateY(0);
+}
+
+/* Cards ease into place, then respond with a restrained lift. */
+.ff-feature,
+.ff-role,
+.ff-benefits > div,
+.ff-flow > span,
+.ff-preview-panel,
+.ff-kpis > div,
+.ff-contact-list > a,
+.ff-contact-list > div {
+  transition:
+    transform .45s cubic-bezier(.2,.75,.25,1),
+    box-shadow .45s ease,
+    border-color .35s ease,
+    background-color .35s ease;
+}
+.ff-feature:hover,
+.ff-role:hover,
+.ff-benefits > div:hover,
+.ff-kpis > div:hover,
+.ff-preview-panel:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px -22px rgba(15, 23, 42, .34);
+}
+
+/* A subtle sweep gives the dashboard a little life without distracting. */
+.ff-preview {
+  transform-origin: center;
+  animation: ff-dashboard-arrive .95s cubic-bezier(.2,.75,.25,1) .12s both;
+}
+@keyframes ff-dashboard-arrive {
+  from { opacity: 0; transform: translateY(28px) scale(.975); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.ff-live {
+  position: relative;
+}
+.ff-live::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 0 rgba(22,163,74,.35);
+  animation: ff-live-pulse 2s ease-out infinite;
+}
+@keyframes ff-live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(22,163,74,.35); }
+  70% { box-shadow: 0 0 0 7px rgba(22,163,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(22,163,74,0); }
+}
+
+/* Chart bars animate in sequence; hover emphasis remains subtle. */
+.ff-chart i {
+  transition: filter .25s ease, opacity .25s ease;
+}
+.ff-chart:hover i {
+  filter: saturate(1.18);
+}
+.ff-chart i:nth-child(1) { animation-delay: .02s; }
+.ff-chart i:nth-child(2) { animation-delay: .09s; }
+.ff-chart i:nth-child(3) { animation-delay: .16s; }
+.ff-chart i:nth-child(4) { animation-delay: .23s; }
+.ff-chart i:nth-child(5) { animation-delay: .30s; }
+.ff-chart i:nth-child(6) { animation-delay: .37s; }
+.ff-chart i:nth-child(7) { animation-delay: .44s; }
+
+/* Dotted icon routes glide gently like the reference's moving visual accents. */
+.ff-flight {
+  will-change: transform;
+}
+.ff-motion-icon {
+  animation: ff-route-icon-bob 3.4s ease-in-out infinite;
+}
+.ff-motion-icon:nth-child(2) { animation-delay: -.8s; }
+.ff-motion-icon:nth-child(3) { animation-delay: -1.6s; }
+.ff-motion-icon:nth-child(4) { animation-delay: -2.4s; }
+@keyframes ff-route-icon-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+
+/* Workflow line draws forward and each node softly wakes up. */
+.ff-steps li::after {
+  animation-duration: 1.15s;
+  animation-timing-function: cubic-bezier(.2,.7,.3,1);
+}
+.ff-step-node {
+  animation: ff-node-breathe 4.5s ease-in-out infinite;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+@keyframes ff-node-breathe {
+  0%, 86%, 100% { box-shadow: 0 0 0 5px var(--white), var(--shadow-xs); }
+  92% { box-shadow: 0 0 0 8px rgba(37,99,235,.09), var(--shadow-xs); }
+}
+
+/* Background icons drift independently; keep them behind readable content. */
+.ff-section-motion > span {
+  will-change: transform;
+  opacity: .72;
+}
+.ff-about-motion > span,
+.ff-features-motion > span,
+.ff-steps-motion > span,
+.ff-solutions-motion > span,
+.ff-benefits-motion > span,
+.ff-contact-motion > span {
+  transition: opacity .4s ease;
+}
+
+/* Keep motion comfortable on smaller screens and honor accessibility settings. */
+@media (max-width: 760px) {
+  .ff-hero::after { width: 90vw; right: -35%; top: 20%; }
+  .ff-motion-bg { opacity: .42; }
+  .ff-section-motion { opacity: .55; }
+  .ff-page [data-reveal] { filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ff-hero::after,
+  .ff-live::before,
+  .ff-motion-icon,
+  .ff-step-node {
+    animation: none !important;
+  }
+  .ff-page [data-reveal] {
+    filter: none !important;
+    will-change: auto;
+  }
+}
+
+/* ================================================
+   Reference-inspired motion pass (stronger reveal)
+   Progressive blur-to-sharp reveal, staggered cards,
+   and clean editorial-style movement.
+   ================================================ */
+@keyframes ff-editorial-reveal {
+  0% { opacity: 0; filter: blur(12px); transform: translate3d(0, 34px, 0) scale(.985); }
+  65% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; filter: blur(0); transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Make scroll reveals closer to the reference's soft, staged entrance. */
+[data-reveal] {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translate3d(0, 38px, 0) scale(.99);
+  transition:
+    opacity 900ms cubic-bezier(.16, 1, .3, 1),
+    transform 900ms cubic-bezier(.16, 1, .3, 1),
+    filter 900ms cubic-bezier(.16, 1, .3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+[data-reveal].ff-reveal-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Progressive entrance for cards, like the reference property gallery. */
+.ff-feature-grid > :nth-child(1) { --reveal-delay: 80ms; }
+.ff-feature-grid > :nth-child(2) { --reveal-delay: 170ms; }
+.ff-feature-grid > :nth-child(3) { --reveal-delay: 260ms; }
+.ff-feature-grid > :nth-child(4) { --reveal-delay: 350ms; }
+.ff-feature-grid > :nth-child(5) { --reveal-delay: 440ms; }
+.ff-feature-grid > :nth-child(6) { --reveal-delay: 530ms; }
+.ff-workflow > :nth-child(1) { --reveal-delay: 70ms; }
+.ff-workflow > :nth-child(2) { --reveal-delay: 150ms; }
+.ff-workflow > :nth-child(3) { --reveal-delay: 230ms; }
+.ff-workflow > :nth-child(4) { --reveal-delay: 310ms; }
+.ff-workflow > :nth-child(5) { --reveal-delay: 390ms; }
+.ff-workflow > :nth-child(6) { --reveal-delay: 470ms; }
+
+.ff-feature {
+  transition:
+    transform 450ms cubic-bezier(.2, .8, .2, 1),
+    box-shadow 450ms ease,
+    border-color 450ms ease;
+}
+.ff-feature:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, .11);
+}
+.ff-feature > span {
+  transition: transform 500ms cubic-bezier(.2, .8, .2, 1);
+}
+.ff-feature:hover > span { transform: translateY(-4px) rotate(-4deg); }
+
+/* Dashboard UI enters in layers rather than as one block. */
+.ff-preview { transform-origin: center; }
+.ff-preview.ff-reveal-in .ff-kpis > div,
+.ff-preview.ff-reveal-in .ff-preview-panel {
+  animation: ff-editorial-reveal 850ms cubic-bezier(.16, 1, .3, 1) both;
+}
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(1) { animation-delay: 100ms; }
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(2) { animation-delay: 190ms; }
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(3) { animation-delay: 280ms; }
+.ff-preview.ff-reveal-in .ff-kpis > div:nth-child(4) { animation-delay: 370ms; }
+.ff-preview.ff-reveal-in .ff-preview-panel:nth-child(1) { animation-delay: 420ms; }
+.ff-preview.ff-reveal-in .ff-preview-panel:nth-child(2) { animation-delay: 520ms; }
+
+/* Green live indicator has the small pulse seen in the reference. */
+.ff-live { display: inline-flex; align-items: center; gap: 6px; }
+.ff-live::before {
+  content: "";
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #16d96b;
+  box-shadow: 0 0 0 0 rgba(22, 217, 107, .45);
+  animation: ff-live-pulse 1.8s ease-out infinite;
+}
+@keyframes ff-live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(22, 217, 107, .45); }
+  70% { box-shadow: 0 0 0 8px rgba(22, 217, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 217, 107, 0); }
+}
+
+/* Soft parallax-like ambient light behind the hero. */
+.ff-hero { isolation: isolate; }
+.ff-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(48vw, 620px);
+  aspect-ratio: 1;
+  right: -8%; top: 4%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(22, 217, 107, .09), rgba(37, 99, 235, .045) 42%, transparent 70%);
+  animation: ff-ambient-drift 11s ease-in-out infinite alternate;
+}
+@keyframes ff-ambient-drift {
+  from { transform: translate3d(0, 0, 0) scale(.94); }
+  to { transform: translate3d(-24px, 18px, 0) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal].ff-reveal-in,
+  .ff-feature, .ff-feature > span, .ff-hero::after,
+  .ff-live::before, .ff-preview.ff-reveal-in .ff-kpis > div,
+  .ff-preview.ff-reveal-in .ff-preview-panel {
+    animation: none !important;
+    transition: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* ================================================================
+   REFERENCE-INSPIRED SIGNATURE ANIMATIONS
+   Flowing hero contour waves + glowing circular workflow nodes
+   ================================================================ */
+.ff-hero {
+  isolation: isolate;
+  overflow: hidden;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(83, 119, 255, .12), transparent 53%);
+}
+.ff-hero .ff-motion-bg { z-index: -1; opacity: .42; }
+.ff-wave-field {
+  position: absolute;
+  z-index: -1;
+  inset: auto -3% -5% -3%;
+  height: min(62%, 470px);
+  pointer-events: none;
+  overflow: hidden;
+  opacity: .82;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+}
+.ff-wave-field svg { display: block; width: 108%; height: 100%; overflow: visible; }
+.ff-wave-line {
+  fill: none;
+  stroke: #6677e8;
+  stroke-width: 1.15;
+  vector-effect: non-scaling-stroke;
+  opacity: calc(.18 + (var(--wave-index) * .025));
+  stroke-dasharray: 7 8;
+  animation: ff-wave-flow calc(17s + var(--wave-index) * 1.15s) linear infinite,
+             ff-wave-breathe 6s ease-in-out infinite alternate;
+  animation-delay: calc(var(--wave-index) * -1.2s), calc(var(--wave-index) * -.4s);
+}
+@keyframes ff-wave-flow {
+  from { stroke-dashoffset: 0; transform: translateX(0); }
+  to { stroke-dashoffset: -220; transform: translateX(-24px); }
+}
+@keyframes ff-wave-breathe {
+  from { opacity: .22; }
+  to { opacity: .7; }
+}
+
+/* Circular-process look: soft concentric halos around each workflow icon */
+.ff-circular-process {
+  position: relative;
+  border: 1px solid rgba(255,255,255,.78);
+  border-radius: 28px;
+  padding: clamp(18px, 3vw, 34px);
+  background: linear-gradient(145deg, rgba(244,247,255,.78), rgba(225,233,250,.66));
+  box-shadow: 18px 18px 42px rgba(64, 86, 145, .10), -12px -12px 30px rgba(255,255,255,.9), inset 1px 1px 0 rgba(255,255,255,.8);
+  backdrop-filter: blur(12px);
+}
+.ff-circular-process .ff-steps { gap: 22px; }
+.ff-circular-process .ff-steps li {
+  position: relative;
+  min-height: 220px;
+  padding: 0 8px 12px;
+  text-align: center;
+  isolation: isolate;
+}
+.ff-circular-process .ff-steps li::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -14px;
+  left: 50%;
+  width: clamp(104px, 10vw, 142px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255,255,255,.95);
+  background: radial-gradient(circle, rgba(255,255,255,.88) 0 44%, rgba(224,233,252,.45) 45% 67%, rgba(255,255,255,.28) 68% 100%);
+  box-shadow: 12px 12px 26px rgba(69, 94, 155, .10), -9px -9px 22px rgba(255,255,255,.88), inset 0 0 0 1px rgba(255,255,255,.7);
+  animation: ff-process-halo 5s ease-in-out infinite;
+  animation-delay: calc(var(--reveal-delay, 0ms) * -1);
+}
+.ff-circular-process .ff-step-node {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 23px auto 24px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 17px;
+  color: #315eea;
+  background: linear-gradient(145deg, #d9eaff, #8ab8ff);
+  box-shadow: 8px 8px 18px rgba(50, 92, 183, .2), -5px -5px 15px rgba(255,255,255,.95), inset 1px 1px 2px rgba(255,255,255,.9);
+  animation: ff-process-icon 4s ease-in-out infinite;
+  animation-delay: calc(var(--reveal-delay, 0ms) * -1);
+}
+.ff-circular-process .ff-steps li:nth-child(2n) .ff-step-node { animation-delay: -1.8s; }
+.ff-circular-process .ff-steps li::after {
+  top: 47px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(75,132,239,.85), rgba(255,255,255,.9), rgba(75,132,239,.8), transparent);
+  background-size: 220% 100%;
+  animation: ff-process-track 4s linear infinite;
+}
+.ff-circular-process .ff-steps small,
+.ff-circular-process .ff-steps strong { position: relative; z-index: 2; }
+.ff-circular-process .ff-steps small { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.ff-circular-process .ff-steps small span { font-size: 1.05rem; font-weight: 800; color: #24345c; }
+.ff-circular-process .ff-steps strong { display: block; margin-top: 10px; }
+@keyframes ff-process-halo {
+  0%, 100% { box-shadow: 12px 12px 26px rgba(69,94,155,.10), -9px -9px 22px rgba(255,255,255,.88), 0 0 0 0 rgba(91,142,255,0); }
+  50% { box-shadow: 14px 16px 32px rgba(69,94,155,.14), -9px -9px 22px rgba(255,255,255,.95), 0 0 0 8px rgba(91,142,255,.055); }
+}
+@keyframes ff-process-icon { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes ff-process-track { from { background-position: 100% 0; } to { background-position: -120% 0; } }
+@media (max-width: 760px) {
+  .ff-wave-field { height: 36%; inset-inline: -18%; opacity: .55; }
+  .ff-circular-process { padding: 18px 12px; }
+  .ff-circular-process .ff-steps { gap: 14px; }
+  .ff-circular-process .ff-steps li { min-height: 180px; }
+  .ff-circular-process .ff-steps li::before { width: 90px; top: -5px; }
+  .ff-circular-process .ff-step-node { width: 48px; height: 48px; margin-top: 15px; margin-bottom: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ff-wave-line, .ff-circular-process .ff-steps li::before, .ff-circular-process .ff-step-node, .ff-circular-process .ff-steps li::after { animation: none !important; }
+}
+
+/* ==========================================================
+   FIELDFLOW FSM — SECTION GAP / SPACING FIX
+   Tightens excess vertical whitespace without changing content.
+   ========================================================== */
+.ff-page .ff-hero { padding: 64px 0 70px !important; }
+.ff-page .ff-hero-grid { gap: 36px !important; }
+.ff-page .ff-hero h1 { margin: 12px 0 12px !important; }
+.ff-page .ff-hero-copy > p { margin-bottom: 18px !important; line-height: 1.6 !important; }
+.ff-page .ff-points { margin-top: 18px !important; }
+.ff-page .ff-about { padding: 48px 0 !important; }
+.ff-page .ff-about-grid { gap: 42px !important; }
+.ff-page .ff-section { padding: 48px 0 !important; }
+.ff-page .ff-section#solutions { padding-bottom: 32px !important; }
+.ff-page .ff-benefits-section { padding-top: 32px !important; padding-bottom: 44px !important; }
+.ff-page .ff-heading { margin-bottom: 20px !important; }
+.ff-page .ff-heading h2 { margin-top: 5px !important; margin-bottom: 6px !important; }
+.ff-page .ff-feature-grid { gap: 14px !important; }
+.ff-page .ff-workflow { margin-top: 16px !important; }
+.ff-page .ff-cta { padding: 40px 0 !important; }
+.ff-page .ff-cta-inner { gap: 22px !important; }
+.ff-page .ff-contact { padding: 48px 0 52px !important; }
+.ff-page .ff-contact-grid { gap: 32px !important; }
+.ff-page .ff-contact-list { gap: 10px !important; }
+.ff-page .ff-contact-list > a,
+.ff-page .ff-contact-list > div { padding: 12px 14px !important; }
+.ff-page .ff-footer-inner { gap: 24px !important; }
+.ff-page .ff-footer-top { gap: 24px !important; }
+.ff-page .ff-footer-bottom { margin-top: 24px !important; padding-top: 16px !important; }
+
+@media (max-width: 1000px) {
+  .ff-page .ff-hero { padding: 52px 0 56px !important; }
+  .ff-page .ff-hero-grid { gap: 28px !important; }
+  .ff-page .ff-about,
+  .ff-page .ff-section { padding: 40px 0 !important; }
+  .ff-page .ff-about-grid { gap: 28px !important; }
+  .ff-page .ff-contact { padding: 40px 0 44px !important; }
+}
+@media (max-width: 760px) {
+  .ff-page .ff-hero { padding: 38px 0 42px !important; }
+  .ff-page .ff-hero-grid { gap: 24px !important; }
+  .ff-page .ff-about,
+  .ff-page .ff-section { padding: 32px 0 !important; }
+  .ff-page .ff-section#solutions { padding-bottom: 28px !important; }
+  .ff-page .ff-benefits-section { padding: 28px 0 32px !important; }
+  .ff-page .ff-heading { margin-bottom: 18px !important; }
+  .ff-page .ff-feature-grid { gap: 12px !important; }
+  .ff-page .ff-cta { padding: 32px 0 !important; }
+  .ff-page .ff-contact { padding: 34px 0 36px !important; }
+  .ff-page .ff-contact-grid { gap: 22px !important; }
+  .ff-page .ff-footer-top { gap: 22px !important; }
+}
+
+/* FOOTER: REMOVE EXCESSIVE EMPTY SPACE */
+.ff-footer {
+  padding: 24px 0 12px !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+.ff-footer-inner {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.ff-footer-top {
+  display: grid !important;
+  grid-template-columns: 1.35fr 0.65fr 1fr 1fr;
+  gap: 20px !important;
+  align-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ff-footer-bottom {
+  position: static !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 18px 0 0 !important;
+  padding: 12px 0 0 !important;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.ff-footer-top > *,
+.ff-footer-brand p,
+.ff-footer-nav {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .ff-footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px !important;
+  }
+
+  .ff-footer-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .ff-footer-top {
+    grid-template-columns: 1fr;
+    gap: 16px !important;
+  }
+}

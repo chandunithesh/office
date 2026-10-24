@@ -158,6 +158,24 @@ function SectionAnimatedBackground({ type, icons: iconsList }) {
   );
 }
 
+/* Premium flowing wave lines inspired by the reference design */
+function FlowingWaveBackground() {
+  return (
+    <div className="ff-wave-field" aria-hidden="true">
+      <svg viewBox="0 0 1440 520" preserveAspectRatio="none">
+        {Array.from({ length: 9 }, (_, index) => (
+          <path
+            key={index}
+            className="ff-wave-line"
+            style={{ "--wave-index": index }}
+            d={`M -80 ${340 + index * 8} C 130 ${320 - index * 8}, 110 ${40 + index * 7}, 360 ${160 + index * 7} S 560 ${510 - index * 7}, 730 ${285 + index * 6} S 1000 ${40 + index * 8}, 1160 ${180 + index * 7} S 1320 ${420 - index * 6}, 1520 ${260 + index * 6}`}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 /* Dashboard preview */
 function DashboardPreview() {
   return (
@@ -390,6 +408,7 @@ export default function LandingPage() {
         {/* HERO: Existing moving route animation */}
         <section className="ff-hero" id="home">
           <FSMAnimatedBackground />
+          <FlowingWaveBackground />
 
           <div className="ff-container ff-hero-grid">
             <div className="ff-hero-copy">
@@ -528,7 +547,7 @@ export default function LandingPage() {
                 workflow.
               </p>
             </div>
-            <div className="ff-workflow">
+            <div className="ff-workflow ff-circular-process">
               <div className="ff-workflow-bar">
                 <span className="ff-workflow-label">
                   <i /> Workflow preview
@@ -758,8 +777,10 @@ export default function LandingPage() {
           <div className="ff-footer-bottom">
             <span>© 2026 FieldFlow FSM. All rights reserved.</span>
             <div>
-              <a href="#home">Back to top ↑</a>
-              <span>Frontend prototype</span>
+              <a href="#home">FieldFlow FSM</a>
+              <a href="#contact">Contact</a>
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms of Service</a>
             </div>
           </div>
         </div>
