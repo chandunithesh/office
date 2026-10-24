@@ -262,55 +262,6 @@ function DashboardPreview() {
   );
 }
 
-/* ADDED: Round-robin 3D spotlight.
-   Highlights one child at a time, in order, forever.
-   Pauses while the mouse is over the group. */
-function useRoundRobin(ref, selector, interval = 2200) {
-  useEffect(() => {
-    const root = ref.current;
-    if (!root) return undefined;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-      return undefined;
-
-    const items = Array.from(root.querySelectorAll(selector));
-    if (!items.length) return undefined;
-
-    let index = 0;
-    let paused = false;
-
-    const tick = () => {
-      items.forEach((el, n) =>
-        el.classList.toggle("ff-rr-active", n === index),
-      );
-      index = (index + 1) % items.length;
-    };
-
-    const clear = () =>
-      items.forEach((el) => el.classList.remove("ff-rr-active"));
-    const pause = () => {
-      paused = true;
-      clear();
-    };
-    const resume = () => {
-      paused = false;
-    };
-
-    tick();
-    const timer = setInterval(() => {
-      if (!paused) tick();
-    }, interval);
-    root.addEventListener("mouseenter", pause);
-    root.addEventListener("mouseleave", resume);
-
-    return () => {
-      clearInterval(timer);
-      root.removeEventListener("mouseenter", pause);
-      root.removeEventListener("mouseleave", resume);
-      clear();
-    };
-  }, [ref, selector, interval]);
-}
-
 const enquiryTypes = [
   "Request a demo",
   "Pricing & plans",
@@ -326,20 +277,6 @@ const products = [
   "Billing",
   "Analytics & Reports",
 ];
-
-const Social = ({ label, d }) => (
-  <button type="button" aria-label={label} className="ff-cf-social-link">
-    <svg
-      viewBox="0 0 24 24"
-      width="16"
-      height="16"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d={d} />
-    </svg>
-  </button>
-);
 
 function ContactSection() {
   const [sent, setSent] = useState(false);
@@ -444,25 +381,6 @@ function ContactSection() {
             </a>
           </div>
 
-          <div className="ff-cf-follow">Follow Us</div>
-          <div className="ff-cf-social">
-            <Social
-              label="Facebook"
-              d="M13.5 21v-7.5h2.5l.5-3h-3V8.6c0-.9.3-1.5 1.6-1.5H16.600V4.400C16.300 4.400 15.400 4.300 14.400 4.300c-2.200 0-3.700 1.300-3.700 3.800v2.400H8.200v3h2.500V21z"
-            />
-            <Social
-              label="X"
-              d="M17.800 3h3l-6.500 7.500L22 21h-6l-4.700-6.100L5.900 21h-3l7-8L2.500 3h6.100l4.300 5.600zm-1 16.200h1.700L7.700 4.700H5.900z"
-            />
-            <Social
-              label="Instagram"
-              d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm0 2a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2zm5 2.500a4.500 4.500 0 110 9 4.500 4.500 0 010-9zm0 2a2.500 2.500 0 100 5 2.500 2.500 0 000-5zM17.200 6a1 1 0 110 2 1 1 0 010-2z"
-            />
-            <Social
-              label="LinkedIn"
-              d="M4.500 8.500h3.800V20H4.500zM6.400 3a2.200 2.200 0 110 4.400 2.200 2.200 0 010-4.400zM10.500 8.500h3.600v1.600c.5-1 1.800-1.900 3.700-1.900 3.800 0 4.500 2.500 4.500 5.800V20h-3.800v-5.300c0-1.300 0-2.900-1.800-2.900s-2 1.400-2 2.800V20h-3.800z"
-            />
-          </div>
         </div>
 
         {/* RIGHT: form */}
@@ -593,15 +511,9 @@ function ContactSection() {
 
 export default function LandingPage() {
   const pageRef = useRef(null);
-
-  /* ADDED: refs + round-robin hooks for the three circled areas */
   const flowRef = useRef(null);
   const featureRef = useRef(null);
   const roleRef = useRef(null);
-
-  useRoundRobin(flowRef, ":scope > span", 1800);
-  useRoundRobin(featureRef, ".ff-feature", 2200);
-  useRoundRobin(roleRef, ".ff-role", 1800);
 
   useEffect(() => {
     const root = pageRef.current;

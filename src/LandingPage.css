@@ -1804,21 +1804,8 @@ body.ff-landing-active #root {
 }
 
 /* =========================================
-   3D ROUND-ROBIN CARDS
+   3D CARD REVEAL
 ========================================= */
-
-/* depth for child rotations */
-.ff-flow,
-.ff-feature-grid,
-.ff-role-grid {
-  perspective: 1200px;
-}
-.ff-flow > span,
-.ff-feature,
-.ff-role {
-  transform-style: preserve-3d;
-  will-change: translate, rotate, scale;
-}
 
 /* 3D flip-in on scroll (replaces the flat slide-up for these cards) */
 .ff-feature[data-reveal],
@@ -1831,73 +1818,13 @@ body.ff-landing-active #root {
   transform: perspective(900px) translateY(0) rotateX(0);
 }
 
-/* smooth transitions for the spotlight properties.
-   The reveal delay applies only to opacity/transform. */
-.ff-flow > span,
+/* The reveal delay applies only to opacity and transform. */
 .ff-feature[data-reveal],
 .ff-role[data-reveal] {
   transition:
     opacity 0.75s cubic-bezier(0.22, 0.7, 0.3, 1),
-    transform 0.75s cubic-bezier(0.22, 0.7, 0.3, 1),
-    translate 0.6s cubic-bezier(0.22, 0.7, 0.3, 1),
-    rotate 0.6s cubic-bezier(0.22, 0.7, 0.3, 1),
-    scale 0.6s cubic-bezier(0.22, 0.7, 0.3, 1),
-    box-shadow 0.5s ease,
-    border-color 0.5s ease,
-    background 0.5s ease;
-  transition-delay:
-    var(--reveal-delay, 0ms), var(--reveal-delay, 0ms),
-    0ms, 0ms, 0ms, 0ms, 0ms, 0ms;
-}
-
-/* the active (spotlight) card, and the hovered card */
-.ff-flow > span.ff-rr-active,
-.ff-feature.ff-rr-active,
-.ff-role.ff-rr-active,
-.ff-flow > span:hover,
-.ff-role:hover {
-  z-index: 3;
-  translate: 0 -10px 50px;
-  rotate: 1 -1 0 7deg;
-  scale: 1.05;
-  border-color: var(--blue-600);
-  background: var(--blue-50);
-  box-shadow:
-    0 24px 40px -16px rgba(37, 99, 235, 0.35),
-    0 10px 18px -10px rgba(15, 23, 42, 0.2);
-}
-.ff-feature.ff-rr-active {
-  background: linear-gradient(180deg, #fff, var(--blue-50));
-}
-
-/* the others recede slightly while one is in the spotlight */
-.ff-flow:has(.ff-rr-active) > :not(.ff-rr-active),
-.ff-feature-grid:has(.ff-rr-active) > :not(.ff-rr-active),
-.ff-role-grid:has(.ff-rr-active) > :not(.ff-rr-active) {
-  scale: 0.985;
-  translate: 0 0 -10px;
-}
-
-/* icon / number badge pops forward on the active card */
-.ff-feature > span,
-.ff-role > span {
-  transition: transform 0.5s ease;
-}
-.ff-feature.ff-rr-active > span,
-.ff-role.ff-rr-active > span {
-  transform: translateZ(30px) scale(1.12);
-}
-.ff-flow > span.ff-rr-active svg {
-  transform: translateY(-3px) scale(1.15);
-  color: var(--teal);
-}
-@media (max-width: 760px) {
-  .ff-flow > span.ff-rr-active,
-  .ff-feature.ff-rr-active,
-  .ff-role.ff-rr-active {
-    rotate: 1 -1 0 4deg;
-    scale: 1.03;
-  }
+    transform 0.75s cubic-bezier(0.22, 0.7, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms), var(--reveal-delay, 0ms);
 }
 
 /* =========================================================
@@ -2129,17 +2056,6 @@ body.ff-landing-active #root {
 .ff-footer a:focus-visible {
   outline: 3px solid #60a5fa;
   outline-offset: 4px;
-}
-
-/* Don't let the original 3D round-robin effect over-rotate cards. */
-.ff-feature.ff-rr-active,
-.ff-role.ff-rr-active,
-.ff-flow > span.ff-rr-active {
-  transform: translateY(-7px);
-  rotate: 0deg;
-  scale: 1.025;
-  border-color: #60a5fa;
-  box-shadow: 0 18px 34px -18px rgba(37, 99, 235, 0.42);
 }
 
 /* Smaller screens: tone down travel and prevent overflow. */
@@ -5308,11 +5224,6 @@ html { scrollbar-width: thin; scrollbar-color: #2563eb #eff6ff;
 .ff-cf-card i { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: var(--radius); background: rgba(255,255,255,.16); }
 .ff-cf-card h3 { margin: 0 0 4px; font-size: 14px; color: #fff; }
 .ff-cf-card p, .ff-cf-card strong { color: rgba(255,255,255,.9); font-size: 13px; }
-.ff-cf-follow { margin-top: 22px; font-size: 13px; font-weight: 700; color: var(--copy); }
-.ff-cf-social { display: flex; gap: 10px; margin-top: 10px; }
-.ff-cf-social-link { width: 38px; height: 38px; display: grid; place-items: center; border-radius: var(--radius); border: 1px solid var(--line); background: var(--blue-50); color: var(--blue-600); transition: .2s; }
-.ff-cf-social-link:hover { background: var(--blue-600); color: #fff; }
-
 .ff-cf-form { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 32px; box-shadow: var(--shadow-lg); }
 .ff-cf-form h3 { margin: 0 0 4px; font-size: 22px; color: var(--ink); }
 .ff-cf-sub { margin-bottom: 20px !important; color: var(--copy) !important; font-size: 13px !important; }
