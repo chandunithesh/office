@@ -1018,19 +1018,6 @@ body.ff-landing-active #root {
   padding: 72px 0 88px;
   background: var(--white);
 }
-.ff-contact-grid {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  align-items: start;
-  gap: 24px;
-}
-.ff-contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 .ff-contact h2 {
   margin: 8px 0 5px;
   font-size: 26px;
@@ -1039,41 +1026,6 @@ body.ff-landing-active #root {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
-}
-.ff-contact-list > a,
-.ff-contact-list > div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  border-radius: var(--radius);
-  color: var(--blue-600);
-  border: 1px solid var(--line);
-  background: var(--white);
-  box-shadow: var(--shadow-xs);
-}
-.ff-contact-list > a {
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-.ff-contact-list > a:hover {
-  border-color: var(--blue-200);
-  box-shadow: var(--shadow-md);
-}
-.ff-contact-list > a span,
-.ff-contact-list > div span {
-  display: grid;
-  gap: 3px;
-}
-.ff-contact-grid small {
-  color: var(--muted);
-  font-size: 12px;
-}
-.ff-contact-grid strong {
-  color: var(--navy-900);
-  font-size: 14px;
-  font-weight: 650;
 }
 
 /* ---------- Footer ---------- */
@@ -1114,9 +1066,6 @@ body.ff-landing-active #root {
   }
   .ff-hero h1 {
     font-size: 40px;
-  }
-  .ff-contact-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 760px) {
@@ -1295,10 +1244,6 @@ body.ff-landing-active #root {
     gap: 7px;
     padding: 0 10px;
     font-size: 12px;
-  }
-  .ff-contact-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
   }
   .ff-footer-inner {
     align-items: flex-start;
@@ -2835,17 +2780,7 @@ body.ff-landing-active #root {
 }
 .ff-page .ff-cta .ff-light:hover {
   box-shadow: 0 12px 26px rgba(4, 18, 45, .2);
-}
-
-/* Contact details become easier to scan and feel interactive. */
-.ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div {
-  transition: transform 240ms var(--ff-premium-spring), border-color 220ms ease;
-}
-.ff-page .ff-contact-list > a:hover {
-  transform: translateX(4px);
-  border-color: #b8cdf4;
-}
+}/* Contact details become easier to scan and feel interactive. */
 
 /* Footer navigation feels deliberate, not static. */
 .ff-page .ff-footer-nav a {
@@ -2887,166 +2822,15 @@ body.ff-landing-active #root {
   .ff-page .ff-preview {
     translate: none !important;
   }
-}
-
-/* ============================================================
+}/* ============================================================
    CONTACT PANEL REDESIGN — REAL VISUAL CHANGE
    Replaces the plain outlined list with a premium contact card.
    Crisp surfaces only: no blur, no glass, no heading underlines.
-   ============================================================ */
-.ff-page .ff-contact-list {
-  position: relative;
-  isolation: isolate;
-  display: grid;
-  gap: 14px;
-  padding: clamp(22px, 3vw, 34px);
-  border: 1px solid #20385e !important;
-  border-radius: 26px !important;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(47, 111, 255, .25), transparent 42%),
-    linear-gradient(145deg, #101d35 0%, #13284a 58%, #10213d 100%) !important;
-  box-shadow:
-    0 26px 60px rgba(16, 29, 53, .18),
-    0 5px 14px rgba(16, 29, 53, .08) !important;
-}
-
-/* A restrained accent rail gives the panel a deliberate product-design edge. */
-.ff-page .ff-contact-list::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  top: 26px;
-  bottom: 26px;
-  width: 4px;
-  border-radius: 0 6px 6px 0;
-  background: linear-gradient(180deg, #42d4ff, #4b75ff 58%, #8c7bff);
-}
-.ff-page .ff-contact-list::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 230px;
-  height: 230px;
-  right: -115px;
-  top: -125px;
-  border: 1px solid rgba(144, 183, 255, .16);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 24px rgba(144, 183, 255, .035),
-    0 0 0 48px rgba(144, 183, 255, .025);
-  pointer-events: none;
-}
-.ff-page .ff-contact-list > center {
-  margin: 0 0 8px;
-  text-align: left;
-}
-.ff-page .ff-contact-list > center h3 {
-  margin: 0;
-  color: #fff !important;
-  font-size: clamp(1.35rem, 2vw, 1.7rem);
-  font-weight: 780;
-  letter-spacing: -.035em;
-}
-.ff-page .ff-contact-list > center::after {
-  content: "We usually respond within one business day";
-  display: block;
-  margin-top: 7px;
-  color: #b8c8e2;
-  font-size: .92rem;
-  line-height: 1.5;
-}
-
-/* Each contact method becomes a distinct, aligned information row. */
-.ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div {
-  position: relative;
-  display: grid !important;
-  grid-template-columns: 50px minmax(0, 1fr);
-  align-items: center;
-  gap: 15px;
-  min-width: 0;
-  margin: 0 !important;
-  padding: 18px 19px !important;
-  border: 1px solid rgba(218, 231, 255, .15) !important;
-  border-radius: 17px !important;
-  background: rgba(255, 255, 255, .065) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055) !important;
-  text-decoration: none;
-  transform: translateY(0);
-  transition:
-    transform 280ms cubic-bezier(.16, 1, .3, 1),
-    border-color 220ms ease,
-    background-color 220ms ease,
-    box-shadow 220ms ease;
-}
-
-/* Keep lucide icons in their own solid, high-contrast tile. */
-.ff-page .ff-contact-list > a > svg,
-.ff-page .ff-contact-list > div > svg {
-  width: 48px !important;
-  height: 48px !important;
-  box-sizing: border-box;
-  padding: 12px;
-  border: 1px solid rgba(110, 166, 255, .30);
-  border-radius: 14px;
-  color: #77cfff !important;
-  background: linear-gradient(145deg, rgba(46, 104, 255, .22), rgba(44, 197, 244, .10));
-  stroke-width: 1.8;
-  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), background 220ms ease;
-}
-.ff-page .ff-contact-list > a > span,
-.ff-page .ff-contact-list > div > span {
-  display: grid;
-  gap: 5px;
-  min-width: 0;
-}
-.ff-page .ff-contact-list small {
-  color: #b7c8e3 !important;
-  font-size: .86rem;
-  font-weight: 600;
-  letter-spacing: .025em;
-}
-.ff-page .ff-contact-list strong {
-  color: #fff !important;
-  font-size: clamp(.98rem, 1.4vw, 1.12rem);
-  font-weight: 720;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-}
+   ============================================================ *//* A restrained accent rail gives the panel a deliberate product-design edge. *//* Each contact method becomes a distinct, aligned information row. *//* Keep lucide icons in their own solid, high-contrast tile. */
 
 /* Hover states feel like a polished interface, not a static template. */
 @media (hover: hover) and (pointer: fine) {
-  .ff-page .ff-contact-list > a:hover,
-  .ff-page .ff-contact-list > div:hover {
-    transform: translateY(-3px) !important;
-    border-color: rgba(109, 191, 255, .58) !important;
-    background: rgba(255, 255, 255, .105) !important;
-    box-shadow: 0 12px 25px rgba(3, 12, 31, .18) !important;
-  }
-
-  .ff-page .ff-contact-list > a:hover > svg,
-  .ff-page .ff-contact-list > div:hover > svg {
-    transform: translateY(-2px) scale(1.04);
-    background: linear-gradient(145deg, rgba(46, 104, 255, .38), rgba(44, 197, 244, .20));
-  }
-}
-
-/* Entrance animation for the contact panel and its rows. */
-.ff-page .ff-contact-list.ff-reveal-in {
-  animation: ff-contact-panel-enter 760ms cubic-bezier(.16, 1, .3, 1) both;
-}
-.ff-page .ff-contact-list.ff-reveal-in > a,
-.ff-page .ff-contact-list.ff-reveal-in > div {
-  animation: ff-contact-row-enter 650ms cubic-bezier(.16, 1, .3, 1) both;
-}
-.ff-page .ff-contact-list.ff-reveal-in > a:nth-of-type(1) { animation-delay: 90ms;
-}
-.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(2) { animation-delay: 170ms;
-}
-.ff-page .ff-contact-list.ff-reveal-in > div:nth-of-type(3) { animation-delay: 250ms;
-}
+}/* Entrance animation for the contact panel and its rows. */
 @keyframes ff-contact-panel-enter {
   from { opacity: 0; transform: translateY(18px) scale(.985); }
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -3056,32 +2840,8 @@ body.ff-landing-active #root {
   to { opacity: 1; transform: translateX(0); }
 }
 @media (max-width: 560px) {
-  .ff-page .ff-contact-list {
-    padding: 20px 16px 18px 20px;
-    gap: 11px;
-    border-radius: 21px !important;
-  }
-  .ff-page .ff-contact-list > a,
-  .ff-page .ff-contact-list > div {
-    grid-template-columns: 43px minmax(0, 1fr);
-    gap: 12px;
-    padding: 14px 12px !important;
-    border-radius: 14px !important;
-  }
-  .ff-page .ff-contact-list > a > svg,
-  .ff-page .ff-contact-list > div > svg {
-    width: 43px !important;
-    height: 43px !important;
-    padding: 10px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ff-page .ff-contact-list,
-  .ff-page .ff-contact-list > a,
-  .ff-page .ff-contact-list > div {
-    animation: none !important;
-    transition: none !important;
-  }
 }
 
 /* ============================================================
@@ -3181,26 +2941,7 @@ body.ff-landing-active #root {
   border: 1px solid color-mix(in srgb, var(--card-accent, #3268f5) 22%, white);
   border-radius: 12px;
   transition: transform 280ms cubic-bezier(.16, 1, .3, 1), background 220ms ease;
-}
-
-/* Contact panel stays dark, with jewel-tone contact rows. */
-.ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div {
-  background: linear-gradient(120deg, rgba(255,255,255,.10), rgba(255,255,255,.045)) !important;
-  border-color: rgba(155, 190, 255, .24) !important;
-}
-.ff-page .ff-contact-list > a:nth-of-type(1) { --contact-accent: #69a2ff;
-}
-.ff-page .ff-contact-list > div:nth-of-type(2) { --contact-accent: #42d8c3;
-}
-.ff-page .ff-contact-list > div:nth-of-type(3) { --contact-accent: #c1a2ff;
-}
-.ff-page .ff-contact-list > a > svg,
-.ff-page .ff-contact-list > div > svg {
-  color: var(--contact-accent, #77cfff) !important;
-  border-color: color-mix(in srgb, var(--contact-accent, #77cfff) 40%, transparent) !important;
-  background: color-mix(in srgb, var(--contact-accent, #77cfff) 15%, #13284a) !important;
-}
+}/* Contact panel stays dark, with jewel-tone contact rows. */
 
 /* Workflow steps get individual accent colors while preserving the line. */
 .ff-page .ff-steps li:nth-child(6n + 1) { --step-accent: #3268f5;
@@ -3541,12 +3282,7 @@ body.ff-landing-active #root {
 }
 .ff-page .ff-footer a:hover {
   color: #70d8ff;
-}
-
-/* Contact cards retain the dark premium panel introduced previously. */
-.ff-page .ff-contact-list {
-  border-radius: 24px !important;
-}
+}/* Contact cards retain the dark premium panel introduced previously. */
 
 /* Mobile sizing: preserve the art direction without crowding. */
 @media (max-width: 900px) {
@@ -3929,10 +3665,6 @@ body.ff-landing-active #root {
   background: #f8fafc !important;
   color: #0f172a;
 }
-.ff-page .ff-contact-grid {
-  align-items: center;
-  gap: 56px;
-}
 
 /* Contact heading */
 .ff-page .ff-contact h2 {
@@ -3947,137 +3679,19 @@ body.ff-landing-active #root {
   color: #475569 !important;
   font-size: 16px;
   line-height: 1.7;
-}
-
-/* Remove the oversized dark panel */
-.ff-page .ff-contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-/* Individual contact rows */
-.ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div {
-  display: grid !important;
-  grid-template-columns: 48px minmax(0, 1fr);
-  align-items: center;
-  gap: 16px;
-  min-width: 0;
-  margin: 0 !important;
-  padding: 20px !important;
-
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 12px !important;
-
-  background: #ffffff !important;
-  box-shadow: 0 1px 3px rgb(15 23 42 / 4%) !important;
-
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-/* Consistent brand-blue icons */
-.ff-page .ff-contact-list > a > svg,
-.ff-page .ff-contact-list > div > svg {
-  width: 46px !important;
-  height: 46px !important;
-  padding: 11px;
-
-  border: 1px solid #dbeafe !important;
-  border-radius: 10px !important;
-
-  color: #2563eb !important;
-  background: #eff6ff !important;
-  stroke-width: 1.8;
-}
-
-/* Contact labels */
-.ff-page .ff-contact-list small {
-  color: #64748b !important;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0;
-}
-
-/* Contact information */
-.ff-page .ff-contact-list strong {
-  color: #0f172a !important;
-  font-size: 16px;
-  font-weight: 650;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-/* Restrained hover interaction */
-.ff-page .ff-contact-list > a:hover {
-  transform: translateY(-2px);
-  border-color: #93c5fd !important;
-  background: #ffffff !important;
-  box-shadow: 0 5px 16px rgb(15 23 42 / 6%) !important;
-}
-.ff-page .ff-contact-list > a:hover > svg {
-  color: #1d4ed8 !important;
-  background: #dbeafe !important;
-}
-
-/* Keyboard accessibility */
-.ff-page .ff-contact-list > a:focus-visible {
-  outline: 3px solid #2563eb !important;
-  outline-offset: 3px;
-}
+}/* Remove the oversized dark panel *//* Individual contact rows *//* Consistent brand-blue icons *//* Contact labels *//* Contact information *//* Restrained hover interaction *//* Keyboard accessibility */
 
 /* Tablet and mobile */
 @media (max-width: 760px) {
   .ff-page .ff-contact {
     padding: 56px 0;
   }
-
-  .ff-page .ff-contact-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .ff-page .ff-contact-list > a,
-  .ff-page .ff-contact-list > div {
-    padding: 16px !important;
-  }
 }
 @media (max-width: 420px) {
-  .ff-page .ff-contact-list > a,
-  .ff-page .ff-contact-list > div {
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 12px;
-    padding: 14px !important;
-  }
-  .ff-page .ff-contact-list > a > svg,
-  .ff-page .ff-contact-list > div > svg {
-    width: 42px !important;
-    height: 42px !important;
-    padding: 10px;
-  }
-  .ff-page .ff-contact-list strong {
-    font-size: 14px;
-  }
 }
 
 /* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
-  .ff-page .ff-contact-list > a,
-  .ff-page .ff-contact-list > a > svg {
-    transition: none !important;
-  }
-
-  .ff-page .ff-contact-list > a:hover {
-    transform: none;
-  }
 }
 
 /* =========================================================
@@ -5005,13 +4619,6 @@ body.ff-landing-active #root {
 }
 .ff-page .ff-contact { padding: 48px 0 52px !important;
 }
-.ff-page .ff-contact-grid { gap: 32px !important;
-}
-.ff-page .ff-contact-list { gap: 10px !important;
-}
-.ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div { padding: 12px 14px !important;
-}
 .ff-page .ff-footer-inner { gap: 24px !important;
 }
 .ff-page .ff-footer-top { gap: 24px !important;
@@ -5050,8 +4657,6 @@ body.ff-landing-active #root {
   .ff-page .ff-cta { padding: 32px 0 !important;
   }
   .ff-page .ff-contact { padding: 34px 0 36px !important;
-  }
-  .ff-page .ff-contact-grid { gap: 22px !important;
   }
   .ff-page .ff-footer-top { gap: 22px !important;
   }
@@ -5399,23 +5004,7 @@ html { scrollbar-width: thin; scrollbar-color: #2563eb #eff6ff;
 .ff-page .ff-cta-inner { position: relative;
 }
 .ff-page .ff-cta .ff-eyebrow { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
-}
-
-/* ---------- Contact rows ---------- */
-.ff-page .ff-contact-list > a,
-.ff-page .ff-contact-list > div {
-  box-shadow: var(--lx-inner), var(--lx-shadow-1) !important;
-  border-radius: 14px !important;
-}
-.ff-page .ff-contact-list > a:hover {
-  box-shadow: var(--lx-inner), var(--lx-shadow-2) !important;
-}
-.ff-page .ff-contact-list > a > svg,
-.ff-page .ff-contact-list > div > svg {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 8px 14px -8px rgba(37, 99, 235, 0.45);
-}
-.ff-page .ff-contact-list small { letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px;
-}
+}/* ---------- Contact rows ---------- */
 
 /* ---------- Footer: hairline crown ---------- */
 .ff-page .ff-footer { border-top: 0 !important;
@@ -5704,3 +5293,67 @@ html { scrollbar-width: thin; scrollbar-color: #2563eb #eff6ff;
   .ff-page .ff-button::after { transition: none !important; }
   .ff-page .ff-circular-process .ff-steps li::after { animation: none !important; }
 }
+
+/* ===== Contact section (append to the END of LandingPage.css) ===== */
+.ff-contact { background: var(--bg-soft); }
+.ff-cf-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: start; }
+.ff-cf-info h2 { margin: 14px 0 8px; font-size: 30px; letter-spacing: -0.02em; }
+.ff-cf-info h2 span { color: var(--blue-600); }
+.ff-cf-info > p { margin-bottom: 24px; }
+.ff-cf-cards { display: flex; flex-direction: column; gap: 14px; }
+.ff-cf-card { display: flex; gap: 14px; padding: 18px; border-radius: var(--radius-lg); color: #fff; text-decoration: none; box-shadow: var(--shadow-md); }
+.ff-cf-navy { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); }
+.ff-cf-teal { background: linear-gradient(135deg, #0f766e, var(--teal)); }
+.ff-cf-blue { background: linear-gradient(135deg, var(--blue-800), var(--blue-600)); }
+.ff-cf-card i { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: var(--radius); background: rgba(255,255,255,.16); }
+.ff-cf-card h3 { margin: 0 0 4px; font-size: 14px; color: #fff; }
+.ff-cf-card p, .ff-cf-card strong { color: rgba(255,255,255,.9); font-size: 13px; }
+.ff-cf-follow { margin-top: 22px; font-size: 13px; font-weight: 700; color: var(--copy); }
+.ff-cf-social { display: flex; gap: 10px; margin-top: 10px; }
+.ff-cf-social-link { width: 38px; height: 38px; display: grid; place-items: center; border-radius: var(--radius); border: 1px solid var(--line); background: var(--blue-50); color: var(--blue-600); transition: .2s; }
+.ff-cf-social-link:hover { background: var(--blue-600); color: #fff; }
+
+.ff-cf-form { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 32px; box-shadow: var(--shadow-lg); }
+.ff-cf-form h3 { margin: 0 0 4px; font-size: 22px; color: var(--ink); }
+.ff-cf-sub { margin-bottom: 20px !important; color: var(--copy) !important; font-size: 13px !important; }
+.ff-cf-form label { display: block; margin: 16px 0 6px; font-size: 12px; font-weight: 700; color: var(--ink); }
+.ff-cf-form label em { color: #dc2626; font-style: normal; }
+.ff-cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.ff-cf-form input:not([type=checkbox]), .ff-cf-form select, .ff-cf-form textarea {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: var(--bg-soft); color: var(--ink); font: inherit; font-size: 13px; transition: .2s;
+}
+.ff-cf-form textarea { min-height: 110px; resize: vertical; }
+.ff-cf-form input:focus, .ff-cf-form select:focus, .ff-cf-form textarea:focus {
+  outline: none; border-color: var(--blue-600); background: var(--white); box-shadow: 0 0 0 3px rgba(37,99,235,.18);
+}
+.ff-cf-checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 16px; }
+.ff-cf-form .ff-cf-checks label, .ff-cf-form .ff-cf-consent { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 12px; font-weight: 500; color: var(--copy); cursor: pointer; }
+.ff-cf-form input[type=checkbox] { width: 15px; height: 15px; accent-color: var(--blue-600); }
+.ff-cf-form .ff-cf-consent { margin: 18px 0; }
+.ff-cf-consent a { color: var(--blue-600); }
+.ff-cf-submit { width: 100%; min-height: 48px; background: linear-gradient(90deg, var(--blue-700), var(--teal)) !important; color: #fff; font-weight: 800; }
+.ff-cf-success { display: flex; align-items: center; gap: 12px; padding: 14px 16px; margin-bottom: 6px; border-radius: 12px; background: var(--green-bg); border: 1px solid #86efac; color: #14532d; }
+.ff-cf-success > span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #fff; color: var(--green); }
+.ff-cf-success strong { display: block; font-size: 13px; }
+.ff-cf-success small { font-size: 12px; }
+
+@media (max-width: 860px) { .ff-cf-grid { grid-template-columns: 1fr; gap: 28px; } .ff-cf-checks { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .ff-cf-row { grid-template-columns: 1fr; } .ff-cf-form { padding: 22px; } }
+
+/* ===== Contact card text visibility fix (beats .ff-page .ff-contact p) ===== */
+.ff-page .ff-contact .ff-cf-card,
+.ff-page .ff-contact .ff-cf-card:hover { color: #ffffff !important; text-decoration: none; }
+.ff-page .ff-contact .ff-cf-card h3 { color: #ffffff !important; }
+.ff-page .ff-contact .ff-cf-card p { color: rgba(255, 255, 255, 0.92) !important; font-size: 13px; line-height: 1.6; }
+.ff-page .ff-contact .ff-cf-card p strong { color: #ffffff !important; }
+.ff-page .ff-contact .ff-cf-card i,
+.ff-page .ff-contact .ff-cf-card i svg { color: #ffffff !important; stroke: #ffffff; }
+.ff-page .ff-contact .ff-cf-info > p { color: var(--copy); }
+.ff-page .ff-contact .ff-cf-sub { color: var(--copy) !important; }
+.ff-page .ff-contact .ff-cf-form h3 { color: var(--ink) !important; }
+.ff-page .ff-contact .ff-cf-success,
+.ff-page .ff-contact .ff-cf-success strong,
+.ff-page .ff-contact .ff-cf-success small { color: #14532d !important; }
+.ff-page .ff-contact .ff-cf-submit,
+.ff-page .ff-contact .ff-cf-submit svg { color: #ffffff !important; }

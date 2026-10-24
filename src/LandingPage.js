@@ -16,7 +16,7 @@ import {
   Users,
   Wrench,
 } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./LandingPage.css";
 
 const features = [
@@ -309,6 +309,121 @@ function useRoundRobin(ref, selector, interval = 2200) {
       clear();
     };
   }, [ref, selector, interval]);
+}
+
+const enquiryTypes = ["Request a demo", "Pricing & plans", "Technical support", "Partnership", "Other"];
+const products = [
+  "Ticket Management", "Technician App", "Inventory",
+  "Warranty Claims", "Billing", "Analytics & Reports",
+];
+
+const Social = ({ label, d }) => (
+  <button type="button" aria-label={label} className="ff-cf-social-link">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d={d} /></svg>
+  </button>
+);
+
+function ContactSection() {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({
+    name: "", email: "", phone: "", org: "", type: "", message: "", consent: false, products: [],
+  });
+
+  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const toggleProduct = (p) =>
+    setForm({
+      ...form,
+      products: form.products.includes(p) ? form.products.filter((x) => x !== p) : [...form.products, p],
+    });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    // TODO: send `form` to your API, e.g. await fetch("/api/contact", { method: "POST", body: JSON.stringify(form) })
+    setSent(true);
+    setForm({ name: "", email: "", phone: "", org: "", type: "", message: "", consent: false, products: [] });
+  };
+
+  return (
+    <section className="ff-contact" id="contact">
+      <SectionAnimatedBackground type="contact" icons={[Mail, Smartphone, Headset]} />
+      <div className="ff-container ff-cf-grid">
+        {/* LEFT: contact info */}
+        <div className="ff-cf-info" data-reveal>
+          <span className="ff-eyebrow">Contact Info</span>
+          <h2>Reach Us <span>Anytime</span></h2>
+          <p>Our team of field service experts is ready to help you find the right solution for your specific needs.</p>
+
+          <div className="ff-cf-cards">
+            <div className="ff-cf-card ff-cf-navy">
+              <i><MapPin size={18} /></i>
+              <div><h3>Head Office</h3><p>Plot No. 42, Cyber Towers,<br />HITEC City, Hyderabad,<br />Telangana – 500081, India</p></div>
+            </div>
+            <div className="ff-cf-card ff-cf-teal">
+              <i><Smartphone size={18} /></i>
+              <div><h3>Phone &amp; WhatsApp</h3><p><strong>+91 98765 43210</strong><br />Mon–Sat, 9 AM – 7 PM IST</p></div>
+            </div>
+            <a className="ff-cf-card ff-cf-blue" href="mailto:hello@fieldflow.example">
+              <i><Mail size={18} /></i>
+              <div><h3>Email</h3><p>hello@fieldflow.example<br />sales@fieldflow.example</p></div>
+            </a>
+          </div>
+
+          <div className="ff-cf-follow">Follow Us</div>
+          <div className="ff-cf-social">
+            <Social label="Facebook" d="M13.5 21v-7.5h2.5l.5-3h-3V8.6c0-.9.3-1.5 1.6-1.5H16.600V4.400C16.300 4.400 15.400 4.300 14.400 4.300c-2.200 0-3.700 1.300-3.700 3.800v2.400H8.200v3h2.500V21z" />
+            <Social label="X" d="M17.800 3h3l-6.500 7.500L22 21h-6l-4.700-6.100L5.900 21h-3l7-8L2.500 3h6.100l4.300 5.600zm-1 16.200h1.700L7.700 4.700H5.900z" />
+            <Social label="Instagram" d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm0 2a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2zm5 2.500a4.500 4.500 0 110 9 4.500 4.500 0 010-9zm0 2a2.500 2.500 0 100 5 2.500 2.500 0 000-5zM17.200 6a1 1 0 110 2 1 1 0 010-2z" />
+            <Social label="LinkedIn" d="M4.500 8.500h3.800V20H4.500zM6.400 3a2.200 2.200 0 110 4.400 2.200 2.200 0 010-4.400zM10.500 8.500h3.600v1.600c.5-1 1.800-1.900 3.700-1.900 3.800 0 4.500 2.500 4.500 5.800V20h-3.800v-5.300c0-1.300 0-2.900-1.800-2.900s-2 1.400-2 2.800V20h-3.800z" />
+          </div>
+        </div>
+
+        {/* RIGHT: form */}
+        <form className="ff-cf-form" onSubmit={onSubmit} data-reveal style={{ "--reveal-delay": "120ms" }}>
+          <h3>Send Us a Message</h3>
+          <p className="ff-cf-sub">Fill the form below and our team will respond within 24 hours.</p>
+
+          {sent && (
+            <div className="ff-cf-success" role="status">
+              <span><Check size={16} /></span>
+              <div><strong>Message Sent Successfully!</strong><small>We’ll get back to you within 24 hours.</small></div>
+            </div>
+          )}
+
+          <div className="ff-cf-row">
+            <div><label>Full Name <em>*</em></label><input required value={form.name} onChange={set("name")} placeholder="Your full name" /></div>
+            <div><label>Email Address <em>*</em></label><input required type="email" value={form.email} onChange={set("email")} placeholder="you@example.com" /></div>
+          </div>
+          <div className="ff-cf-row">
+            <div><label>Phone Number</label><input type="tel" value={form.phone} onChange={set("phone")} placeholder="+91 98765 43210" /></div>
+            <div><label>Organization</label><input value={form.org} onChange={set("org")} placeholder="Your company / organization" /></div>
+          </div>
+
+          <label>Enquiry Type <em>*</em></label>
+          <select required value={form.type} onChange={set("type")}>
+            <option value="">Select enquiry type</option>
+            {enquiryTypes.map((t) => <option key={t}>{t}</option>)}
+          </select>
+
+          <label>Product of Interest</label>
+          <div className="ff-cf-checks">
+            {products.map((p) => (
+              <label key={p}><input type="checkbox" checked={form.products.includes(p)} onChange={() => toggleProduct(p)} /> {p}</label>
+            ))}
+          </div>
+
+          <label>Message <em>*</em></label>
+          <textarea required rows={4} value={form.message} onChange={set("message")} placeholder="Tell us about your field service needs, team size, and any specific requirements…" />
+
+          <label className="ff-cf-consent">
+            <input type="checkbox" required checked={form.consent} onChange={(e) => setForm({ ...form, consent: e.target.checked })} />
+            <span>I agree to the <a href="#privacy">Privacy Policy</a> and consent to FieldFlow FSM contacting me regarding my enquiry.</span>
+          </label>
+
+          <button type="submit" className="ff-button ff-solid ff-cf-submit">Send Message — Let’s Connect <ArrowRight size={16} /></button>
+        </form>
+      </div>
+    </section>
+  );
 }
 
 export default function LandingPage() {
@@ -675,67 +790,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* CONTACT: Floating communication icons */}
-        <section className="ff-contact" id="contact">
-          <SectionAnimatedBackground
-            type="contact"
-            icons={[Mail, Smartphone, Headset]}
-          />
-          <div className="ff-container ff-contact-grid">
-            <div data-reveal>
-              <span className="ff-eyebrow">Contact</span>
-              <h2>Talk to Our Team</h2>
-              <p>
-                Looking to simplify your field service operations? FieldFlow FSM
-                helps organizations manage service requests, track work orders,
-                coordinate technicians, and streamline daily operations from one
-                centralized platform.
-              </p>
-              <br />
-              <p>
-                Whether you need help managing service tickets, technician
-                assignments, inventory, warranty claims, or billing, our team is
-                here to help you find the right solution for your business.
-              </p>
-              <br />
-              <p>
-                Have questions or ready to get started? Fill out the form below,
-                and our team will get back to you to discuss your requirements
-                and how FieldFlow FSM can support your organization.
-              </p>
-            </div>
-            <div
-              className="ff-contact-list"
-              data-reveal
-              style={{ "--reveal-delay": "120ms" }}
-            >
-              <center>
-                <h3>Get in touch</h3>
-              </center>
-              <a href="mailto:hello@fieldflow.example">
-                <Mail />
-                <span>
-                  <small>Email</small>
-                  <strong>hello@fieldflow.example</strong>
-                </span>
-              </a>
-              <div>
-                <Smartphone />
-                <span>
-                  <small>Phone</small>
-                  <strong>+1 (000) 000-0000</strong>
-                </span>
-              </div>
-              <div>
-                <Clock3 />
-                <span>
-                  <small>Support hours</small>
-                  <strong>Mon–Fri, 9:00–18:00</strong>
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* CONTACT */}
+        <ContactSection />
       </main>
 
           <footer className="ff-footer">
