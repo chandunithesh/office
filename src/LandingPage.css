@@ -1509,18 +1509,13 @@ body.ff-landing-active #root {
   animation: ff-route-travel 22s linear infinite;
 }
 .ff-flight-one {
-  top: 8px;
+  top: 16px;
   animation-duration: 22s;
 }
 .ff-flight-two {
-  top: 36px;
+  top: 52px;
   animation-duration: 28s;
   animation-delay: -10s;
-}
-.ff-flight-three {
-  top: 64px;
-  animation-duration: 24s;
-  animation-delay: -17s;
 }
 .ff-motion-icon {
   display: grid;
@@ -1539,11 +1534,6 @@ body.ff-landing-active #root {
   color: #0f766e;
   border-color: rgba(15, 118, 110, 0.5);
   box-shadow: 0 8px 25px rgba(15, 118, 110, 0.2);
-}
-.ff-flight-three .ff-motion-icon {
-  color: #7c3aed;
-  border-color: rgba(124, 58, 237, 0.5);
-  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
 }
 @keyframes ff-route-travel {
   from {

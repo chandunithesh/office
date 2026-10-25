@@ -131,13 +131,6 @@ function FSMAnimatedBackground() {
         ))}
       </div>
 
-      <div className="ff-flight ff-flight-three">
-        {[ClipboardList, MapPin, ShieldCheck].map((Icon, i) => (
-          <span className="ff-motion-icon" key={i}>
-            <Icon size={20} />
-          </span>
-        ))}
-      </div>
     </div>
   );
 }
