@@ -5855,19 +5855,52 @@ body.ff-landing-active #root {
 }
 
 .ff-page .ff-about-highlights article {
+  position: relative;
   display: flex;
   min-height: 112px;
   align-items: flex-start;
   gap: 14px;
+  overflow: hidden;
   padding: 20px;
-  border: 1px solid #e0e8f6;
+  border: 1px solid #dce7fb;
   border-radius: 18px;
-  background: linear-gradient(145deg, #f7faff, #ffffff 78%);
-  box-shadow: 0 8px 22px rgba(26, 51, 95, 0.055);
+  background: linear-gradient(145deg, #f0f5ff 0%, #ffffff 82%);
+  box-shadow: 0 10px 28px rgba(38, 82, 160, 0.08);
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
+}
+
+.ff-page .ff-about-highlights article::before {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  left: 20px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, #3268f5, #70a5ff);
+  content: "";
+}
+
+.ff-page .ff-about-highlights article:nth-child(2) {
+  border-color: #d5eee9;
+  background: linear-gradient(145deg, #ecfaf6 0%, #ffffff 82%);
+  box-shadow: 0 10px 28px rgba(15, 139, 131, 0.075);
+}
+
+.ff-page .ff-about-highlights article:nth-child(2)::before {
+  background: linear-gradient(90deg, #0f8b83, #51c6a8);
+}
+
+.ff-page .ff-about-highlights article:nth-child(3) {
+  border-color: #e5defb;
+  background: linear-gradient(145deg, #f4f0ff 0%, #ffffff 82%);
+  box-shadow: 0 10px 28px rgba(118, 87, 246, 0.075);
+}
+
+.ff-page .ff-about-highlights article:nth-child(3)::before {
+  background: linear-gradient(90deg, #7657f6, #b18aff);
 }
 
 .ff-page .ff-about-highlights article > span {
@@ -5878,7 +5911,18 @@ body.ff-landing-active #root {
   place-items: center;
   border-radius: 13px;
   color: #3268f5;
-  background: #eaf1ff;
+  background: linear-gradient(145deg, #dce8ff, #eaf1ff);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.ff-page .ff-about-highlights article:nth-child(2) > span {
+  color: #0f8b83;
+  background: linear-gradient(145deg, #d5f3e9, #e7f8f3);
+}
+
+.ff-page .ff-about-highlights article:nth-child(3) > span {
+  color: #7657f6;
+  background: linear-gradient(145deg, #e6ddff, #f1ebff);
 }
 
 .ff-page .ff-about-highlights h3 {
@@ -5967,9 +6011,19 @@ body.ff-landing-active #root {
 
 @media (hover: hover) and (pointer: fine) {
   .ff-page .ff-about-highlights article:hover {
-    transform: translateY(-4px);
-    border-color: #cbdcff;
-    box-shadow: 0 14px 30px rgba(26, 51, 95, 0.1);
+    transform: translateY(-5px);
+    border-color: #b8cdf9;
+    box-shadow: 0 18px 36px rgba(38, 82, 160, 0.14);
+  }
+
+  .ff-page .ff-about-highlights article:nth-child(2):hover {
+    border-color: #a9dfd3;
+    box-shadow: 0 18px 36px rgba(15, 139, 131, 0.14);
+  }
+
+  .ff-page .ff-about-highlights article:nth-child(3):hover {
+    border-color: #c9b9fa;
+    box-shadow: 0 18px 36px rgba(118, 87, 246, 0.14);
   }
 }
 

@@ -719,6 +719,11 @@ export default function LandingPage() {
                 confirmed completion, with warranty rules and charges applied
                 along the way.
               </p>
+              <p>
+                Every team member sees only the tools and information they need, while managers and admins 
+                can monitor operations and generate reports across the entire organization get the insights they need 
+                to improve service quality and efficiency.
+              </p>
             </div>
             {/* CHANGED: added ref={flowRef} */}
             <div
