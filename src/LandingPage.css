@@ -5816,3 +5816,32 @@ html { scrollbar-width: thin; scrollbar-color: #2563eb #eff6ff;
     animation: none !important;
   }
 }
+
+/* Keep the landing page and footer aligned with the full browser viewport. */
+body.ff-landing-active {
+  width: 100%;
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+  background: #080f1e;
+}
+
+html {
+  overscroll-behavior-y: none;
+}
+
+body.ff-landing-active #root {
+  width: 100%;
+  min-width: 0;
+}
+
+.ff-page {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.ff-page > main {
+  flex: 1 0 auto;
+}
