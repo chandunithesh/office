@@ -158,6 +158,59 @@ function SectionAnimatedBackground({ type, icons: iconsList }) {
   );
 }
 
+function AboutSnakeAnimation() {
+  const topIcons = [TicketCheck, PackageCheck, ShieldCheck, Boxes];
+  const sideIcons = [Wrench, MapPin, ClipboardCheck];
+  const topRoute =
+    "M 16 54 C 118 54 154 24 250 36 S 402 78 520 48 S 760 16 980 50";
+  const sideRoute =
+    "M 1374 104 C 1328 166 1410 224 1372 290 S 1412 420 1370 510";
+
+  return (
+    <svg
+      className="ff-about-snake"
+      viewBox="0 0 1440 600"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <path className="ff-about-snake__route" d={topRoute} />
+      <path className="ff-about-snake__route ff-about-snake__route--side" d={sideRoute} />
+      {topIcons.map((Icon, index) => (
+        <g className="ff-about-snake__marker" key={`top-${Icon.name}`}>
+          <circle r="18" />
+          <foreignObject x="-11" y="-11" width="22" height="22">
+            <span className="ff-about-snake__icon" xmlns="http://www.w3.org/1999/xhtml">
+              <Icon size={16} />
+            </span>
+          </foreignObject>
+          <animateMotion
+            dur="20s"
+            begin={`${-index * 5}s`}
+            repeatCount="indefinite"
+            path={topRoute}
+          />
+        </g>
+      ))}
+      {sideIcons.map((Icon, index) => (
+        <g className="ff-about-snake__marker ff-about-snake__marker--side" key={`side-${Icon.name}`}>
+          <circle r="18" />
+          <foreignObject x="-11" y="-11" width="22" height="22">
+            <span className="ff-about-snake__icon" xmlns="http://www.w3.org/1999/xhtml">
+              <Icon size={16} />
+            </span>
+          </foreignObject>
+          <animateMotion
+            dur="16s"
+            begin={`${-index * 5.3}s`}
+            repeatCount="indefinite"
+            path={sideRoute}
+          />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 /* Premium flowing wave lines inspired by the reference design */
 function FlowingWaveBackground() {
   return (
@@ -650,6 +703,7 @@ export default function LandingPage() {
             type="about"
             icons={[Users, Headset, Wrench, Boxes]}
           />
+          <AboutSnakeAnimation />
           <div className="ff-container ff-about-grid">
             <div data-reveal>
               <span className="ff-eyebrow">Platform overview</span>
@@ -686,6 +740,29 @@ export default function LandingPage() {
                 <Boxes size={18} /> Inventory
               </span>
             </div>
+          </div>
+          <div className="ff-container ff-about-highlights">
+            <article data-reveal>
+              <span><TicketCheck size={19} /></span>
+              <div>
+                <h3>Move every request forward</h3>
+                <p>Turn customer requests into assigned work, with every update in one place.</p>
+              </div>
+            </article>
+            <article data-reveal style={{ "--reveal-delay": "80ms" }}>
+              <span><ShieldCheck size={19} /></span>
+              <div>
+                <h3>Build trust at every visit</h3>
+                <p>Verify technician arrivals and completed service with customer OTPs.</p>
+              </div>
+            </article>
+            <article data-reveal style={{ "--reveal-delay": "160ms" }}>
+              <span><ChartNoAxesCombined size={19} /></span>
+              <div>
+                <h3>Keep operations in sync</h3>
+                <p>Connect technician schedules, parts, warranty, and billing workflows.</p>
+              </div>
+            </article>
           </div>
         </section>
 
