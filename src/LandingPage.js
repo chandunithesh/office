@@ -174,12 +174,18 @@ function AboutSnakeAnimation() {
       aria-hidden="true"
     >
       <path className="ff-about-snake__route" d={topRoute} />
-      <path className="ff-about-snake__route ff-about-snake__route--side" d={sideRoute} />
+      <path
+        className="ff-about-snake__route ff-about-snake__route--side"
+        d={sideRoute}
+      />
       {topIcons.map((Icon, index) => (
         <g className="ff-about-snake__marker" key={`top-${Icon.name}`}>
           <circle r="18" />
           <foreignObject x="-11" y="-11" width="22" height="22">
-            <span className="ff-about-snake__icon" xmlns="http://www.w3.org/1999/xhtml">
+            <span
+              className="ff-about-snake__icon"
+              xmlns="http://www.w3.org/1999/xhtml"
+            >
               <Icon size={16} />
             </span>
           </foreignObject>
@@ -192,10 +198,16 @@ function AboutSnakeAnimation() {
         </g>
       ))}
       {sideIcons.map((Icon, index) => (
-        <g className="ff-about-snake__marker ff-about-snake__marker--side" key={`side-${Icon.name}`}>
+        <g
+          className="ff-about-snake__marker ff-about-snake__marker--side"
+          key={`side-${Icon.name}`}
+        >
           <circle r="18" />
           <foreignObject x="-11" y="-11" width="22" height="22">
-            <span className="ff-about-snake__icon" xmlns="http://www.w3.org/1999/xhtml">
+            <span
+              className="ff-about-snake__icon"
+              xmlns="http://www.w3.org/1999/xhtml"
+            >
               <Icon size={16} />
             </span>
           </foreignObject>
@@ -433,7 +445,6 @@ function ContactSection() {
               </div>
             </a>
           </div>
-
         </div>
 
         {/* RIGHT: form */}
@@ -575,7 +586,8 @@ export default function LandingPage() {
     const nodes = Array.from(root.querySelectorAll("[data-reveal]"));
     if (!nodes.length) return undefined;
 
-    const reveal = (el) => el.classList.add("ff-reveal-in");
+    const reveal = (el, isVisible = true) =>
+      el.classList.toggle("ff-reveal-in", isVisible);
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -588,13 +600,10 @@ export default function LandingPage() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            reveal(entry.target);
-            observer.unobserve(entry.target);
-          }
+          reveal(entry.target, entry.isIntersecting);
         });
       },
-      { threshold: 0.14, rootMargin: "0px 0px -12% 0px" },
+      { threshold: 0, rootMargin: "0px 0px -12% 0px" },
     );
 
     nodes.forEach((el) => observer.observe(el));
@@ -720,9 +729,10 @@ export default function LandingPage() {
                 along the way.
               </p>
               <p>
-                Every team member sees only the tools and information they need, while managers and admins 
-                can monitor operations and generate reports across the entire organization get the insights they need 
-                to improve service quality and efficiency.
+                Every team member sees only the tools and information they need,
+                while managers and admins can monitor operations and generate
+                reports across the entire organization get the insights they
+                need to improve service quality and efficiency.
               </p>
             </div>
             {/* CHANGED: added ref={flowRef} */}
@@ -748,24 +758,39 @@ export default function LandingPage() {
           </div>
           <div className="ff-container ff-about-highlights">
             <article data-reveal>
-              <span><TicketCheck size={19} /></span>
+              <span>
+                <TicketCheck size={19} />
+              </span>
               <div>
                 <h3>Move every request forward</h3>
-                <p>Turn customer requests into assigned work, with every update in one place.</p>
+                <p>
+                  Turn customer requests into assigned work, with every update
+                  in one place.
+                </p>
               </div>
             </article>
             <article data-reveal style={{ "--reveal-delay": "80ms" }}>
-              <span><ShieldCheck size={19} /></span>
+              <span>
+                <ShieldCheck size={19} />
+              </span>
               <div>
                 <h3>Build trust at every visit</h3>
-                <p>Verify technician arrivals and completed service with customer OTPs.</p>
+                <p>
+                  Verify technician arrivals and completed service with customer
+                  OTPs.
+                </p>
               </div>
             </article>
             <article data-reveal style={{ "--reveal-delay": "160ms" }}>
-              <span><ChartNoAxesCombined size={19} /></span>
+              <span>
+                <ChartNoAxesCombined size={19} />
+              </span>
               <div>
                 <h3>Keep operations in sync</h3>
-                <p>Connect technician schedules, parts, warranty, and billing workflows.</p>
+                <p>
+                  Connect technician schedules, parts, warranty, and billing
+                  workflows.
+                </p>
               </div>
             </article>
           </div>
